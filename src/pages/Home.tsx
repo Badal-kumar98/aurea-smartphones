@@ -73,7 +73,7 @@ export default function Home() {
       <section className="hero">
         <div className="hero-art">
           <motion.img
-            src="/images/hero-phones.webp"
+            src="./images/hero-phones.webp"
             alt="Champagne titanium smartphones on a sculptural stone pedestal, framed by a golden halo"
             fetchPriority="high"
             animate={reduce ? {} : { scale: [1, 1.025, 1] }}
@@ -430,7 +430,7 @@ export default function Home() {
           <div className="local-layout">
             <div className="showroom-image">
               <img
-                src="/images/showroom.webp"
+                src="./images/showroom.webp"
                 alt="Bright, thoughtfully designed smartphone showroom with open display tables"
                 loading="lazy"
               />

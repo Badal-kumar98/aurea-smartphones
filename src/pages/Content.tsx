@@ -21,7 +21,7 @@ export function About() {
       <div className="container about-page">
         <Reveal className="about-hero">
           <img
-            src="/images/showroom.webp"
+            src="./images/showroom.webp"
             alt="An inviting, light-filled smartphone showroom"
           />
           <div>
@@ -131,7 +131,7 @@ export function Contact() {
           <div className="contact-info">
             <div className="contact-image">
               <img
-                src="/images/showroom.webp"
+                src="./images/showroom.webp"
                 alt="Smartphones displayed in a welcoming showroom"
               />
               <span>THE AURÈA SHOWROOM</span>
