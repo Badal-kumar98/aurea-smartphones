@@ -1,0 +1,2048 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AURUM ATELIER | Haute Technology & Smartphone Showroom</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- React & ReactDOM -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  
+  <!-- Babel -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold: {
+              50: '#FDFBF7',
+              100: '#FAF5E8',
+              200: '#F3E5C8',
+              300: '#E8D09E',
+              400: '#D9B76E',
+              500: '#C5A059', // Primary Champagne Gold
+              600: '#B08842',
+              700: '#8E6B2F',
+              800: '#6E5224',
+              900: '#4D3818',
+            },
+            pearl: '#FAF9F6',
+            luxewhite: '#FFFFFF',
+            onyx: '#121214',
+            charcoal: '#222227'
+          },
+          fontFamily: {
+            serif: ['Cinzel', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          backgroundImage: {
+            'gold-gradient': 'linear-gradient(135deg, #BF953F 0%, #FCF6BA 25%, #B38728 50%, #FBF5B7 75%, #AA771C 100%)',
+            'gold-metallic': 'linear-gradient(90deg, #D4AF37 0%, #FFF2B2 35%, #C5A059 70%, #8A6E27 100%)',
+            'gold-soft': 'linear-gradient(180deg, rgba(243, 229, 200, 0.4) 0%, rgba(255, 255, 255, 0) 100%)',
+            'glass-gradient': 'linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.45) 100%)',
+          },
+          boxShadow: {
+            'gold-glow': '0 0 45px -10px rgba(197, 160, 89, 0.35)',
+            'gold-hover': '0 20px 40px -15px rgba(176, 136, 66, 0.3)',
+            'luxe': '0 25px 60px -15px rgba(0, 0, 0, 0.05), 0 0 1px 1px rgba(197, 160, 89, 0.2)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Smooth Animations & Luxury Glassmorphism */
+    @keyframes floatPhone {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-14px) rotate(1.5deg); }
+    }
+    
+    @keyframes subtlePulse {
+      0%, 100% { opacity: 0.35; transform: scale(1); }
+      50% { opacity: 0.65; transform: scale(1.06); }
+    }
+    
+    @keyframes goldShimmer {
+      0% { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+
+    .animate-float {
+      animation: floatPhone 6s ease-in-out infinite;
+    }
+
+    .animate-gold-pulse {
+      animation: subtlePulse 4s ease-in-out infinite;
+    }
+
+    .text-gold-gradient {
+      background: linear-gradient(135deg, #966F23 0%, #D4AF37 30%, #F5DE88 50%, #C5A059 80%, #7A5514 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .border-gold-gradient {
+      border-image: linear-gradient(to right, #D4AF37, #FFF4BD, #C5A059) 1;
+    }
+
+    .shimmer-btn {
+      background-size: 200% auto;
+      background-image: linear-gradient(110deg, #B08842 0%, #FFF1B5 30%, #B08842 60%, #906B2C 100%);
+      transition: all 0.5s ease;
+    }
+    .shimmer-btn:hover {
+      background-position: right center;
+      box-shadow: 0 10px 25px -5px rgba(197, 160, 89, 0.5);
+    }
+
+    .glass-panel {
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(217, 183, 110, 0.28);
+    }
+
+    .glass-card {
+      background: #FFFFFF;
+      border: 1px solid rgba(217, 183, 110, 0.22);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .glass-card:hover {
+      border-color: rgba(197, 160, 89, 0.65);
+      box-shadow: 0 22px 45px -12px rgba(176, 136, 66, 0.18);
+      transform: translateY(-6px);
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #FAF9F6;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #D9B76E;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #B08842;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body class="bg-pearl text-charcoal font-sans antialiased selection:bg-gold-200 selection:text-gold-900 overflow-x-hidden">
+  <div id="root"></div>
+
+  <!-- React Application Script -->
+  <script type="text/babel">
+    const { useState, useEffect, useMemo } = React;
+
+    // --- STATIC DUMMY DATA ---
+    const LUXURY_PRODUCTS = [
+      {
+        id: 'aurum-16-pro',
+        name: 'iPhone 16 Pro Max Atelier',
+        brand: 'Apple',
+        category: 'flagship',
+        edition: '24K Solid Gold & Ceramic',
+        price: 2699,
+        originalPrice: 2999,
+        rating: 4.98,
+        reviewsCount: 142,
+        colors: [
+          { name: 'Imperial Gold', hex: '#D4AF37' },
+          { name: 'Desert Pearl Titanium', hex: '#E3D7C4' },
+          { name: 'Obsidian Noir', hex: '#1C1C1E' }
+        ],
+        image: 'https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=1000&q=80',
+        gallery: [
+          'https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=1000&q=80',
+          'https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=1000&q=80',
+          'https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?auto=format&fit=crop&w=1000&q=80'
+        ],
+        badge: 'Flagship Masterpiece',
+        tagline: 'Precision forged titanium with real gold PVD treatment and sapphire crystal lens array.',
+        specs: {
+          display: '6.9" Super Retina XDR ProMotion 120Hz',
+          processor: 'A18 Pro Bionic (Atelier Overclocked)',
+          camera: '48MP Quad-Pixel Fusion + 5x Tetraprism Periscope',
+          material: 'Titanium Grade 5 + 24K Gold Plating',
+          battery: '4,685 mAh with 35W MagSafe Flash Charge',
+          storage: '1TB Solid State NVMe'
+        },
+        featured: true,
+        specialOffer: true
+      },
+      {
+        id: 'galaxy-s25-ultra-gold',
+        name: 'Galaxy S25 Ultra Royale',
+        brand: 'Samsung',
+        category: 'flagship',
+        edition: 'Titanium Gold & Sapphire Glass',
+        price: 2199,
+        originalPrice: 2450,
+        rating: 4.95,
+        reviewsCount: 98,
+        colors: [
+          { name: 'Champagne Gold', hex: '#E6D3A3' },
+          { name: 'Pure Platinum', hex: '#E5E4E2' },
+          { name: 'Cosmic Amber', hex: '#FFBF00' }
+        ],
+        image: 'https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&w=1000&q=80',
+        gallery: [
+          'https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&w=1000&q=80',
+          'https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&w=1000&q=80'
+        ],
+        badge: 'AI Flagship',
+        tagline: 'Integrated S-Pen dipped in pure gold alloy with 200MP ISOCELL sensor.',
+        specs: {
+          display: '6.8" Dynamic AMOLED 2X 3000 nits',
+          processor: 'Snapdragon 8 Elite (Luxe Bin)',
+          camera: '200MP Ultra-Clear + 50MP Periscope 100x',
+          material: 'Aero-grade Titanium + Gold Bezel',
+          battery: '5,000 mAh with 65W HyperCharge',
+          storage: '512GB UFS 4.1'
+        },
+        featured: true,
+        specialOffer: false
+      },
+      {
+        id: 'pixel-9-pro-fold',
+        name: 'Pixel 9 Pro Fold Porcelain',
+        brand: 'Google',
+        category: 'foldable',
+        edition: 'Porcelain White Gold Edition',
+        price: 2399,
+        originalPrice: 2599,
+        rating: 4.92,
+        reviewsCount: 76,
+        colors: [
+          { name: 'Porcelain Gold', hex: '#F7E7CE' },
+          { name: 'Obsidian Velvet', hex: '#262626' }
+        ],
+        image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=1000&q=80',
+        gallery: [
+          'https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=1000&q=80'
+        ],
+        badge: 'Foldable Pinnacle',
+        tagline: 'The slimmest folding hinge wrapped in aerospace gold trim with Gemini Advanced AI.',
+        specs: {
+          display: '8.0" Super Actua Inner OLED + 6.3" Outer',
+          processor: 'Google Tensor G4 Security Core',
+          camera: 'Pro Triple Studio Camera with Macro Focus',
+          material: 'Fluid Hinge Multi-axis Gold Alloy',
+          battery: '4,650 mAh Wireless Fast Charging',
+          storage: '512GB Titan Encrypted'
+        },
+        featured: true,
+        specialOffer: false
+      },
+      {
+        id: 'nothing-phone-3-luxe',
+        name: 'Nothing Phone (3) Aurum',
+        brand: 'Nothing',
+        category: 'bespoke',
+        edition: 'Transparent Gold Glyph Matrix',
+        price: 1299,
+        originalPrice: 1450,
+        rating: 4.88,
+        reviewsCount: 112,
+        colors: [
+          { name: 'Transparent Gold', hex: '#E0B553' },
+          { name: 'Ghost Pearl', hex: '#F0EFEA' }
+        ],
+        image: 'https://images.unsplash.com/photo-1565849904461-04a58ad377e0?auto=format&fit=crop&w=1000&q=80',
+        gallery: [
+          'https://images.unsplash.com/photo-1565849904461-04a58ad377e0?auto=format&fit=crop&w=1000&q=80'
+        ],
+        badge: 'Bespoke Innovation',
+        tagline: 'Visible internal circuits plated in 18K micro-gold with glowing warm light choreography.',
+        specs: {
+          display: '6.7" Flexible LTPO AMOLED 144Hz',
+          processor: 'Snapdragon 8 Gen 3 Bespoke Edition',
+          camera: 'Dual 50MP Sony Custom Tuned Sensors',
+          material: 'Forged Aluminum & 18K Gold Traces',
+          battery: '5,000 mAh 80W Wired / 50W AirCharge',
+          storage: '256GB High-Speed LPDDR5X'
+        },
+        featured: true,
+        specialOffer: true
+      },
+      {
+        id: 'magic-v3-couture',
+        name: 'Honor Magic V3 Silk Gold',
+        brand: 'Honor',
+        category: 'foldable',
+        edition: 'Haute Couture Silk Edition',
+        price: 1999,
+        originalPrice: 2200,
+        rating: 4.90,
+        reviewsCount: 64,
+        colors: [
+          { name: 'Silk Champagne', hex: '#F5E6C8' },
+          { name: 'Imperial Velvet Red', hex: '#800020' }
+        ],
+        image: 'https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?auto=format&fit=crop&w=1000&q=80',
+        gallery: [
+          'https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?auto=format&fit=crop&w=1000&q=80'
+        ],
+        badge: 'Ultra-Slim Record',
+        tagline: '9.2mm folded thickness with proprietary aerospace shield and gold fiber backplate.',
+        specs: {
+          display: '7.92" Foldable Eye-Comfort 4320Hz PWM',
+          processor: 'Snapdragon 8 Gen 3 Leading Version',
+          camera: '50MP Falcon Periscope 100x Digital',
+          material: 'Titanium Hinge & Gold Fiber Weave',
+          battery: '5,150 mAh Silicon-Carbon Battery',
+          storage: '512GB Ultra-speed'
+        },
+        featured: false,
+        specialOffer: false
+      },
+      {
+        id: 'rog-phone-ultimate-gold',
+        name: 'ROG Phone 9 Matrix Gold',
+        brand: 'Asus',
+        category: 'gaming',
+        edition: 'Limited eSports Gold Edition',
+        price: 1799,
+        originalPrice: 1999,
+        rating: 4.96,
+        reviewsCount: 89,
+        colors: [
+          { name: 'Pure Gold Vapor', hex: '#D4AF37' },
+          { name: 'Cyber Titanium', hex: '#707070' }
+        ],
+        image: 'https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=1000&q=80',
+        gallery: [
+          'https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=1000&q=80'
+        ],
+        badge: 'Hyper Gaming',
+        tagline: 'AniMe Matrix rear mini-LED display with real 24K gold cooling chamber heatsink.',
+        specs: {
+          display: '6.78" Samsung AMOLED 185Hz Beast Mode',
+          processor: 'Snapdragon 8 Elite Overclocked 4.3GHz',
+          camera: '50MP Gimbal Stabilizer 3.0',
+          material: 'Gold Plated Vapor Chamber + Armor Glass',
+          battery: '5,800 mAh 65W HyperCharge Dual-Cell',
+          storage: '1TB ROM + 24GB LPDDR5X RAM'
+        },
+        featured: false,
+        specialOffer: false
+      },
+      {
+        id: 'xiaomi-15-ultra-leica',
+        name: 'Xiaomi 15 Ultra Leica Gold',
+        brand: 'Xiaomi',
+        category: 'flagship',
+        edition: 'Artisan Ceramic & Gold Ring',
+        price: 1699,
+        originalPrice: 1899,
+        rating: 4.93,
+        reviewsCount: 104,
+        colors: [
+          { name: 'Ceramic Ivory Gold', hex: '#FFFDD0' },
+          { name: 'Titanium Carbon', hex: '#333333' }
+        ],
+        image: 'https://images.unsplash.com/photo-1585060544812-6b45742d762f?auto=format&fit=crop&w=1000&q=80',
+        gallery: [
+          'https://images.unsplash.com/photo-1585060544812-6b45742d762f?auto=format&fit=crop&w=1000&q=80'
+        ],
+        badge: 'Leica Master',
+        tagline: '1-inch Sony LYT-900 sensor framed by an 18K engraved gold knurled camera ring.',
+        specs: {
+          display: '6.73" 2K Quad-Curved All-Around Liquid Display',
+          processor: 'Snapdragon 8 Elite Ultra TSMC 3nm',
+          camera: 'Quad 50MP Leica Summilux Optics + 200MP Tele',
+          material: 'Nanotech Ceramic & 18K Gold Rim',
+          battery: '5,300 mAh 90W Wired + 80W Wireless',
+          storage: '512GB Ultra High-Speed'
+        },
+        featured: false,
+        specialOffer: false
+      },
+      {
+        id: 'atelier-gold-buds',
+        name: 'Aurum Acoustic Earbuds I',
+        brand: 'Aurum',
+        category: 'accessories',
+        edition: 'Solid Brass & 24K Plated',
+        price: 599,
+        originalPrice: 699,
+        rating: 4.99,
+        reviewsCount: 230,
+        colors: [
+          { name: 'Polished Gold', hex: '#D4AF37' },
+          { name: 'White Marble & Gold', hex: '#EBEAE5' }
+        ],
+        image: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=1000&q=80',
+        gallery: [
+          'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=1000&q=80'
+        ],
+        badge: 'High-Fidelity Master',
+        tagline: 'Beryllium planar drivers encased in jewel-grade acoustic chambers.',
+        specs: {
+          display: 'Smart OLED Touch Display on Gold Charging Case',
+          processor: 'Custom Lossless LDAC DSP 32-bit DAC',
+          camera: 'Triple MEMS Beamforming Noise Reduction',
+          material: 'Acoustic Brass Core with 24K Gold finish',
+          battery: '42 Hours Total Playtime with Fast Charge',
+          storage: 'Integrated 16GB Lossless Audio Storage'
+        },
+        featured: false,
+        specialOffer: false
+      }
+    ];
+
+    const BRANDS = [
+      { name: 'Apple Atelier', country: 'Cupertino / Geneva', icon: 'sparkles', count: 18 },
+      { name: 'Samsung Royale', country: 'Seoul / Paris', icon: 'shield-check', count: 24 },
+      { name: 'Google Pinnacle', country: 'Mountain View', icon: 'cpu', count: 12 },
+      { name: 'Nothing Bespoke', country: 'London', icon: 'zap', count: 9 },
+      { name: 'Xiaomi Haute', country: 'Beijing / Milan', icon: 'aperture', count: 15 },
+      { name: 'Honor Couture', country: 'Shenzhen / Monaco', icon: 'gem', count: 11 }
+    ];
+
+    const CATEGORIES = [
+      { id: 'all', name: 'Complete Collection', count: 8 },
+      { id: 'flagship', name: 'Flagship Titans', count: 3, icon: 'crown' },
+      { id: 'foldable', name: 'Futuristic Foldables', count: 2, icon: 'layers' },
+      { id: 'bespoke', name: 'Bespoke Atelier', count: 1, icon: 'wand-2' },
+      { id: 'gaming', name: 'Hyper Gaming', count: 1, icon: 'gamepad-2' },
+      { id: 'accessories', name: 'Haute Accessories', count: 1, icon: 'headphones' }
+    ];
+
+    const PERKS = [
+      {
+        title: 'White Glove VIP Concierge',
+        desc: 'Personal delivery by hand in luxury bullet-resistant cases with personalized setup in 120 global cities.',
+        icon: 'briefcase'
+      },
+      {
+        title: '24K Gold Authenticity Certificate',
+        desc: 'Each bespoke device is serialized and certified by the Swiss Gemological & Precious Metals Bureau.',
+        icon: 'award'
+      },
+      {
+        title: '3-Year Global Platinum Care',
+        desc: 'Zero-deductible worldwide accidental replacement within 24 hours anywhere across 6 continents.',
+        icon: 'shield'
+      },
+      {
+        title: 'Bespoke Laser Monogramming',
+        desc: 'Complimentary diamond-tip engraving of family crests, signatures, or initials in pure platinum foil.',
+        icon: 'feather'
+      }
+    ];
+
+    // --- MAIN APP COMPONENT ---
+    function App() {
+      const [view, setView] = useState('home'); // 'home', 'shop', 'product-detail', 'about', 'contact'
+      const [selectedProduct, setSelectedProduct] = useState(null);
+      const [cart, setCart] = useState([]);
+      const [wishlist, setWishlist] = useState([]);
+      const [isCartOpen, setIsCartOpen] = useState(false);
+      const [isWishlistOpen, setIsWishlistOpen] = useState(false);
+      const [searchQuery, setSearchQuery] = useState('');
+      const [activeCategory, setActiveCategory] = useState('all');
+      const [activeBrand, setActiveBrand] = useState('all');
+      const [priceRange, setPriceRange] = useState(3000);
+      const [sortBy, setSortBy] = useState('featured');
+      const [notification, setNotification] = useState(null);
+      const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+      const [quickViewProduct, setQuickViewProduct] = useState(null);
+      const [discountCode, setDiscountCode] = useState('');
+      const [appliedDiscount, setAppliedDiscount] = useState(0);
+
+      // Trigger icons re-render on DOM updates
+      useEffect(() => {
+        if (window.lucide) {
+          window.lucide.createIcons();
+        }
+      });
+
+      // Show toast notification
+      const showToast = (message, type = 'gold') => {
+        setNotification({ message, type });
+        setTimeout(() => setNotification(null), 3800);
+      };
+
+      // Cart management
+      const addToCart = (product, color = null, storage = '512GB') => {
+        const selectedColor = color || product.colors[0];
+        setCart(prev => {
+          const existing = prev.find(item => item.id === product.id && item.selectedColor.name === selectedColor.name);
+          if (existing) {
+            return prev.map(item => item === existing ? { ...item, quantity: item.quantity + 1 } : item);
+          }
+          return [...prev, { ...product, quantity: 1, selectedColor, selectedStorage: storage }];
+        });
+        showToast(`✨ Added "${product.name}" to your luxury cart`);
+      };
+
+      const removeFromCart = (index) => {
+        setCart(prev => prev.filter((_, i) => i !== index));
+        showToast('Item removed from cart', 'info');
+      };
+
+      const updateQuantity = (index, delta) => {
+        setCart(prev => prev.map((item, i) => {
+          if (i === index) {
+            const newQ = item.quantity + delta;
+            return newQ > 0 ? { ...item, quantity: newQ } : item;
+          }
+          return item;
+        }));
+      };
+
+      // Wishlist toggle
+      const toggleWishlist = (product) => {
+        if (wishlist.some(item => item.id === product.id)) {
+          setWishlist(prev => prev.filter(item => item.id !== product.id));
+          showToast(`Removed from curated wishlist`, 'info');
+        } else {
+          setWishlist(prev => [...prev, product]);
+          showToast(`💎 Added "${product.name}" to your Wishlist`);
+        }
+      };
+
+      // Apply luxury promo code
+      const handleApplyPromo = () => {
+        if (discountCode.trim().toUpperCase() === 'AURUM10' || discountCode.trim().toUpperCase() === 'VIP') {
+          setAppliedDiscount(0.10);
+          showToast('⚜️ VIP Protocol Applied: 10% Royal Privilege Courtesy granted!');
+        } else {
+          showToast('Invalid VIP pass code. Try "AURUM10"', 'info');
+        }
+      };
+
+      // Checkout simulation
+      const handleCheckout = () => {
+        if (cart.length === 0) return;
+        if (window.confetti) {
+          window.confetti({
+            particleCount: 120,
+            spread: 80,
+            origin: { y: 0.6 },
+            colors: ['#D4AF37', '#FFF4BD', '#C5A059', '#1A1A1A']
+          });
+        }
+        showToast('🎉 Order confirmed! Your Private Concierge is preparing your luxury shipment.');
+        setCart([]);
+        setIsCartOpen(false);
+      };
+
+      // Calculations
+      const subtotal = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+      const discountAmount = subtotal * appliedDiscount;
+      const finalTotal = subtotal - discountAmount;
+      const cartCount = cart.reduce((acc, item) => acc + item.quantity, 0);
+
+      // Filtering logic
+      const filteredProducts = useMemo(() => {
+        return LUXURY_PRODUCTS.filter(item => {
+          const matchesSearch = item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                                item.brand.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                                item.edition.toLowerCase().includes(searchQuery.toLowerCase());
+          const matchesCategory = activeCategory === 'all' || item.category === activeCategory;
+          const matchesBrand = activeBrand === 'all' || item.brand.toLowerCase() === activeBrand.toLowerCase();
+          const matchesPrice = item.price <= priceRange;
+          return matchesSearch && matchesCategory && matchesBrand && matchesPrice;
+        }).sort((a, b) => {
+          if (sortBy === 'price-low') return a.price - b.price;
+          if (sortBy === 'price-high') return b.price - a.price;
+          if (sortBy === 'rating') return b.rating - a.rating;
+          return 0; // default featured
+        });
+      }, [searchQuery, activeCategory, activeBrand, priceRange, sortBy]);
+
+      const openProductDetail = (prod) => {
+        setSelectedProduct(prod);
+        setView('product-detail');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      };
+
+      return (
+        <div className="min-h-screen flex flex-col bg-pearl text-charcoal relative">
+          
+          {/* Toast Notification */}
+          {notification && (
+            <div className="fixed bottom-6 right-6 z-50 flex items-center gap-3 px-5 py-4 rounded-xl glass-panel shadow-gold-glow border border-gold-400 bg-white/95 text-charcoal font-medium text-sm animate-bounce">
+              <span className="w-2.5 h-2.5 rounded-full bg-gold-500 animate-ping" />
+              <span>{notification.message}</span>
+            </div>
+          )}
+
+          {/* TOP VIP ANNOUNCEMENT BAR */}
+          <div className="bg-gradient-to-r from-gold-900 via-gold-700 to-gold-900 text-gold-100 text-[11px] font-semibold tracking-widest uppercase py-2 px-4 text-center border-b border-gold-500/30">
+            <div className="max-w-7xl mx-auto flex items-center justify-between">
+              <span className="hidden md:inline">GENEVA • DUBAI • TOKYO • NEW YORK SHOWROOMS</span>
+              <span className="mx-auto md:mx-0 flex items-center gap-2">
+                <i data-lucide="gem" className="w-3.5 h-3.5 text-gold-300 inline"></i>
+                COMPLIMENTARY WHITE-GLOVE AIR COURIER ON ALL 24K ATELIER EDITIONS • USE CODE: <span className="text-white font-bold underline cursor-pointer" onClick={() => { setDiscountCode('AURUM10'); showToast('Code AURUM10 copied!'); }}>AURUM10</span>
+              </span>
+              <span className="hidden md:inline">24/7 VIP CONCIERGE: +1 (800) 888-AURUM</span>
+            </div>
+          </div>
+
+          {/* NAVIGATION BAR */}
+          <header className="sticky top-0 z-40 glass-panel border-b border-gold-300/40 transition-all duration-300">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+              
+              {/* Brand Logo */}
+              <div 
+                className="flex items-center gap-3 cursor-pointer group"
+                onClick={() => { setView('home'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+              >
+                <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-gold-400 via-gold-200 to-gold-600 p-[1.5px] shadow-sm group-hover:shadow-gold-glow transition-all">
+                  <div className="w-full h-full bg-white rounded-[10px] flex items-center justify-center">
+                    <span className="font-serif text-xl font-black text-gold-700 tracking-tighter">AU</span>
+                  </div>
+                </div>
+                <div>
+                  <h1 className="font-serif text-2xl font-bold tracking-[0.2em] text-gold-gradient uppercase leading-none">
+                    AURUM
+                  </h1>
+                  <span className="text-[9px] uppercase tracking-[0.3em] text-gold-600 font-bold block mt-1">
+                    Haute Technology
+                  </span>
+                </div>
+              </div>
+
+              {/* Desktop Navigation Links */}
+              <nav className="hidden lg:flex items-center space-x-9 text-xs uppercase tracking-widest font-semibold text-charcoal/80">
+                <button 
+                  onClick={() => { setView('home'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+                  className={`hover:text-gold-600 transition-colors py-1 relative ${view === 'home' ? 'text-gold-700 font-bold' : ''}`}
+                >
+                  Showroom
+                  {view === 'home' && <span className="absolute bottom-0 left-0 w-full h-[2px] bg-gold-500 rounded-full"></span>}
+                </button>
+
+                <button 
+                  onClick={() => { setView('shop'); setActiveCategory('all'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+                  className={`hover:text-gold-600 transition-colors py-1 relative ${view === 'shop' ? 'text-gold-700 font-bold' : ''}`}
+                >
+                  Collection
+                  {view === 'shop' && <span className="absolute bottom-0 left-0 w-full h-[2px] bg-gold-500 rounded-full"></span>}
+                </button>
+
+                <button 
+                  onClick={() => { setView('shop'); setActiveCategory('bespoke'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+                  className="hover:text-gold-600 transition-colors py-1 flex items-center gap-1 text-gold-600"
+                >
+                  <i data-lucide="sparkles" className="w-3.5 h-3.5 text-gold-500"></i>
+                  Bespoke 24K
+                </button>
+
+                <button 
+                  onClick={() => { setView('about'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+                  className={`hover:text-gold-600 transition-colors py-1 relative ${view === 'about' ? 'text-gold-700 font-bold' : ''}`}
+                >
+                  Heritage
+                  {view === 'about' && <span className="absolute bottom-0 left-0 w-full h-[2px] bg-gold-500 rounded-full"></span>}
+                </button>
+
+                <button 
+                  onClick={() => { setView('contact'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+                  className={`hover:text-gold-600 transition-colors py-1 relative ${view === 'contact' ? 'text-gold-700 font-bold' : ''}`}
+                >
+                  Concierge
+                  {view === 'contact' && <span className="absolute bottom-0 left-0 w-full h-[2px] bg-gold-500 rounded-full"></span>}
+                </button>
+              </nav>
+
+              {/* Action Icons & CTA */}
+              <div className="flex items-center gap-3 sm:gap-4">
+                
+                {/* Search Bar Toggle / Input */}
+                <div className="relative hidden md:block w-48 focus-within:w-64 transition-all">
+                  <input
+                    type="text"
+                    value={searchQuery}
+                    onChange={(e) => {
+                      setSearchQuery(e.target.value);
+                      if (view !== 'shop') setView('shop');
+                    }}
+                    placeholder="Search masterworks..."
+                    className="w-full bg-white/80 border border-gold-300/60 rounded-full pl-9 pr-3 py-1.5 text-xs text-charcoal placeholder-gold-700/50 focus:outline-none focus:border-gold-500 focus:bg-white shadow-sm"
+                  />
+                  <i data-lucide="search" className="w-3.5 h-3.5 text-gold-600 absolute left-3 top-2.5 pointer-events-none"></i>
+                  {searchQuery && (
+                    <button onClick={() => setSearchQuery('')} className="absolute right-3 top-2 text-xs text-gold-600 hover:text-gold-900">×</button>
+                  )}
+                </div>
+
+                {/* Wishlist Button */}
+                <button 
+                  onClick={() => setIsWishlistOpen(true)}
+                  className="relative p-2.5 rounded-full hover:bg-gold-50 text-charcoal border border-gold-200/60 transition-all hover:border-gold-400"
+                  aria-label="Wishlist"
+                >
+                  <i data-lucide="heart" className="w-5 h-5 text-gold-800"></i>
+                  {wishlist.length > 0 && (
+                    <span className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-gold-500 text-white font-bold text-[10px] flex items-center justify-center border-2 border-white shadow-sm">
+                      {wishlist.length}
+                    </span>
+                  )}
+                </button>
+
+                {/* Shopping Bag Button */}
+                <button 
+                  onClick={() => setIsCartOpen(true)}
+                  className="relative p-2.5 rounded-full bg-gold-gradient text-gold-950 font-semibold transition-all hover:shadow-gold-glow flex items-center justify-center"
+                  aria-label="Cart"
+                >
+                  <i data-lucide="shopping-bag" className="w-5 h-5"></i>
+                  {cartCount > 0 && (
+                    <span className="absolute -top-1.5 -right-1.5 min-w-[20px] h-5 px-1 rounded-full bg-onyx text-white font-bold text-[10px] flex items-center justify-center border-2 border-white">
+                      {cartCount}
+                    </span>
+                  )}
+                </button>
+
+                {/* Mobile Menu Toggle */}
+                <button
+                  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                  className="lg:hidden p-2 text-charcoal hover:text-gold-600"
+                >
+                  <i data-lucide={mobileMenuOpen ? "x" : "menu"} className="w-6 h-6"></i>
+                </button>
+              </div>
+            </div>
+
+            {/* Mobile Dropdown Menu */}
+            {mobileMenuOpen && (
+              <div className="lg:hidden bg-white/98 border-b border-gold-300 px-6 py-6 space-y-4 shadow-xl">
+                <div className="relative mb-4">
+                  <input
+                    type="text"
+                    value={searchQuery}
+                    onChange={(e) => {
+                      setSearchQuery(e.target.value);
+                      setView('shop');
+                    }}
+                    placeholder="Search flagship devices..."
+                    className="w-full bg-pearl border border-gold-300 rounded-lg pl-10 pr-4 py-2 text-sm focus:outline-none"
+                  />
+                  <i data-lucide="search" className="w-4 h-4 text-gold-600 absolute left-3 top-3"></i>
+                </div>
+                <div className="flex flex-col space-y-3 font-semibold uppercase tracking-wider text-xs">
+                  <button onClick={() => { setView('home'); setMobileMenuOpen(false); }} className="text-left py-2 border-b border-gold-100">Showroom</button>
+                  <button onClick={() => { setView('shop'); setActiveCategory('all'); setMobileMenuOpen(false); }} className="text-left py-2 border-b border-gold-100">All Smartphones</button>
+                  <button onClick={() => { setView('shop'); setActiveCategory('bespoke'); setMobileMenuOpen(false); }} className="text-left py-2 text-gold-600 font-bold border-b border-gold-100">Bespoke 24K Gold</button>
+                  <button onClick={() => { setView('about'); setMobileMenuOpen(false); }} className="text-left py-2 border-b border-gold-100">About Atelier</button>
+                  <button onClick={() => { setView('contact'); setMobileMenuOpen(false); }} className="text-left py-2">Private Concierge</button>
+                </div>
+              </div>
+            )}
+          </header>
+
+          {/* MAIN VIEW CONTENT ROUTER */}
+          <main className="flex-grow">
+            
+            {/* VIEW 1: HOME / SHOWROOM */}
+            {view === 'home' && (
+              <>
+                {/* 1. HERO SECTION */}
+                <section className="relative overflow-hidden pt-12 pb-24 md:pt-20 md:pb-32">
+                  {/* Subtle Golden Glow Orbs */}
+                  <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-gradient-to-tr from-gold-200/40 via-gold-100/30 to-transparent rounded-full blur-3xl pointer-events-none animate-gold-pulse" />
+                  <div className="absolute top-40 right-10 w-96 h-96 bg-gold-300/20 rounded-full blur-2xl pointer-events-none" />
+
+                  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                      
+                      {/* Left Column: Luxury Headline & CTAs */}
+                      <div className="lg:col-span-7 space-y-8 text-center lg:text-left">
+                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-gold-300/70 shadow-sm">
+                          <span className="w-2 h-2 rounded-full bg-gold-500 animate-ping" />
+                          <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-gold-700">
+                            2025 ATELIER PRIVATE COLLECTION
+                          </span>
+                        </div>
+
+                        <h2 className="font-serif text-4xl sm:text-6xl xl:text-7xl font-bold tracking-tight text-onyx leading-[1.08]">
+                          Where <span className="text-gold-gradient font-extrabold">Pure Gold</span> Meets Frontier Intelligence.
+                        </h2>
+
+                        <p className="text-charcoal/70 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 font-light leading-relaxed">
+                          Enter an uncompromising realm of hand-sculpted 24-karat solid gold chassis, aerospace titanium metallurgy, and bespoke mobile engineering tailored for monarchs, visionaries, and discerning collectors.
+                        </p>
+
+                        {/* CTAs */}
+                        <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                          <button 
+                            onClick={() => { setView('shop'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+                            className="w-full sm:w-auto px-8 py-4 rounded-full shimmer-btn text-gold-950 font-bold uppercase text-xs tracking-widest flex items-center justify-center gap-3 shadow-gold-hover group"
+                          >
+                            <span>Explore Showroom</span>
+                            <i data-lucide="arrow-right" className="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                          </button>
+
+                          <button 
+                            onClick={() => { setView('shop'); setActiveCategory('bespoke'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+                            className="w-full sm:w-auto px-8 py-4 rounded-full bg-white hover:bg-gold-50/60 text-charcoal border border-gold-400 font-semibold uppercase text-xs tracking-widest transition-all flex items-center justify-center gap-2"
+                          >
+                            <i data-lucide="crown" className="w-4 h-4 text-gold-600"></i>
+                            <span>Commission Bespoke</span>
+                          </button>
+                        </div>
+
+                        {/* Luxury Accolades Ribbon */}
+                        <div className="pt-8 border-t border-gold-200/60 grid grid-cols-3 gap-6 max-w-md mx-auto lg:mx-0 text-center lg:text-left">
+                          <div>
+                            <div className="font-serif text-2xl font-bold text-gold-800">24K</div>
+                            <div className="text-[11px] text-charcoal/60 uppercase tracking-wider font-medium">Certified Gold</div>
+                          </div>
+                          <div>
+                            <div className="font-serif text-2xl font-bold text-gold-800">1/100</div>
+                            <div className="text-[11px] text-charcoal/60 uppercase tracking-wider font-medium">Limited Ed.</div>
+                          </div>
+                          <div>
+                            <div className="font-serif text-2xl font-bold text-gold-800">3-Yr</div>
+                            <div className="text-[11px] text-charcoal/60 uppercase tracking-wider font-medium">VIP Concierge</div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Right Column: Floating Flagship Masterpiece Visual */}
+                      <div className="lg:col-span-5 relative flex justify-center items-center">
+                        
+                        {/* Metallic Geometric Glow Rings */}
+                        <div className="absolute w-[360px] sm:w-[460px] h-[360px] sm:h-[460px] rounded-full border border-gold-300/40 animate-spin" style={{ animationDuration: '40s' }} />
+                        <div className="absolute w-[300px] sm:w-[380px] h-[300px] sm:h-[380px] rounded-full border border-dashed border-gold-400/50" />
+                        
+                        {/* Phone Mockup Frame */}
+                        <div className="relative z-20 animate-float">
+                          <div className="relative w-72 sm:w-80 h-[520px] rounded-[48px] bg-gradient-to-b from-gold-300 via-gold-100 to-gold-400 p-[3px] shadow-2xl">
+                            <div className="w-full h-full rounded-[45px] overflow-hidden bg-onyx relative flex flex-col justify-between p-6">
+                              
+                              {/* Screen Background Visual */}
+                              <img 
+                                src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=800&q=80" 
+                                alt="iPhone 16 Pro Max Atelier Gold"
+                                className="absolute inset-0 w-full h-full object-cover opacity-90 transition-transform duration-700 hover:scale-105"
+                              />
+
+                              {/* Screen Overlays */}
+                              <div className="relative z-10 flex justify-between items-center text-white/90 text-xs">
+                                <span className="font-serif tracking-widest text-gold-300">AURUM OS</span>
+                                <span className="flex items-center gap-1 font-mono text-[10px] text-gold-200">
+                                  <i data-lucide="wifi" className="w-3 h-3"></i> 5G LUXE
+                                </span>
+                              </div>
+
+                              <div className="relative z-10 bg-black/60 backdrop-blur-md rounded-2xl p-4 border border-gold-400/40 text-left">
+                                <div className="text-[10px] uppercase font-bold text-gold-400 tracking-wider">Showcase Model</div>
+                                <div className="text-white font-serif font-bold text-sm">iPhone 16 Pro Max 24K</div>
+                                <div className="flex justify-between items-center mt-2">
+                                  <span className="text-gold-200 font-bold text-xs">$2,699 USD</span>
+                                  <button 
+                                    onClick={() => openProductDetail(LUXURY_PRODUCTS[0])}
+                                    className="px-2.5 py-1 rounded-full bg-gold-500 hover:bg-gold-400 text-gold-950 font-bold text-[10px] uppercase tracking-wider"
+                                  >
+                                    Inspect
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Floating Luxury Badges */}
+                          <div className="absolute -top-4 -left-6 glass-panel rounded-2xl p-3 shadow-gold-glow flex items-center gap-3 border border-gold-300">
+                            <div className="w-10 h-10 rounded-xl bg-gold-100 flex items-center justify-center text-gold-700">
+                              <i data-lucide="shield-check" className="w-5 h-5"></i>
+                            </div>
+                            <div>
+                              <div className="text-[11px] font-bold text-onyx uppercase">Swiss Certified</div>
+                              <div className="text-[10px] text-gold-700">99.9% 24K Gold Purity</div>
+                            </div>
+                          </div>
+
+                          <div className="absolute -bottom-6 -right-6 glass-panel rounded-2xl p-3 shadow-gold-glow flex items-center gap-3 border border-gold-300">
+                            <div className="w-10 h-10 rounded-xl bg-gold- gradient bg-gold-400 flex items-center justify-center text-white">
+                              <i data-lucide="zap" className="w-5 h-5 text-gold-950"></i>
+                            </div>
+                            <div>
+                              <div className="text-[11px] font-bold text-onyx uppercase">A18 Pro Overclocked</div>
+                              <div className="text-[10px] text-charcoal/70">Hyper Performance</div>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </section>
+
+                {/* 2. FEATURED LUXURY BRANDS SHOWCASE */}
+                <section className="py-12 border-y border-gold-200/60 bg-white/60">
+                  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <p className="text-center text-xs uppercase font-bold tracking-[0.25em] text-gold-700 mb-8">
+                      Authorized Atelier Partner For World-Class Flagships
+                    </p>
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                      {BRANDS.map((b, idx) => (
+                        <div 
+                          key={idx}
+                          onClick={() => {
+                            setActiveBrand(b.name.split(' ')[0]);
+                            setView('shop');
+                          }}
+                          className="group p-4 rounded-xl bg-pearl hover:bg-white border border-gold-200/50 hover:border-gold-400 transition-all text-center cursor-pointer shadow-sm hover:shadow-gold-hover"
+                        >
+                          <div className="w-8 h-8 mx-auto mb-2 rounded-full bg-gold-100 flex items-center justify-center text-gold-700 group-hover:scale-110 transition-transform">
+                            <i data-lucide={b.icon} className="w-4 h-4"></i>
+                          </div>
+                          <div className="font-serif text-xs font-bold text-charcoal group-hover:text-gold-700 transition-colors">
+                            {b.name}
+                          </div>
+                          <div className="text-[10px] text-charcoal/50 mt-0.5">
+                            {b.country}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </section>
+
+                {/* 3. FEATURED PRODUCTS GRID */}
+                <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                  <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                    <div>
+                      <div className="text-xs uppercase font-bold tracking-[0.2em] text-gold-600 mb-2">Curated Masterworks</div>
+                      <h3 className="font-serif text-3xl sm:text-4xl font-bold text-onyx">Featured Atelier Editions</h3>
+                    </div>
+                    <button 
+                      onClick={() => { setView('shop'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+                      className="mt-4 md:mt-0 text-xs font-bold uppercase tracking-widest text-gold-700 hover:text-gold-900 flex items-center gap-2 group"
+                    >
+                      <span>View All 8 Creations</span>
+                      <i data-lucide="arrow-right" className="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                    </button>
+                  </div>
+
+                  {/* Product Cards Grid */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7">
+                    {LUXURY_PRODUCTS.slice(0, 4).map((product) => (
+                      <ProductCard 
+                        key={product.id} 
+                        product={product} 
+                        onQuickView={() => setQuickViewProduct(product)}
+                        onOpenDetail={() => openProductDetail(product)}
+                        onAddToCart={addToCart}
+                        onToggleWishlist={toggleWishlist}
+                        isWishlisted={wishlist.some(item => item.id === product.id)}
+                      />
+                    ))}
+                  </div>
+                </section>
+
+                {/* 4. LIMITED ATELIER DROP / SPECIAL PROMOTIONAL SECTION */}
+                <section className="py-16 bg-gradient-to-b from-white via-gold-50/40 to-white relative overflow-hidden border-y border-gold-300/40">
+                  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="glass-panel rounded-3xl p-8 sm:p-12 border border-gold-300 shadow-luxe relative overflow-hidden">
+                      
+                      {/* Background decorative watermark */}
+                      <div className="absolute right-0 bottom-0 text-[180px] font-serif font-black text-gold-200/20 leading-none select-none pointer-events-none">
+                        24K
+                      </div>
+
+                      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+                        <div className="lg:col-span-7 space-y-6">
+                          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold-100 text-gold-800 text-[10px] font-bold uppercase tracking-widest border border-gold-300">
+                            <i data-lucide="flame" className="w-3.5 h-3.5 text-gold-600"></i>
+                            Rare Atelier Release • Only 25 Global Units
+                          </div>
+
+                          <h3 className="font-serif text-3xl sm:text-5xl font-bold text-onyx leading-tight">
+                            The Nothing Phone (3) <br />
+                            <span className="text-gold-gradient">Solid 18K Celestial Edition</span>
+                          </h3>
+
+                          <p className="text-charcoal/70 text-sm sm:text-base leading-relaxed">
+                            Handcrafted by Swiss watchmakers, this special drop fuses transparent aerospace glass with pure 18K gold internal motherboards and sapphire glyph illumination.
+                          </p>
+
+                          {/* Countdown Timer Static UI */}
+                          <div className="grid grid-cols-4 gap-3 max-w-sm">
+                            <div className="p-3 bg-white rounded-xl text-center border border-gold-200 shadow-sm">
+                              <div className="font-serif text-xl font-bold text-gold-800">03</div>
+                              <div className="text-[9px] uppercase tracking-widest text-charcoal/50">Days</div>
+                            </div>
+                            <div className="p-3 bg-white rounded-xl text-center border border-gold-200 shadow-sm">
+                              <div className="font-serif text-xl font-bold text-gold-800">14</div>
+                              <div className="text-[9px] uppercase tracking-widest text-charcoal/50">Hours</div>
+                            </div>
+                            <div className="p-3 bg-white rounded-xl text-center border border-gold-200 shadow-sm">
+                              <div className="font-serif text-xl font-bold text-gold-800">28</div>
+                              <div className="text-[9px] uppercase tracking-widest text-charcoal/50">Mins</div>
+                            </div>
+                            <div className="p-3 bg-white rounded-xl text-center border border-gold-200 shadow-sm">
+                              <div className="font-serif text-xl font-bold text-gold-800">45</div>
+                              <div className="text-[9px] uppercase tracking-widest text-charcoal/50">Secs</div>
+                            </div>
+                          </div>
+
+                          <div className="pt-2 flex flex-wrap items-center gap-4">
+                            <button 
+                              onClick={() => openProductDetail(LUXURY_PRODUCTS[3])}
+                              className="px-8 py-3.5 rounded-full shimmer-btn text-gold-950 font-bold uppercase text-xs tracking-widest shadow-gold-hover"
+                            >
+                              Acquire Now • $1,299
+                            </button>
+                            <span className="text-xs text-charcoal/60 font-medium">Includes Custom Hard Case & Certificate</span>
+                          </div>
+                        </div>
+
+                        <div className="lg:col-span-5 flex justify-center">
+                          <div className="relative group cursor-pointer" onClick={() => openProductDetail(LUXURY_PRODUCTS[3])}>
+                            <div className="w-64 sm:w-72 h-96 rounded-3xl overflow-hidden border-2 border-gold-400 shadow-2xl bg-white p-2">
+                              <img 
+                                src="https://images.unsplash.com/photo-1565849904461-04a58ad377e0?auto=format&fit=crop&w=800&q=80" 
+                                alt="Nothing Phone Atelier Edition" 
+                                className="w-full h-full object-cover rounded-2xl group-hover:scale-105 transition-transform duration-500"
+                              />
+                            </div>
+                            <div className="absolute -bottom-3 -right-3 px-4 py-2 rounded-xl bg-onyx text-white text-xs font-serif font-bold border border-gold-400 shadow-lg">
+                              Special -15% Off
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </section>
+
+                {/* 5. SHOP BY CATEGORY SECTION */}
+                <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                  <div className="text-center max-w-2xl mx-auto mb-14">
+                    <div className="text-xs uppercase font-bold tracking-[0.25em] text-gold-600 mb-2">Curated Portfolios</div>
+                    <h3 className="font-serif text-3xl sm:text-4xl font-bold text-onyx">Architectural Categories</h3>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {CATEGORIES.filter(c => c.id !== 'all').map((cat) => (
+                      <div 
+                        key={cat.id}
+                        onClick={() => {
+                          setActiveCategory(cat.id);
+                          setView('shop');
+                          window.scrollTo({ top: 0, behavior: 'smooth' });
+                        }}
+                        className="group relative h-64 rounded-2xl overflow-hidden glass-card p-6 flex flex-col justify-between cursor-pointer border border-gold-200"
+                      >
+                        <div className="flex justify-between items-start">
+                          <div className="w-12 h-12 rounded-xl bg-gold-100 flex items-center justify-center text-gold-700 group-hover:bg-gold-500 group-hover:text-white transition-all">
+                            <i data-lucide={cat.icon || "box"} className="w-6 h-6"></i>
+                          </div>
+                          <span className="text-xs font-bold text-gold-700 uppercase tracking-widest">{cat.count} Models</span>
+                        </div>
+
+                        <div>
+                          <h4 className="font-serif text-xl font-bold text-onyx group-hover:text-gold-700 transition-colors">
+                            {cat.name}
+                          </h4>
+                          <p className="text-xs text-charcoal/60 mt-1 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                            <span>Browse Showroom Portfolio</span>
+                            <i data-lucide="chevron-right" className="w-3.5 h-3.5 text-gold-600"></i>
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </section>
+
+                {/* 6. WHY CHOOSE AURUM (ATELIER STANDARDS) */}
+                <section className="py-20 bg-white border-t border-gold-200">
+                  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="text-center max-w-2xl mx-auto mb-16">
+                      <div className="text-xs uppercase font-bold tracking-[0.25em] text-gold-600 mb-2">The Aurum Standard</div>
+                      <h3 className="font-serif text-3xl sm:text-4xl font-bold text-onyx">Unrivaled Haute Service</h3>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                      {PERKS.map((perk, i) => (
+                        <div key={i} className="p-6 rounded-2xl bg-pearl border border-gold-200/70 hover:border-gold-400 transition-all hover:shadow-gold-hover">
+                          <div className="w-12 h-12 rounded-xl bg-gold-100 text-gold-800 flex items-center justify-center mb-5">
+                            <i data-lucide={perk.icon} className="w-6 h-6"></i>
+                          </div>
+                          <h4 className="font-serif text-lg font-bold text-onyx mb-2">{perk.title}</h4>
+                          <p className="text-xs text-charcoal/70 leading-relaxed font-light">{perk.desc}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </section>
+              </>
+            )}
+
+            {/* VIEW 2: PRODUCT LISTING / SHOP PAGE */}
+            {view === 'shop' && (
+              <section className="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                {/* Shop Header Banner */}
+                <div className="glass-panel rounded-3xl p-8 mb-10 border border-gold-300 text-center relative overflow-hidden shadow-sm">
+                  <div className="text-xs uppercase font-bold tracking-[0.3em] text-gold-700 mb-2">Complete Catalog</div>
+                  <h2 className="font-serif text-3xl sm:text-5xl font-bold text-onyx">The Flagship Vault</h2>
+                  <p className="text-xs sm:text-sm text-charcoal/70 max-w-xl mx-auto mt-2">
+                    Browse our full range of certified luxury smartphones and bespoke telecommunication jewels.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                  
+                  {/* Left Sidebar Filters */}
+                  <aside className="lg:col-span-3 space-y-6">
+                    <div className="glass-card rounded-2xl p-6 border border-gold-200 space-y-6">
+                      
+                      {/* Search in Catalog */}
+                      <div>
+                        <label className="text-xs font-bold uppercase tracking-wider text-onyx block mb-2">Keyword Search</label>
+                        <div className="relative">
+                          <input 
+                            type="text"
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                            placeholder="e.g. Titanium, Apple..."
+                            className="w-full bg-pearl border border-gold-200 rounded-lg pl-8 pr-3 py-2 text-xs focus:outline-none focus:border-gold-500"
+                          />
+                          <i data-lucide="search" className="w-3.5 h-3.5 text-gold-600 absolute left-2.5 top-2.5"></i>
+                        </div>
+                      </div>
+
+                      {/* Categories Filter */}
+                      <div>
+                        <label className="text-xs font-bold uppercase tracking-wider text-onyx block mb-2">Categories</label>
+                        <div className="space-y-1">
+                          {CATEGORIES.map(cat => (
+                            <button
+                              key={cat.id}
+                              onClick={() => setActiveCategory(cat.id)}
+                              className={`w-full text-left px-3 py-2 rounded-lg text-xs font-medium transition-all flex justify-between items-center ${activeCategory === cat.id ? 'bg-gold-500 text-white font-bold shadow-sm' : 'hover:bg-gold-50 text-charcoal/80'}`}
+                            >
+                              <span>{cat.name}</span>
+                              <span className="text-[10px] opacity-70">({cat.count})</span>
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Brand Filter */}
+                      <div>
+                        <label className="text-xs font-bold uppercase tracking-wider text-onyx block mb-2">Manufacture / Atelier</label>
+                        <select
+                          value={activeBrand}
+                          onChange={(e) => setActiveBrand(e.target.value)}
+                          className="w-full bg-pearl border border-gold-200 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-gold-500 text-charcoal"
+                        >
+                          <option value="all">All Prestigious Brands</option>
+                          <option value="Apple">Apple Atelier</option>
+                          <option value="Samsung">Samsung Royale</option>
+                          <option value="Google">Google Pinnacle</option>
+                          <option value="Nothing">Nothing Bespoke</option>
+                          <option value="Xiaomi">Xiaomi Leica</option>
+                          <option value="Honor">Honor Couture</option>
+                          <option value="Asus">Asus ROG Matrix</option>
+                        </select>
+                      </div>
+
+                      {/* Max Price Slider */}
+                      <div>
+                        <div className="flex justify-between items-center mb-2">
+                          <label className="text-xs font-bold uppercase tracking-wider text-onyx">Max Price</label>
+                          <span className="text-xs font-serif font-bold text-gold-700">${priceRange} USD</span>
+                        </div>
+                        <input 
+                          type="range"
+                          min="500"
+                          max="3000"
+                          step="100"
+                          value={priceRange}
+                          onChange={(e) => setPriceRange(Number(e.target.value))}
+                          className="w-full accent-gold-500 cursor-pointer"
+                        />
+                        <div className="flex justify-between text-[10px] text-charcoal/50 mt-1">
+                          <span>$500</span>
+                          <span>$3,000+</span>
+                        </div>
+                      </div>
+
+                      {/* Reset Filters */}
+                      <button 
+                        onClick={() => { setActiveCategory('all'); setActiveBrand('all'); setPriceRange(3000); setSearchQuery(''); }}
+                        className="w-full py-2 rounded-lg border border-gold-300 text-gold-800 text-xs font-bold uppercase tracking-wider hover:bg-gold-50 transition-colors"
+                      >
+                        Reset All Filters
+                      </button>
+                    </div>
+                  </aside>
+
+                  {/* Right Products Area */}
+                  <div className="lg:col-span-9 space-y-6">
+                    
+                    {/* Sort & Count Bar */}
+                    <div className="glass-panel rounded-xl p-4 flex flex-col sm:flex-row justify-between items-center gap-4 border border-gold-200">
+                      <span className="text-xs font-medium text-charcoal/70">
+                        Showing <strong className="text-onyx font-bold">{filteredProducts.length}</strong> authenticated models
+                      </span>
+
+                      <div className="flex items-center gap-2">
+                        <span className="text-xs text-charcoal/60 uppercase tracking-wider font-semibold">Sort By:</span>
+                        <select 
+                          value={sortBy}
+                          onChange={(e) => setSortBy(e.target.value)}
+                          className="bg-white border border-gold-300 rounded-lg px-3 py-1.5 text-xs font-medium text-charcoal focus:outline-none"
+                        >
+                          <option value="featured">Featured Curations</option>
+                          <option value="price-low">Price: Low to High</option>
+                          <option value="price-high">Price: High to Low</option>
+                          <option value="rating">Highest Rated</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    {/* Products Grid */}
+                    {filteredProducts.length === 0 ? (
+                      <div className="text-center py-24 glass-card rounded-2xl border border-dashed border-gold-300 p-8">
+                        <i data-lucide="package-open" className="w-12 h-12 text-gold-400 mx-auto mb-3"></i>
+                        <h4 className="font-serif text-xl font-bold text-onyx">No Flagships Found</h4>
+                        <p className="text-xs text-charcoal/60 mt-1">Try adjusting your filters or search keywords.</p>
+                        <button 
+                          onClick={() => { setActiveCategory('all'); setActiveBrand('all'); setPriceRange(3000); setSearchQuery(''); }}
+                          className="mt-4 px-6 py-2 rounded-full bg-gold-500 text-white font-bold text-xs uppercase"
+                        >
+                          Show All Models
+                        </button>
+                      </div>
+                    ) : (
+                      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                        {filteredProducts.map(product => (
+                          <ProductCard 
+                            key={product.id} 
+                            product={product} 
+                            onQuickView={() => setQuickViewProduct(product)}
+                            onOpenDetail={() => openProductDetail(product)}
+                            onAddToCart={addToCart}
+                            onToggleWishlist={toggleWishlist}
+                            isWishlisted={wishlist.some(item => item.id === product.id)}
+                          />
+                        ))}
+                      </div>
+                    )}
+
+                  </div>
+
+                </div>
+              </section>
+            )}
+
+            {/* VIEW 3: PRODUCT DETAIL PAGE */}
+            {view === 'product-detail' && selectedProduct && (
+              <ProductDetailPage 
+                product={selectedProduct}
+                onBack={() => setView('shop')}
+                onAddToCart={addToCart}
+                onToggleWishlist={toggleWishlist}
+                isWishlisted={wishlist.some(item => item.id === selectedProduct.id)}
+              />
+            )}
+
+            {/* VIEW 4: ABOUT ATELIER PAGE */}
+            {view === 'about' && (
+              <AboutPage onExplore={() => { setView('shop'); window.scrollTo({ top: 0, behavior: 'smooth' }); }} />
+            )}
+
+            {/* VIEW 5: CONTACT & CONCIERGE PAGE */}
+            {view === 'contact' && (
+              <ContactPage onBooked={() => showToast('💎 Private Concierge appointment requested successfully!')} />
+            )}
+
+          </main>
+
+          {/* QUICK VIEW MODAL */}
+          {quickViewProduct && (
+            <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+              <div className="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 border border-gold-300 shadow-2xl relative animate-fadeIn">
+                <button 
+                  onClick={() => setQuickViewProduct(null)}
+                  className="absolute top-4 right-4 p-2 rounded-full bg-pearl hover:bg-gold-100 text-charcoal transition-colors"
+                >
+                  <i data-lucide="x" className="w-5 h-5"></i>
+                </button>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
+                  <div className="h-72 rounded-2xl overflow-hidden bg-pearl p-4 border border-gold-200">
+                    <img src={quickViewProduct.image} alt={quickViewProduct.name} className="w-full h-full object-contain" />
+                  </div>
+                  <div className="space-y-4">
+                    <span className="text-[10px] uppercase font-bold tracking-widest text-gold-600">{quickViewProduct.brand} • {quickViewProduct.edition}</span>
+                    <h3 className="font-serif text-2xl font-bold text-onyx">{quickViewProduct.name}</h3>
+                    <div className="font-serif text-2xl font-bold text-gold-700">${quickViewProduct.price} USD</div>
+                    <p className="text-xs text-charcoal/70">{quickViewProduct.tagline}</p>
+                    <div className="pt-2 flex gap-3">
+                      <button 
+                        onClick={() => { addToCart(quickViewProduct); setQuickViewProduct(null); }}
+                        className="flex-1 py-3 rounded-full shimmer-btn text-gold-950 font-bold text-xs uppercase tracking-widest shadow-sm"
+                      >
+                        Add to Bag
+                      </button>
+                      <button 
+                        onClick={() => { openProductDetail(quickViewProduct); setQuickViewProduct(null); }}
+                        className="px-4 py-3 rounded-full border border-gold-300 hover:bg-gold-50 text-xs font-bold uppercase"
+                      >
+                        Full Specs
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* SLIDE-OVER LUXURY SHOPPING BAG */}
+          {isCartOpen && (
+            <div className="fixed inset-0 z-50 overflow-hidden">
+              <div className="absolute inset-0 bg-black/40 backdrop-blur-xs" onClick={() => setIsCartOpen(false)} />
+              <div className="absolute inset-y-0 right-0 max-w-full flex pl-10">
+                <div className="w-screen max-w-md bg-white shadow-2xl flex flex-col border-l border-gold-300">
+                  
+                  {/* Cart Header */}
+                  <div className="p-6 border-b border-gold-200 flex justify-between items-center bg-pearl">
+                    <div className="flex items-center gap-2">
+                      <i data-lucide="shopping-bag" className="w-5 h-5 text-gold-700"></i>
+                      <h3 className="font-serif text-lg font-bold text-onyx">Your Haute Selection</h3>
+                    </div>
+                    <button onClick={() => setIsCartOpen(false)} className="p-2 text-charcoal hover:text-gold-700">
+                      <i data-lucide="x" className="w-5 h-5"></i>
+                    </button>
+                  </div>
+
+                  {/* Cart Items List */}
+                  <div className="flex-1 overflow-y-auto p-6 space-y-4">
+                    {cart.length === 0 ? (
+                      <div className="text-center py-20">
+                        <i data-lucide="shopping-bag" className="w-12 h-12 text-gold-300 mx-auto mb-3"></i>
+                        <p className="font-serif text-base font-bold text-onyx">Your bag is presently empty</p>
+                        <p className="text-xs text-charcoal/60 mt-1">Discover handcrafted flagships in our showroom.</p>
+                        <button 
+                          onClick={() => { setIsCartOpen(false); setView('shop'); }}
+                          className="mt-5 px-6 py-2.5 rounded-full bg-gold-500 text-white font-bold text-xs uppercase tracking-wider"
+                        >
+                          Explore Showcase
+                        </button>
+                      </div>
+                    ) : (
+                      cart.map((item, idx) => (
+                        <div key={idx} className="flex gap-4 p-3 rounded-xl bg-pearl border border-gold-200">
+                          <img src={item.image} alt={item.name} className="w-16 h-16 object-cover rounded-lg border border-gold-200" />
+                          <div className="flex-1">
+                            <h4 className="font-serif text-xs font-bold text-onyx leading-tight">{item.name}</h4>
+                            <div className="text-[10px] text-gold-700 font-medium">{item.selectedColor?.name} • {item.selectedStorage}</div>
+                            <div className="font-serif text-xs font-bold text-onyx mt-1">${item.price} USD</div>
+                            
+                            <div className="flex justify-between items-center mt-2">
+                              <div className="flex items-center border border-gold-300 rounded bg-white">
+                                <button onClick={() => updateQuantity(idx, -1)} className="px-2 py-0.5 text-xs text-charcoal hover:bg-gold-50">-</button>
+                                <span className="px-2 text-xs font-bold">{item.quantity}</span>
+                                <button onClick={() => updateQuantity(idx, 1)} className="px-2 py-0.5 text-xs text-charcoal hover:bg-gold-50">+</button>
+                              </div>
+                              <button onClick={() => removeFromCart(idx)} className="text-[10px] text-red-700 hover:underline">
+                                Remove
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      ))
+                    )}
+                  </div>
+
+                  {/* Cart Footer / Checkout Summary */}
+                  {cart.length > 0 && (
+                    <div className="p-6 border-t border-gold-200 bg-pearl space-y-4">
+                      
+                      {/* VIP Voucher Code */}
+                      <div className="flex gap-2">
+                        <input 
+                          type="text"
+                          value={discountCode}
+                          onChange={(e) => setDiscountCode(e.target.value)}
+                          placeholder="VIP Protocol Code (e.g. AURUM10)"
+                          className="flex-1 bg-white border border-gold-300 rounded-lg px-3 py-2 text-xs uppercase focus:outline-none"
+                        />
+                        <button 
+                          onClick={handleApplyPromo}
+                          className="px-4 py-2 bg-charcoal text-gold-300 font-bold text-xs rounded-lg uppercase tracking-wider hover:bg-onyx"
+                        >
+                          Apply
+                        </button>
+                      </div>
+
+                      {appliedDiscount > 0 && (
+                        <div className="text-xs text-green-700 flex justify-between font-bold">
+                          <span>VIP Privilege (10%):</span>
+                          <span>-${discountAmount.toFixed(2)} USD</span>
+                        </div>
+                      )}
+
+                      <div className="space-y-1.5 text-xs text-charcoal/80 border-t border-gold-200/60 pt-3">
+                        <div className="flex justify-between">
+                          <span>Subtotal:</span>
+                          <span className="font-serif font-bold text-onyx">${subtotal.toLocaleString()} USD</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>Insured Air Courier:</span>
+                          <span className="text-gold-700 font-bold uppercase text-[10px]">Complimentary VIP</span>
+                        </div>
+                        <div className="flex justify-between text-sm font-serif font-bold text-onyx pt-2 border-t border-gold-300">
+                          <span>Total Investment:</span>
+                          <span className="text-gold-800">${finalTotal.toLocaleString()} USD</span>
+                        </div>
+                      </div>
+
+                      <button 
+                        onClick={handleCheckout}
+                        className="w-full py-4 rounded-full shimmer-btn text-gold-950 font-bold uppercase text-xs tracking-widest shadow-gold-hover"
+                      >
+                        Proceed to Private VIP Checkout
+                      </button>
+                    </div>
+                  )}
+
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* WISHLIST DRAWER */}
+          {isWishlistOpen && (
+            <div className="fixed inset-0 z-50 overflow-hidden">
+              <div className="absolute inset-0 bg-black/40 backdrop-blur-xs" onClick={() => setIsWishlistOpen(false)} />
+              <div className="absolute inset-y-0 right-0 max-w-full flex pl-10">
+                <div className="w-screen max-w-md bg-white shadow-2xl flex flex-col border-l border-gold-300">
+                  
+                  <div className="p-6 border-b border-gold-200 flex justify-between items-center bg-pearl">
+                    <div className="flex items-center gap-2">
+                      <i data-lucide="heart" className="w-5 h-5 text-gold-700"></i>
+                      <h3 className="font-serif text-lg font-bold text-onyx">Curated Wishlist</h3>
+                    </div>
+                    <button onClick={() => setIsWishlistOpen(false)} className="p-2 text-charcoal hover:text-gold-700">
+                      <i data-lucide="x" className="w-5 h-5"></i>
+                    </button>
+                  </div>
+
+                  <div className="flex-1 overflow-y-auto p-6 space-y-4">
+                    {wishlist.length === 0 ? (
+                      <div className="text-center py-20">
+                        <i data-lucide="heart" className="w-12 h-12 text-gold-300 mx-auto mb-3"></i>
+                        <p className="font-serif text-base font-bold text-onyx">No jewels saved yet</p>
+                        <p className="text-xs text-charcoal/60 mt-1">Bookmark your dream editions for future acquisition.</p>
+                      </div>
+                    ) : (
+                      wishlist.map((item, idx) => (
+                        <div key={idx} className="flex gap-4 p-3 rounded-xl bg-pearl border border-gold-200 items-center justify-between">
+                          <img src={item.image} alt={item.name} className="w-16 h-16 object-cover rounded-lg border border-gold-200" />
+                          <div className="flex-1">
+                            <h4 className="font-serif text-xs font-bold text-onyx leading-tight">{item.name}</h4>
+                            <div className="font-serif text-xs font-bold text-gold-800">${item.price} USD</div>
+                            <button 
+                              onClick={() => { addToCart(item); toggleWishlist(item); }}
+                              className="mt-2 text-[10px] font-bold uppercase tracking-wider text-gold-700 hover:underline"
+                            >
+                              Move to Bag →
+                            </button>
+                          </div>
+                          <button onClick={() => toggleWishlist(item)} className="p-2 text-charcoal/40 hover:text-red-600">
+                            <i data-lucide="trash-2" className="w-4 h-4"></i>
+                          </button>
+                        </div>
+                      ))
+                    )}
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* FOOTER */}
+          <footer className="bg-white border-t border-gold-300 pt-16 pb-12 text-charcoal">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-gold-200">
+                
+                {/* Brand Col */}
+                <div className="lg:col-span-2 space-y-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-gold-500 p-[1.5px]">
+                      <div className="w-full h-full bg-white rounded-[10px] flex items-center justify-center font-serif text-gold-700 font-bold">AU</div>
+                    </div>
+                    <div>
+                      <h4 className="font-serif text-xl font-bold tracking-[0.2em] text-gold-gradient uppercase">AURUM</h4>
+                      <span className="text-[8px] uppercase tracking-[0.3em] text-gold-600 font-bold block">Haute Technology Showroom</span>
+                    </div>
+                  </div>
+                  <p className="text-xs text-charcoal/70 max-w-sm leading-relaxed">
+                    The preeminent international salon for customized precious metal smartphones, certified by the Swiss Federal Central Office for Precious Metals Control.
+                  </p>
+                  <div className="flex items-center gap-3 pt-2 text-gold-700">
+                    <a href="#instagram" className="w-8 h-8 rounded-full border border-gold-300 flex items-center justify-center hover:bg-gold-50"><i data-lucide="instagram" className="w-4 h-4"></i></a>
+                    <a href="#twitter" className="w-8 h-8 rounded-full border border-gold-300 flex items-center justify-center hover:bg-gold-50"><i data-lucide="twitter" className="w-4 h-4"></i></a>
+                    <a href="#linkedin" className="w-8 h-8 rounded-full border border-gold-300 flex items-center justify-center hover:bg-gold-50"><i data-lucide="linkedin" className="w-4 h-4"></i></a>
+                  </div>
+                </div>
+
+                {/* Showrooms */}
+                <div>
+                  <h5 className="font-serif text-xs font-bold uppercase tracking-widest text-onyx mb-4">Salons & Boutiques</h5>
+                  <ul className="space-y-2 text-xs text-charcoal/70">
+                    <li>Rue du Rhône 42, Geneva</li>
+                    <li>Downtown Burj Crown, Dubai</li>
+                    <li>Ginza 6-Chome, Tokyo</li>
+                    <li>Madison Avenue, New York</li>
+                    <li>Place Vendôme, Paris</li>
+                  </ul>
+                </div>
+
+                {/* Navigation */}
+                <div>
+                  <h5 className="font-serif text-xs font-bold uppercase tracking-widest text-onyx mb-4">Atelier Services</h5>
+                  <ul className="space-y-2 text-xs text-charcoal/70">
+                    <li><button onClick={() => setView('shop')} className="hover:text-gold-700">Flagship Portfolio</button></li>
+                    <li><button onClick={() => { setView('shop'); setActiveCategory('bespoke'); }} className="hover:text-gold-700">Custom 24K Commission</button></li>
+                    <li><button onClick={() => setView('about')} className="hover:text-gold-700">Heritage & Craft</button></li>
+                    <li><button onClick={() => setView('contact')} className="hover:text-gold-700">VIP Private Concierge</button></li>
+                    <li><a href="#certificate" className="hover:text-gold-700">Swiss Gold Verification</a></li>
+                  </ul>
+                </div>
+
+                {/* Newsletter */}
+                <div>
+                  <h5 className="font-serif text-xs font-bold uppercase tracking-widest text-onyx mb-4">Private Gazette</h5>
+                  <p className="text-xs text-charcoal/60 mb-3">Receive early confidential invitations to limited 1/25 atelier drops.</p>
+                  <form onSubmit={(e) => { e.preventDefault(); showToast('✨ Privileged invitation confirmed.'); }} className="space-y-2">
+                    <input 
+                      type="email" 
+                      required 
+                      placeholder="Enter ambassador email..." 
+                      className="w-full bg-pearl border border-gold-300 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-gold-500"
+                    />
+                    <button type="submit" className="w-full py-2 bg-gold-gradient text-gold-950 font-bold text-xs uppercase tracking-wider rounded-lg shadow-sm">
+                      Request Access
+                    </button>
+                  </form>
+                </div>
+
+              </div>
+
+              {/* Bottom Copyright */}
+              <div className="pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-charcoal/50 gap-4">
+                <div>© 2025 AURUM HAUTE ATELIER S.A. All international rights reserved.</div>
+                <div className="flex gap-6 text-[11px]">
+                  <a href="#privacy" className="hover:underline">Privacy Charter</a>
+                  <a href="#terms" className="hover:underline">Terms of Commission</a>
+                  <a href="#legal" className="hover:underline">Legal Protocol</a>
+                </div>
+              </div>
+
+            </div>
+          </footer>
+
+        </div>
+      );
+    }
+
+    // --- REUSABLE PRODUCT CARD COMPONENT ---
+    function ProductCard({ product, onQuickView, onOpenDetail, onAddToCart, onToggleWishlist, isWishlisted }) {
+      const [selectedColorIndex, setSelectedColorIndex] = useState(0);
+
+      return (
+        <div className="glass-card rounded-2xl overflow-hidden flex flex-col justify-between group p-4 relative">
+          
+          {/* Top Badge & Wishlist Button */}
+          <div className="flex justify-between items-center mb-3">
+            <span className="px-2.5 py-1 rounded-full bg-gold-100 text-gold-800 font-bold text-[9px] uppercase tracking-wider border border-gold-300/60">
+              {product.badge}
+            </span>
+            <button 
+              onClick={(e) => { e.stopPropagation(); onToggleWishlist(product); }}
+              className={`p-2 rounded-full border transition-all ${isWishlisted ? 'bg-gold-500 text-white border-gold-500' : 'bg-white/80 text-charcoal/60 border-gold-200 hover:text-gold-700'}`}
+            >
+              <i data-lucide="heart" className="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+
+          {/* Product Image Stage */}
+          <div 
+            className="relative h-56 rounded-xl overflow-hidden bg-pearl/60 p-4 flex items-center justify-center cursor-pointer"
+            onClick={onOpenDetail}
+          >
+            <img 
+              src={product.image} 
+              alt={product.name} 
+              className="max-h-full object-contain group-hover:scale-108 transition-transform duration-500"
+            />
+            
+            {/* Quick View Hover Pill */}
+            <button 
+              onClick={(e) => { e.stopPropagation(); onQuickView(); }}
+              className="absolute bottom-3 px-4 py-1.5 rounded-full bg-onyx/80 backdrop-blur-md text-gold-200 text-[10px] font-bold uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-all hover:bg-onyx"
+            >
+              Quick Preview
+            </button>
+          </div>
+
+          {/* Details & Color Selectors */}
+          <div className="pt-4 space-y-2">
+            <div className="flex justify-between items-center text-[10px] text-charcoal/60 uppercase font-semibold">
+              <span>{product.brand}</span>
+              <span className="flex items-center gap-1 text-gold-700 font-bold">
+                <i data-lucide="star" className="w-3 h-3 fill-gold-500 text-gold-500 inline"></i> {product.rating}
+              </span>
+            </div>
+
+            <h4 
+              onClick={onOpenDetail}
+              className="font-serif text-sm font-bold text-onyx group-hover:text-gold-700 transition-colors cursor-pointer leading-tight truncate"
+            >
+              {product.name}
+            </h4>
+
+            <p className="text-[11px] text-charcoal/60 line-clamp-1">{product.edition}</p>
+
+            {/* Color Swatches */}
+            <div className="flex items-center gap-1.5 pt-1">
+              {product.colors.map((c, i) => (
+                <button
+                  key={i}
+                  title={c.name}
+                  onClick={() => setSelectedColorIndex(i)}
+                  className={`w-3.5 h-3.5 rounded-full border transition-all ${selectedColorIndex === i ? 'ring-2 ring-gold-500 scale-110' : 'border-gold-300'}`}
+                  style={{ backgroundColor: c.hex }}
+                />
+              ))}
+              <span className="text-[9px] text-charcoal/50 ml-1 truncate">
+                {product.colors[selectedColorIndex].name}
+              </span>
+            </div>
+
+            {/* Price and Add CTA */}
+            <div className="pt-3 border-t border-gold-200 flex justify-between items-center">
+              <div>
+                <span className="font-serif text-base font-bold text-gold-800">${product.price}</span>
+                {product.originalPrice && (
+                  <span className="text-[10px] text-charcoal/40 line-through ml-1.5">${product.originalPrice}</span>
+                )}
+              </div>
+              <button 
+                onClick={() => onAddToCart(product, product.colors[selectedColorIndex])}
+                className="px-3 py-1.5 rounded-full bg-gold-gradient hover:bg-gold-400 text-gold-950 font-bold text-[10px] uppercase tracking-wider shadow-sm flex items-center gap-1.5"
+              >
+                <i data-lucide="plus" className="w-3 h-3"></i>
+                <span>Add</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      );
+    }
+
+    // --- PRODUCT DETAIL PAGE VIEW ---
+    function ProductDetailPage({ product, onBack, onAddToCart, onToggleWishlist, isWishlisted }) {
+      const [selectedImg, setSelectedImg] = useState(product.gallery ? product.gallery[0] : product.image);
+      const [selectedColor, setSelectedColor] = useState(product.colors[0]);
+      const [selectedStorage, setSelectedStorage] = useState('512GB');
+      const [activeTab, setActiveTab] = useState('specs');
+
+      return (
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          
+          <button 
+            onClick={onBack}
+            className="mb-8 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-gold-700 hover:text-gold-900"
+          >
+            <i data-lucide="arrow-left" className="w-4 h-4"></i>
+            <span>Return to Catalog</span>
+          </button>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            {/* Gallery Column */}
+            <div className="lg:col-span-6 space-y-4">
+              <div className="glass-panel rounded-3xl p-8 border border-gold-300 h-[460px] flex items-center justify-center relative overflow-hidden bg-white">
+                <img src={selectedImg} alt={product.name} className="max-h-full max-w-full object-contain transition-all duration-500" />
+                <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-gold-100 text-gold-800 font-bold text-[10px] uppercase tracking-widest border border-gold-300">
+                  {product.badge}
+                </span>
+              </div>
+
+              {/* Thumbnails */}
+              {product.gallery && product.gallery.length > 1 && (
+                <div className="flex gap-3">
+                  {product.gallery.map((img, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setSelectedImg(img)}
+                      className={`w-20 h-20 rounded-xl overflow-hidden border p-1 bg-white transition-all ${selectedImg === img ? 'border-gold-500 ring-2 ring-gold-300' : 'border-gold-200'}`}
+                    >
+                      <img src={img} alt="thumb" className="w-full h-full object-cover rounded-lg" />
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Spec & Purchase Column */}
+            <div className="lg:col-span-6 space-y-6">
+              <div>
+                <div className="text-xs uppercase font-bold tracking-[0.25em] text-gold-600 mb-1">{product.brand} Atelier</div>
+                <h1 className="font-serif text-3xl sm:text-4xl font-bold text-onyx">{product.name}</h1>
+                <p className="text-xs text-charcoal/60 mt-1 font-medium">{product.edition}</p>
+              </div>
+
+              <div className="flex items-center gap-4">
+                <div className="font-serif text-3xl font-bold text-gold-800">${product.price} USD</div>
+                {product.originalPrice && (
+                  <div className="text-sm text-charcoal/40 line-through">${product.originalPrice} USD</div>
+                )}
+                <div className="px-2.5 py-1 rounded bg-green-50 text-green-700 text-xs font-bold">In Boutique Vault</div>
+              </div>
+
+              <p className="text-xs sm:text-sm text-charcoal/70 leading-relaxed font-light">{product.tagline}</p>
+
+              {/* Color Choice */}
+              <div>
+                <label className="text-xs font-bold uppercase tracking-wider text-onyx block mb-2">
+                  Precious Finish: <span className="text-gold-700">{selectedColor.name}</span>
+                </label>
+                <div className="flex gap-3">
+                  {product.colors.map((c, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setSelectedColor(c)}
+                      className={`px-3 py-2 rounded-xl border flex items-center gap-2 text-xs font-medium transition-all ${selectedColor.name === c.name ? 'border-gold-500 bg-gold-50 text-gold-900 font-bold' : 'border-gold-200 bg-white'}`}
+                    >
+                      <span className="w-4 h-4 rounded-full border border-black/10" style={{ backgroundColor: c.hex }} />
+                      <span>{c.name}</span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Storage Choice */}
+              <div>
+                <label className="text-xs font-bold uppercase tracking-wider text-onyx block mb-2">Internal Solid-State Storage</label>
+                <div className="grid grid-cols-3 gap-3">
+                  {['256GB NVMe', '512GB NVMe', '1TB Atelier'].map((st) => (
+                    <button
+                      key={st}
+                      onClick={() => setSelectedStorage(st)}
+                      className={`py-2 rounded-xl border text-xs font-medium transition-all ${selectedStorage === st ? 'border-gold-500 bg-gold-500 text-white font-bold' : 'border-gold-200 bg-white hover:bg-gold-50'}`}
+                    >
+                      {st}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Actions */}
+              <div className="flex gap-4 pt-4">
+                <button 
+                  onClick={() => onAddToCart(product, selectedColor, selectedStorage)}
+                  className="flex-1 py-4 rounded-full shimmer-btn text-gold-950 font-bold uppercase text-xs tracking-widest shadow-gold-hover flex items-center justify-center gap-2"
+                >
+                  <i data-lucide="shopping-bag" className="w-4 h-4"></i>
+                  <span>Add To Private Bag</span>
+                </button>
+
+                <button 
+                  onClick={() => onToggleWishlist(product)}
+                  className={`p-4 rounded-full border transition-all ${isWishlisted ? 'bg-gold-500 text-white border-gold-500' : 'bg-white text-charcoal border-gold-300 hover:bg-gold-50'}`}
+                >
+                  <i data-lucide="heart" className="w-5 h-5"></i>
+                </button>
+              </div>
+
+              {/* Tabs: Specs & Inclusions */}
+              <div className="pt-6 border-t border-gold-200">
+                <div className="flex gap-6 border-b border-gold-200 pb-2">
+                  <button 
+                    onClick={() => setActiveTab('specs')}
+                    className={`text-xs font-bold uppercase tracking-wider pb-2 relative ${activeTab === 'specs' ? 'text-gold-700' : 'text-charcoal/50'}`}
+                  >
+                    Technical Architecture
+                    {activeTab === 'specs' && <span className="absolute bottom-0 left-0 w-full h-[2px] bg-gold-500" />}
+                  </button>
+                  <button 
+                    onClick={() => setActiveTab('unboxing')}
+                    className={`text-xs font-bold uppercase tracking-wider pb-2 relative ${activeTab === 'unboxing' ? 'text-gold-700' : 'text-charcoal/50'}`}
+                  >
+                    Atelier Presentation Box
+                    {activeTab === 'unboxing' && <span className="absolute bottom-0 left-0 w-full h-[2px] bg-gold-500" />}
+                  </button>
+                </div>
+
+                {activeTab === 'specs' ? (
+                  <div className="pt-4 grid grid-cols-2 gap-4 text-xs">
+                    <div className="p-3 bg-pearl rounded-lg border border-gold-200/60">
+                      <div className="font-bold text-gold-800">Display Panel</div>
+                      <div className="text-charcoal/70 text-[11px] mt-0.5">{product.specs.display}</div>
+                    </div>
+                    <div className="p-3 bg-pearl rounded-lg border border-gold-200/60">
+                      <div className="font-bold text-gold-800">Processing Core</div>
+                      <div className="text-charcoal/70 text-[11px] mt-0.5">{product.specs.processor}</div>
+                    </div>
+                    <div className="p-3 bg-pearl rounded-lg border border-gold-200/60">
+                      <div className="font-bold text-gold-800">Optics Array</div>
+                      <div className="text-charcoal/70 text-[11px] mt-0.5">{product.specs.camera}</div>
+                    </div>
+                    <div className="p-3 bg-pearl rounded-lg border border-gold-200/60">
+                      <div className="font-bold text-gold-800">Casing Alloy</div>
+                      <div className="text-charcoal/70 text-[11px] mt-0.5">{product.specs.material}</div>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="pt-4 text-xs text-charcoal/70 space-y-2">
+                    <div className="flex items-center gap-2"><i data-lucide="check" className="w-3.5 h-3.5 text-gold-600"></i> Lacquered Walnut wood display case with soft velvet interior</div>
+                    <div className="flex items-center gap-2"><i data-lucide="check" className="w-3.5 h-3.5 text-gold-600"></i> 24K Gold Braided Fast-Charging USB-C cable & 100W GaN adapter</div>
+                    <div className="flex items-center gap-2"><i data-lucide="check" className="w-3.5 h-3.5 text-gold-600"></i> Certificate of Precious Metallurgy signed by Swiss Bureau</div>
+                  </div>
+                )}
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      );
+    }
+
+    // --- ABOUT VIEW ---
+    function AboutPage({ onExplore }) {
+      return (
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-20">
+          
+          <div className="text-center max-w-3xl mx-auto space-y-4">
+            <span className="text-xs uppercase font-bold tracking-[0.3em] text-gold-700">Geneva Master Crafts</span>
+            <h2 className="font-serif text-4xl sm:text-6xl font-bold text-onyx">The Alchemy of Technology & Jewels</h2>
+            <p className="text-charcoal/70 text-base leading-relaxed">
+              Founded in 2018 in Geneva, Switzerland, AURUM ATELIER was conceived to rescue modern mobile electronics from planned obsolescence, elevating devices into timeless heirlooms of 24K solid gold and bespoke precision.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="glass-card rounded-2xl p-8 border border-gold-200 text-center space-y-3">
+              <div className="w-14 h-14 mx-auto rounded-2xl bg-gold-100 flex items-center justify-center text-gold-800">
+                <i data-lucide="gem" className="w-7 h-7"></i>
+              </div>
+              <h4 className="font-serif text-xl font-bold text-onyx">99.9% 24K Pure Gold</h4>
+              <p className="text-xs text-charcoal/70 leading-relaxed">
+                Every customized housing undergoes 140 hours of multi-micron PVD immersion and hand polishing by certified horologists.
+              </p>
+            </div>
+
+            <div className="glass-card rounded-2xl p-8 border border-gold-200 text-center space-y-3">
+              <div className="w-14 h-14 mx-auto rounded-2xl bg-gold-100 flex items-center justify-center text-gold-800">
+                <i data-lucide="shield-check" className="w-7 h-7"></i>
+              </div>
+              <h4 className="font-serif text-xl font-bold text-onyx">Zero Thermal Compromise</h4>
+              <p className="text-xs text-charcoal/70 leading-relaxed">
+                Proprietary graphene heat baffles maintain silicon temperatures cooler than OEM titanium specifications under max GPU loads.
+              </p>
+            </div>
+
+            <div className="glass-card rounded-2xl p-8 border border-gold-200 text-center space-y-3">
+              <div className="w-14 h-14 mx-auto rounded-2xl bg-gold-100 flex items-center justify-center text-gold-800">
+                <i data-lucide="plane" className="w-7 h-7"></i>
+              </div>
+              <h4 className="font-serif text-xl font-bold text-onyx">Diplomatic Courier</h4>
+              <p className="text-xs text-charcoal/70 leading-relaxed">
+                All global orders are delivered by private bonded couriers directly to your residence, yacht, or luxury suite worldwide.
+              </p>
+            </div>
+          </div>
+
+          <div className="glass-panel rounded-3xl p-10 border border-gold-300 text-center max-w-2xl mx-auto space-y-4">
+            <h3 className="font-serif text-2xl font-bold text-onyx">Experience the Showroom In Person</h3>
+            <p className="text-xs text-charcoal/70">
+              Private private viewings available by reservation across our boutiques in Geneva, Dubai, Tokyo, and New York.
+            </p>
+            <button 
+              onClick={onExplore}
+              className="px-8 py-3.5 rounded-full shimmer-btn text-gold-950 font-bold uppercase text-xs tracking-widest"
+            >
+              Discover Current Collection
+            </button>
+          </div>
+
+        </div>
+      );
+    }
+
+    // --- CONTACT & CONCIERGE VIEW ---
+    function ContactPage({ onBooked }) {
+      const [formData, setFormData] = useState({ name: '', email: '', phone: '', city: 'Geneva', notes: '' });
+
+      const handleSubmit = (e) => {
+        e.preventDefault();
+        onBooked();
+        setFormData({ name: '', email: '', phone: '', city: 'Geneva', notes: '' });
+      };
+
+      return (
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            <div className="lg:col-span-5 space-y-6">
+              <span className="text-xs uppercase font-bold tracking-[0.3em] text-gold-700">VIP Relations</span>
+              <h2 className="font-serif text-4xl font-bold text-onyx">Book Private Concierge</h2>
+              <p className="text-charcoal/70 text-xs sm:text-sm leading-relaxed">
+                Whether commissioning a one-of-a-kind royal wedding edition or scheduling an in-suite device consultation, our VIP Ambassadors are at your service 24/7.
+              </p>
+
+              <div className="space-y-4 pt-4">
+                <div className="flex items-center gap-3 text-xs">
+                  <div className="w-9 h-9 rounded-lg bg-gold-100 flex items-center justify-center text-gold-700">
+                    <i data-lucide="phone" className="w-4 h-4"></i>
+                  </div>
+                  <div>
+                    <div className="font-bold text-onyx">Direct Concierge Hotline</div>
+                    <div className="text-gold-700">+1 (800) 888-AURUM (24/7 Priority)</div>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-3 text-xs">
+                  <div className="w-9 h-9 rounded-lg bg-gold-100 flex items-center justify-center text-gold-700">
+                    <i data-lucide="mail" className="w-4 h-4"></i>
+                  </div>
+                  <div>
+                    <div className="font-bold text-onyx">Diplomatic Inquiries</div>
+                    <div className="text-gold-700">concierge@aurum-atelier.com</div>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-3 text-xs">
+                  <div className="w-9 h-9 rounded-lg bg-gold-100 flex items-center justify-center text-gold-700">
+                    <i data-lucide="map-pin" className="w-4 h-4"></i>
+                  </div>
+                  <div>
+                    <div className="font-bold text-onyx">Flagship Headquarters</div>
+                    <div className="text-charcoal/60">Rue du Rhône 42, 1204 Genève, Switzerland</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="lg:col-span-7">
+              <div className="glass-panel rounded-3xl p-8 sm:p-10 border border-gold-300 shadow-luxe">
+                <h3 className="font-serif text-xl font-bold text-onyx mb-6">Request Private Appointment</h3>
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="text-[11px] font-bold uppercase tracking-wider text-charcoal block mb-1">Full Title & Name</label>
+                      <input 
+                        type="text" 
+                        required 
+                        value={formData.name}
+                        onChange={e => setFormData({...formData, name: e.target.value})}
+                        placeholder="e.g. Lord Harrison Sterling" 
+                        className="w-full bg-pearl border border-gold-200 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-gold-500"
+                      />
+                    </div>
+                    <div>
+                      <label className="text-[11px] font-bold uppercase tracking-wider text-charcoal block mb-1">Direct Phone Number</label>
+                      <input 
+                        type="tel" 
+                        required 
+                        value={formData.phone}
+                        onChange={e => setFormData({...formData, phone: e.target.value})}
+                        placeholder="+44 20 7946 0912" 
+                        className="w-full bg-pearl border border-gold-200 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-gold-500"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="text-[11px] font-bold uppercase tracking-wider text-charcoal block mb-1">Confidential Email</label>
+                    <input 
+                      type="email" 
+                      required 
+                      value={formData.email}
+                      onChange={e => setFormData({...formData, email: e.target.value})}
+                      placeholder="client@private-domain.com" 
+                      className="w-full bg-pearl border border-gold-200 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-gold-500"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="text-[11px] font-bold uppercase tracking-wider text-charcoal block mb-1">Preferred Salon Location</label>
+                    <select 
+                      value={formData.city}
+                      onChange={e => setFormData({...formData, city: e.target.value})}
+                      className="w-full bg-pearl border border-gold-200 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-gold-500 text-charcoal"
+                    >
+                      <option value="Geneva">Geneva Boutique Salon</option>
+                      <option value="Dubai">Dubai Burj Lounge</option>
+                      <option value="Tokyo">Tokyo Ginza Showroom</option>
+                      <option value="New York">New York 5th Avenue Suite</option>
+                      <option value="InSuite">Private In-Suite Visit (Global)</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="text-[11px] font-bold uppercase tracking-wider text-charcoal block mb-1">Bespoke Inscription or Custom Requests</label>
+                    <textarea 
+                      rows="3"
+                      value={formData.notes}
+                      onChange={e => setFormData({...formData, notes: e.target.value})}
+                      placeholder="Specify custom monogramming, gem-setting, or particular flagship preferences..." 
+                      className="w-full bg-pearl border border-gold-200 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-gold-500"
+                    ></textarea>
+                  </div>
+
+                  <button 
+                    type="submit"
+                    className="w-full py-4 rounded-full shimmer-btn text-gold-950 font-bold uppercase text-xs tracking-widest shadow-gold-hover"
+                  >
+                    Transmit Confidential VIP Request
+                  </button>
+                </form>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      );
+    }
+
+    // Render Root
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+  </script>
+</body>
+</html>

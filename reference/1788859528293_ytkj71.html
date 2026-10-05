@@ -1,0 +1,3263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AURUM | The Fine Smartphone Atelier - Premium Indian Mobile Flagship</title>
+
+  <!-- Google Fonts: Editorial Serif & Refined Modern Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold: {
+              50: '#FDFBF7',
+              100: '#F7F2E7',
+              200: '#EADBB6',
+              300: '#DEC58C',
+              400: '#CFAC58',
+              500: '#C9A24A', // Brand Primary Gold
+              600: '#B28935',
+              700: '#8E6B24',
+              800: '#694E1A',
+              900: '#433111',
+            },
+            ivory: '#FAF8F5',
+            pearl: '#F4EFE6',
+            charcoal: '#171717',
+            deepInk: '#0D0D0D',
+            slateMuted: '#6B675E'
+          },
+          fontFamily: {
+            serif: ['Playfair Display', 'Georgia', 'serif'],
+            display: ['Cinzel', 'Playfair Display', 'serif'],
+            sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+          },
+          boxShadow: {
+            'gold-glow': '0 10px 40px -10px rgba(201, 162, 74, 0.22)',
+            'gold-soft': '0 4px 20px -2px rgba(201, 162, 74, 0.12)',
+            'luxury': '0 20px 40px -15px rgba(23, 23, 23, 0.06)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- React 18 & ReactDOM -->
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+  
+  <!-- Babel Standalone for JSX -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <style>
+    /* Luxury scrollbar and gold styling */
+    ::-webkit-scrollbar {
+      width: 7px;
+      height: 7px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #FAF8F5;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #DEC58C;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #C9A24A;
+    }
+    
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #B28935 0%, #DDBF76 45%, #8E6B24 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .gold-metallic-bg {
+      background: linear-gradient(135deg, #C9A24A 0%, #E8CC83 50%, #B88E38 100%);
+    }
+    .gold-shimmer-border {
+      border: 1px solid rgba(201, 162, 74, 0.35);
+    }
+    .frosted-glass {
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background: rgba(255, 255, 255, 0.88);
+    }
+    .mesh-radial {
+      background-image: radial-gradient(circle at 80% 20%, rgba(232, 204, 131, 0.18) 0%, transparent 60%),
+                        radial-gradient(circle at 10% 80%, rgba(201, 162, 74, 0.10) 0%, transparent 50%);
+    }
+    /* Smooth transitions */
+    * {
+      transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform;
+      transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+      transition-duration: 200ms;
+    }
+  </style>
+</head>
+<body class="bg-[#FAF8F5] text-charcoal font-sans antialiased selection:bg-gold-200 selection:text-charcoal min-h-screen">
+  <div id="root"></div>
+
+  <!-- Main Application Script -->
+  <script type="text/babel">
+    const { useState, useEffect, useMemo, useRef } = React;
+
+    // --- STATIC DATA: AUTHENTIC INDIAN SMARTPHONE CATALOGUE ---
+    const PRODUCTS = [
+      {
+        id: "aur-ip16pm",
+        brand: "Apple",
+        model: "iPhone 16 Pro Max",
+        slug: "apple-iphone-16-pro-max",
+        badge: "Flagship Royale",
+        mrp: 144900,
+        price: 139900,
+        discountPercent: 3,
+        rating: 4.9,
+        reviewsCount: 342,
+        images: [
+          "https://images.unsplash.com/photo-1695048133142-1a20484d2569?q=80&w=900&auto=format&fit=crop",
+          "https://images.unsplash.com/photo-1591337676887-a217a6970a8a?q=80&w=900&auto=format&fit=crop",
+          "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?q=80&w=900&auto=format&fit=crop"
+        ],
+        colors: [
+          { name: "Desert Titanium", hex: "#C7B299" },
+          { name: "Natural Titanium", hex: "#9E9A93" },
+          { name: "Black Titanium", hex: "#323234" }
+        ],
+        storageOptions: ["256GB", "512GB", "1TB"],
+        ram: "8GB Unified",
+        display: "6.9\" Super Retina XDR OLED, 120Hz ProMotion",
+        processor: "Apple A18 Pro (3nm)",
+        camera: "48MP Fusion + 48MP Ultra-Wide + 12MP 5x Telephoto",
+        battery: "4685 mAh (Up to 33 hrs video)",
+        charging: "27W Wired, 25W MagSafe",
+        os: "iOS 18 (Apple Intelligence Ready)",
+        network: "Dual SIM (nano-SIM & eSIM), 5G Sub-6",
+        emiText: "No Cost EMI starts at ₹11,658/month",
+        exchangeText: "Up to ₹52,000 off on exchange",
+        category: "flagship",
+        isNew: true,
+        highlights: [
+          "Grade 5 Titanium frame with micro-blasted finish",
+          "Dedicated Camera Control tactile button with sapphire crystal",
+          "4K 120 fps Dolby Vision recording studio capability",
+          "Official Apple India 1-Year Limited Warranty with GST Invoice"
+        ]
+      },
+      {
+        id: "aur-s24u",
+        brand: "Samsung",
+        model: "Galaxy S24 Ultra 5G",
+        slug: "samsung-galaxy-s24-ultra",
+        badge: "AI Masterpiece",
+        mrp: 134999,
+        price: 121999,
+        discountPercent: 10,
+        rating: 4.8,
+        reviewsCount: 428,
+        images: [
+          "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?q=80&w=900&auto=format&fit=crop",
+          "https://images.unsplash.com/photo-1580910051074-3eb694886505?q=80&w=900&auto=format&fit=crop"
+        ],
+        colors: [
+          { name: "Titanium Gray", hex: "#5C5856" },
+          { name: "Titanium Violet", hex: "#5A4E6B" },
+          { name: "Titanium Yellow", hex: "#E3D5B5" }
+        ],
+        storageOptions: ["256GB", "512GB", "1TB"],
+        ram: "12GB LPDDR5X",
+        display: "6.8\" Dynamic AMOLED 2X, 120Hz, 2600 nits, Flat Corning Armor",
+        processor: "Snapdragon 8 Gen 3 for Galaxy (4nm)",
+        camera: "200MP Main + 50MP 5x Periscope + 10MP 3x + 12MP UW",
+        battery: "5000 mAh All-Day Intelligent Battery",
+        charging: "45W Fast Charging, 15W Fast Wireless",
+        os: "One UI 6.1 (7 Years of OS Upgrades)",
+        network: "Dual 5G SIM + eSIM",
+        emiText: "Standard EMI from ₹5,910/mo with Bajaj Finserv",
+        exchangeText: "₹8,000 Additional Upgrade Bonus",
+        category: "camera",
+        isNew: false,
+        highlights: [
+          "Built-in S-Pen with low latency handwriting",
+          "Corning Gorilla Armor anti-reflective glass",
+          "Galaxy AI live call translate & Circle to Search",
+          "Titanium shield enclosure"
+        ]
+      },
+      {
+        id: "aur-op12",
+        brand: "OnePlus",
+        model: "OnePlus 12 5G",
+        slug: "oneplus-12-5g",
+        badge: "Speed Legend",
+        mrp: 64999,
+        price: 59999,
+        discountPercent: 8,
+        rating: 4.7,
+        reviewsCount: 512,
+        images: [
+          "https://images.unsplash.com/photo-1598327105666-5b89351aff97?q=80&w=900&auto=format&fit=crop",
+          "https://images.unsplash.com/photo-1546868871-7041f2a55e12?q=80&w=900&auto=format&fit=crop"
+        ],
+        colors: [
+          { name: "Silky Black", hex: "#222222" },
+          { name: "Flowy Emerald", hex: "#1C3C37" }
+        ],
+        storageOptions: ["256GB", "512GB"],
+        ram: "16GB LPDDR5X",
+        display: "6.82\" 2K 120Hz ProXDR 4500 nits LTPO 4.0",
+        processor: "Qualcomm Snapdragon 8 Gen 3",
+        camera: "4th Gen Hasselblad: 50MP Sony LYT-808 + 64MP 3x Periscope + 48MP UW",
+        battery: "5400 mAh Dual-Cell High Density",
+        charging: "100W SUPERVOOC + 50W AIRVOOC Wireless",
+        os: "OxygenOS 14 based on Android 14",
+        network: "Dual nano-SIM, 16 5G Bands supported in India",
+        emiText: "Starts at ₹4,999/mo (No Cost on ICICI & HDFC)",
+        exchangeText: "₹5,000 Exchange bonus on old OnePlus phones",
+        category: "gaming",
+        isNew: false,
+        highlights: [
+          "Super-fast 100W brick included in box",
+          "Dual Cryo-velocity VC cooling system",
+          "Aqua Touch technology works with wet fingers",
+          "Hasselblad Color Calibration master profiles"
+        ]
+      },
+      {
+        id: "aur-px9p",
+        brand: "Google Pixel",
+        model: "Pixel 9 Pro XL",
+        slug: "google-pixel-9-pro-xl",
+        badge: "Computational Pure",
+        mrp: 124999,
+        price: 119999,
+        discountPercent: 4,
+        rating: 4.8,
+        reviewsCount: 198,
+        images: [
+          "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=900&auto=format&fit=crop",
+          "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?q=80&w=900&auto=format&fit=crop"
+        ],
+        colors: [
+          { name: "Porcelain", hex: "#E7E2DA" },
+          { name: "Obsidian", hex: "#2E3033" },
+          { name: "Rose Quartz", hex: "#D4B9B8" }
+        ],
+        storageOptions: ["128GB", "256GB", "512GB"],
+        ram: "16GB RAM for Gemini Nano",
+        display: "6.8\" Super Actua LTPO OLED (1-120Hz, 3000 nits)",
+        processor: "Google Tensor G4 + Titan M2 Security",
+        camera: "50MP Wide + 48MP Ultrawide Macro + 48MP 5x Telephoto",
+        battery: "5060 mAh with Extreme Battery Saver up to 100h",
+        charging: "37W Wired Fast Charge (70% in 30 mins)",
+        os: "Pure Android 15 with 7 Years Feature Drops",
+        network: "Dual SIM (Single nano-SIM and eSIM)",
+        emiText: "No cost EMI starting ₹9,999/month",
+        exchangeText: "Assured ₹10,000 Exchange Bonus on Pixels",
+        category: "camera",
+        isNew: true,
+        highlights: [
+          "Gemini Live built-in assistant with natural speech",
+          "Magic Editor with Re-imagine generative fills",
+          "Class-leading real tone skin rendering",
+          "7 Years of guaranteed OS and security updates"
+        ]
+      },
+      {
+        id: "aur-fold6",
+        brand: "Samsung",
+        model: "Galaxy Z Fold6",
+        slug: "samsung-galaxy-z-fold-6",
+        badge: "Foldable Master",
+        mrp: 164999,
+        price: 154999,
+        discountPercent: 6,
+        rating: 4.7,
+        reviewsCount: 164,
+        images: [
+          "https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?q=80&w=900&auto=format&fit=crop",
+          "https://images.unsplash.com/photo-1580910051074-3eb694886505?q=80&w=900&auto=format&fit=crop"
+        ],
+        colors: [
+          { name: "Silver Shadow", hex: "#C5C7CC" },
+          { name: "Navy", hex: "#1C2D44" },
+          { name: "Pink", hex: "#EAD1CF" }
+        ],
+        storageOptions: ["256GB", "512GB", "1TB"],
+        ram: "12GB LPDDR5X",
+        display: "7.6\" QXGA+ Dynamic AMOLED 2X Inner + 6.3\" Cover Screen",
+        processor: "Snapdragon 8 Gen 3 for Galaxy",
+        camera: "50MP Dual Pixel OIS + 10MP 3x + 12MP UW",
+        battery: "4400 mAh Dual Battery",
+        charging: "25W Wired + 15W Wireless",
+        os: "One UI 6.1.1 Fold Edition",
+        network: "Dual 5G + eSIM",
+        emiText: "Luxury EMI starts at ₹12,916/mo",
+        exchangeText: "Complimentary Galaxy Watch6 on Exchange",
+        category: "foldable",
+        isNew: true,
+        highlights: [
+          "Ultra-light 239g design with zero-gap dual hinge",
+          "Enhanced Armor Aluminum & IP48 Water Resistance",
+          "Interpreter mode utilizing both displays simultaneously",
+          "Side-by-side 3 App multitasking productivity"
+        ]
+      },
+      {
+        id: "aur-vx100p",
+        brand: "vivo",
+        model: "X100 Pro 5G",
+        slug: "vivo-x100-pro-5g",
+        badge: "ZEISS Cine Optic",
+        mrp: 96999,
+        price: 89999,
+        discountPercent: 7,
+        rating: 4.9,
+        reviewsCount: 220,
+        images: [
+          "https://images.unsplash.com/photo-1512499617640-c74ae3a79d37?q=80&w=900&auto=format&fit=crop"
+        ],
+        colors: [
+          { name: "Asteroid Black", hex: "#1F1F1F" },
+          { name: "Sunset Orange (Leather)", hex: "#D66432" }
+        ],
+        storageOptions: ["512GB"],
+        ram: "16GB + 16GB Extended RAM",
+        display: "6.78\" 1.5K 120Hz LTPO AMOLED 3000 nits",
+        processor: "MediaTek Dimensity 9300 (4nm)",
+        camera: "1-inch 50MP Sony IMX989 + 50MP ZEISS APO Telephoto + 50MP UW",
+        battery: "5400 mAh BlueOcean Silicon Battery",
+        charging: "100W FlashCharge + 50W Wireless FlashCharge",
+        os: "Funtouch OS 14 (Android 14)",
+        network: "Dual Nano SIM 5G",
+        emiText: "Zero interest EMI ₹7,499/mo (12 Months)",
+        exchangeText: "Flat ₹7,000 Exchange Bump",
+        category: "camera",
+        isNew: false,
+        highlights: [
+          "ZEISS APO Floating Telephoto Camera certification",
+          "Vivo custom V3 6nm Imaging Chip",
+          "Cinematic Portrait video 4K with auto bokeh racks",
+          "IP68 dust & water protection rating"
+        ]
+      },
+      {
+        id: "aur-nth2",
+        brand: "Nothing",
+        model: "Phone (2)",
+        slug: "nothing-phone-2",
+        badge: "Design Icon",
+        mrp: 44999,
+        price: 36999,
+        discountPercent: 18,
+        rating: 4.6,
+        reviewsCount: 310,
+        images: [
+          "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?q=80&w=900&auto=format&fit=crop"
+        ],
+        colors: [
+          { name: "Dark Grey", hex: "#3A3D40" },
+          { name: "White", hex: "#EAEAEA" }
+        ],
+        storageOptions: ["128GB", "256GB", "512GB"],
+        ram: "12GB RAM",
+        display: "6.7\" flexible LTPO OLED, 120Hz, HDR10+",
+        processor: "Snapdragon 8+ Gen 1",
+        camera: "50MP Sony IMX890 OIS + 50MP Samsung JN1 Ultrawide",
+        battery: "4700 mAh",
+        charging: "45W Wired (100% in 55 mins) + 15W Wireless",
+        os: "Nothing OS 2.6 (Clean Android)",
+        network: "Dual 5G SIM",
+        emiText: "Easy EMI ₹3,083/mo with HDFC Bank",
+        exchangeText: "₹3,500 exchange discount on any smartphone",
+        category: "under30k",
+        isNew: false,
+        highlights: [
+          "Iconic Glyph Interface with addressable mini-LED zones",
+          "Symmetrical minimal front bezel aesthetic",
+          "Zero bloatware, ultra-fluid monochrome custom OS",
+          "100% recycled aluminum mid-frame construct"
+        ]
+      },
+      {
+        id: "aur-mi14u",
+        brand: "Xiaomi",
+        model: "Xiaomi 14 Ultra 5G",
+        slug: "xiaomi-14-ultra-5g",
+        badge: "Leica Master",
+        mrp: 119999,
+        price: 99999,
+        discountPercent: 16,
+        rating: 4.8,
+        reviewsCount: 145,
+        images: [
+          "https://images.unsplash.com/photo-1585060544812-6b45742d762f?q=80&w=900&auto=format&fit=crop"
+        ],
+        colors: [
+          { name: "Black Vegan Leather", hex: "#1C1C1E" },
+          { name: "White Ceramic Feel", hex: "#F2F2F2" }
+        ],
+        storageOptions: ["512GB"],
+        ram: "16GB LPDDR5X",
+        display: "6.73\" WQHD+ 120Hz AMOLED 3000 nits, Dolby Vision",
+        processor: "Snapdragon 8 Gen 3",
+        camera: "Leica Quad 50MP: 1-inch LYT-900 Variable Aperture + 3.2x + 5x + UW",
+        battery: "5000 mAh High Capacity",
+        charging: "90W HyperCharge + 80W Wireless HyperCharge",
+        os: "Xiaomi HyperOS",
+        network: "Dual 5G SIM",
+        emiText: "No cost EMI ₹8,333/mo",
+        exchangeText: "Special Xiaomi Loyalty Exchange ₹10,000",
+        category: "camera",
+        isNew: false,
+        highlights: [
+          "Stepless variable physical f/1.63 - f/4.0 aperture",
+          "Leica Summilux precision optical lenses",
+          "Xiaomi Guardian Structure with 2x drop resistance",
+          "Includes free Photography Grip accessory voucher"
+        ]
+      }
+    ];
+
+    const BRANDS = ["All", "Apple", "Samsung", "OnePlus", "Google Pixel", "vivo", "Nothing", "Xiaomi"];
+
+    const CATEGORIES = [
+      { id: "all", name: "Full Atelier", icon: "sparkles", desc: "All curated luxury handsets" },
+      { id: "flagship", name: "Flagship Royale", icon: "crown", desc: "Uncompromised performance" },
+      { id: "camera", name: "Studio Camera", icon: "camera", desc: "DSLR-grade optics & sensors" },
+      { id: "gaming", name: "Beast Gaming", icon: "gamepad-2", desc: "High frame rate & cooling" },
+      { id: "foldable", name: "Luxury Foldables", icon: "smartphone", desc: "Next-gen dual screen form" },
+      { id: "under30k", name: "Smart Value", icon: "tag", desc: "Premium tech under budget" }
+    ];
+
+    // Helper: Indian currency formatting
+    const formatINR = (val) => {
+      return new Intl.NumberFormat('en-IN', {
+        style: 'currency',
+        currency: 'INR',
+        maximumFractionDigits: 0
+      }).format(val).replace('₹', '₹ ');
+    };
+
+    // --- MAIN REACT APP ---
+    function AurumMobileApp() {
+      // Navigation states: 'home' | 'shop' | 'product' | 'compare' | 'wishlist' | 'cart' | 'offers' | 'about' | 'contact'
+      const [currentRoute, setCurrentRoute] = useState('home');
+      const [selectedProductSlug, setSelectedProductSlug] = useState('apple-iphone-16-pro-max');
+      const [brandFilter, setBrandFilter] = useState('All');
+      const [categoryFilter, setCategoryFilter] = useState('all');
+      const [searchQuery, setSearchQuery] = useState('');
+      const [sortBy, setSortBy] = useState('popular'); // 'popular' | 'price-asc' | 'price-desc' | 'rating'
+
+      // Compare Array: up to 3 phones
+      const [compareList, setCompareList] = useState(["aur-ip16pm", "aur-s24u"]);
+
+      // Local storage backed Cart & Wishlist
+      const [wishlist, setWishlist] = useState(() => {
+        try {
+          const saved = localStorage.getItem('aurum_wishlist');
+          return saved ? JSON.parse(saved) : ["aur-ip16pm"];
+        } catch(e) { return ["aur-ip16pm"]; }
+      });
+
+      const [cart, setCart] = useState(() => {
+        try {
+          const saved = localStorage.getItem('aurum_cart');
+          return saved ? JSON.parse(saved) : [
+            { id: "aur-ip16pm", quantity: 1, selectedColor: "Desert Titanium", selectedStorage: "256GB" }
+          ];
+        } catch(e) {
+          return [{ id: "aur-ip16pm", quantity: 1, selectedColor: "Desert Titanium", selectedStorage: "256GB" }];
+        }
+      });
+
+      // UI Drawers & Modals
+      const [isCartOpen, setIsCartOpen] = useState(false);
+      const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+      const [isCheckoutModalOpen, setIsCheckoutModalOpen] = useState(false);
+      const [checkoutSuccessOrder, setCheckoutSuccessOrder] = useState(null);
+      const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
+      const [toastMessage, setToastMessage] = useState(null);
+
+      // Toast notification helper
+      const showToast = (msg) => {
+        setToastMessage(msg);
+        setTimeout(() => setToastMessage(null), 3500);
+      };
+
+      // Sync Cart to LocalStorage
+      useEffect(() => {
+        try {
+          localStorage.setItem('aurum_cart', JSON.stringify(cart));
+        } catch(e) {}
+      }, [cart]);
+
+      // Sync Wishlist to LocalStorage
+      useEffect(() => {
+        try {
+          localStorage.setItem('aurum_wishlist', JSON.stringify(wishlist));
+        } catch(e) {}
+      }, [wishlist]);
+
+      // Scroll to top on route change
+      useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, [currentRoute, selectedProductSlug]);
+
+      // Refresh Lucide icons whenever route or modals shift
+      useEffect(() => {
+        if (window.lucide) {
+          window.lucide.createIcons();
+        }
+      });
+
+      // Cart helpers
+      const addToCart = (product, color, storage) => {
+        const pColor = color || product.colors[0].name;
+        const pStorage = storage || product.storageOptions[0];
+        
+        setCart(prev => {
+          const existing = prev.find(item => item.id === product.id && item.selectedStorage === pStorage && item.selectedColor === pColor);
+          if (existing) {
+            return prev.map(item => item === existing ? { ...item, quantity: item.quantity + 1 } : item);
+          }
+          return [...prev, { id: product.id, quantity: 1, selectedColor: pColor, selectedStorage: pStorage }];
+        });
+        showToast(`Added ${product.model} (${pStorage}) to your shopping bag.`);
+      };
+
+      const removeFromCart = (index) => {
+        setCart(prev => prev.filter((_, idx) => idx !== index));
+      };
+
+      const updateCartQty = (index, delta) => {
+        setCart(prev => {
+          return prev.map((item, idx) => {
+            if (idx === index) {
+              const newQty = item.quantity + delta;
+              return newQty > 0 ? { ...item, quantity: newQty } : null;
+            }
+            return item;
+          }).filter(Boolean);
+        });
+      };
+
+      const toggleWishlist = (id) => {
+        if (wishlist.includes(id)) {
+          setWishlist(wishlist.filter(x => x !== id));
+          showToast("Item removed from your saved sanctuary.");
+        } else {
+          setWishlist([...wishlist, id]);
+          showToast("Phone added to your private Wishlist.");
+        }
+      };
+
+      const toggleCompare = (id) => {
+        if (compareList.includes(id)) {
+          setCompareList(compareList.filter(x => x !== id));
+          showToast("Removed from comparison matrix.");
+        } else {
+          if (compareList.length >= 3) {
+            showToast("Comparison limit reached (Max 3 devices side-by-side).");
+            return;
+          }
+          setCompareList([...compareList, id]);
+          showToast("Added to compare deck.");
+        }
+      };
+
+      // Filtered products list for /shop
+      const filteredProducts = useMemo(() => {
+        return PRODUCTS.filter(p => {
+          const matchBrand = brandFilter === "All" || p.brand.toLowerCase() === brandFilter.toLowerCase();
+          const matchCategory = categoryFilter === "all" || p.category === categoryFilter;
+          const matchSearch = p.model.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                              p.brand.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                              p.processor.toLowerCase().includes(searchQuery.toLowerCase());
+          return matchBrand && matchCategory && matchSearch;
+        }).sort((a, b) => {
+          if (sortBy === 'price-asc') return a.price - b.price;
+          if (sortBy === 'price-desc') return b.price - a.price;
+          if (sortBy === 'rating') return b.rating - a.rating;
+          return b.reviewsCount - a.reviewsCount; // popular
+        });
+      }, [brandFilter, categoryFilter, searchQuery, sortBy]);
+
+      // Cart calculations
+      const cartCalculations = useMemo(() => {
+        let subtotal = 0;
+        let totalMrp = 0;
+        let totalCount = 0;
+
+        cart.forEach(item => {
+          const prod = PRODUCTS.find(p => p.id === item.id);
+          if (prod) {
+            subtotal += prod.price * item.quantity;
+            totalMrp += prod.mrp * item.quantity;
+            totalCount += item.quantity;
+          }
+        });
+
+        const totalSavings = totalMrp - subtotal;
+        const deliveryFee = subtotal > 999 || subtotal === 0 ? 0 : 150;
+        const finalAmount = subtotal + deliveryFee;
+
+        return { subtotal, totalMrp, totalSavings, deliveryFee, finalAmount, totalCount };
+      }, [cart]);
+
+      // Handler for routing to single product
+      const viewProduct = (slug) => {
+        setSelectedProductSlug(slug);
+        setCurrentRoute('product');
+        setIsCartOpen(false);
+      };
+
+      return (
+        <div className="relative flex flex-col min-h-screen text-charcoal bg-[#FAF8F5] selection:bg-gold-300 selection:text-charcoal">
+          
+          {/* TOAST SYSTEM */}
+          {toastMessage && (
+            <div className="fixed bottom-6 right-6 z-50 flex items-center gap-3 bg-charcoal text-white px-5 py-3.5 rounded-xl shadow-2xl border border-gold-500/40 transform animate-bounce duration-300">
+              <i data-lucide="sparkles" className="w-5 h-5 text-gold-400"></i>
+              <span className="text-sm font-medium tracking-wide">{toastMessage}</span>
+            </div>
+          )}
+
+          {/* 1. TOP ANNOUNCEMENT STRIP (Indian Trust Reassurance) */}
+          <div className="bg-charcoal text-gold-200 text-xs py-2 px-4 border-b border-gold-800/50">
+            <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between text-center gap-1 sm:gap-4 tracking-wider">
+              <div className="flex items-center gap-2">
+                <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span>Flagship Boutiques Open in <strong className="text-white">Bandra West, Mumbai</strong> &amp; <strong className="text-white">Indiranagar, Bengaluru</strong></span>
+              </div>
+              <div className="flex items-center gap-4 text-[11px] text-gray-300">
+                <span className="hidden md:inline">✓ 100% Brand Sealed GST Invoice</span>
+                <span>✓ Same Day White-Glove Hand Delivery</span>
+                <span>✓ 0% Interest Bank EMI Available</span>
+              </div>
+            </div>
+          </div>
+
+          {/* 2. GLOBAL LUXURY NAVIGATION BAR */}
+          <header className="sticky top-0 z-40 frosted-glass border-b border-gold-200/60 shadow-sm transition-all duration-300">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+              
+              {/* Logo / Brandmark */}
+              <div 
+                onClick={() => setCurrentRoute('home')}
+                className="cursor-pointer group flex items-center gap-3"
+              >
+                <div className="w-10 h-10 rounded-lg gold-metallic-bg flex items-center justify-center shadow-gold-glow p-0.5">
+                  <div className="w-full h-full bg-charcoal rounded-[6px] flex items-center justify-center">
+                    <span className="font-display font-extrabold text-gold-400 text-xl tracking-tighter">A</span>
+                  </div>
+                </div>
+                <div>
+                  <div className="flex items-center gap-1.5">
+                    <span className="font-display text-2xl tracking-[0.22em] font-bold text-charcoal uppercase">AURUM</span>
+                    <span className="text-[10px] uppercase tracking-widest px-1.5 py-0.5 bg-gold-100 text-gold-800 font-semibold rounded border border-gold-300">India</span>
+                  </div>
+                  <p className="text-[10px] tracking-widest text-slateMuted uppercase font-medium -mt-1">The Smartphone Atelier</p>
+                </div>
+              </div>
+
+              {/* Desktop Nav Links */}
+              <nav className="hidden lg:flex items-center space-x-8 text-sm font-medium tracking-wide">
+                <button 
+                  onClick={() => setCurrentRoute('home')}
+                  className={`relative py-1 hover:text-gold-700 transition ${currentRoute === 'home' ? 'text-charcoal font-semibold' : 'text-slateMuted'}`}
+                >
+                  Showroom
+                  {currentRoute === 'home' && <span className="absolute bottom-0 left-0 w-full h-[2px] bg-gold-500 rounded-full"></span>}
+                </button>
+
+                <button 
+                  onClick={() => { setCategoryFilter('all'); setBrandFilter('All'); setCurrentRoute('shop'); }}
+                  className={`relative py-1 hover:text-gold-700 transition ${currentRoute === 'shop' ? 'text-charcoal font-semibold' : 'text-slateMuted'}`}
+                >
+                  Collection
+                  {currentRoute === 'shop' && <span className="absolute bottom-0 left-0 w-full h-[2px] bg-gold-500 rounded-full"></span>}
+                </button>
+
+                <button 
+                  onClick={() => { setCategoryFilter('camera'); setCurrentRoute('shop'); }}
+                  className="text-slateMuted hover:text-gold-700 transition"
+                >
+                  Studio Optics
+                </button>
+
+                <button 
+                  onClick={() => setCurrentRoute('compare')}
+                  className={`relative py-1 hover:text-gold-700 transition flex items-center gap-1.5 ${currentRoute === 'compare' ? 'text-charcoal font-semibold' : 'text-slateMuted'}`}
+                >
+                  Compare
+                  {compareList.length > 0 && (
+                    <span className="text-[10px] px-1.5 py-0.2 rounded-full bg-gold-200 text-gold-900 font-bold">{compareList.length}</span>
+                  )}
+                  {currentRoute === 'compare' && <span className="absolute bottom-0 left-0 w-full h-[2px] bg-gold-500 rounded-full"></span>}
+                </button>
+
+                <button 
+                  onClick={() => setCurrentRoute('offers')}
+                  className={`relative py-1 hover:text-gold-700 transition ${currentRoute === 'offers' ? 'text-charcoal font-semibold' : 'text-slateMuted'}`}
+                >
+                  Privilege Offers
+                  {currentRoute === 'offers' && <span className="absolute bottom-0 left-0 w-full h-[2px] bg-gold-500 rounded-full"></span>}
+                </button>
+
+                <button 
+                  onClick={() => setCurrentRoute('about')}
+                  className={`relative py-1 hover:text-gold-700 transition ${currentRoute === 'about' ? 'text-charcoal font-semibold' : 'text-slateMuted'}`}
+                >
+                  Heritage &amp; Trust
+                  {currentRoute === 'about' && <span className="absolute bottom-0 left-0 w-full h-[2px] bg-gold-500 rounded-full"></span>}
+                </button>
+
+                <button 
+                  onClick={() => setCurrentRoute('contact')}
+                  className={`relative py-1 hover:text-gold-700 transition ${currentRoute === 'contact' ? 'text-charcoal font-semibold' : 'text-slateMuted'}`}
+                >
+                  Salons
+                  {currentRoute === 'contact' && <span className="absolute bottom-0 left-0 w-full h-[2px] bg-gold-500 rounded-full"></span>}
+                </button>
+              </nav>
+
+              {/* Utility Icons & CTA */}
+              <div className="flex items-center space-x-3 sm:space-x-5">
+                {/* Search trigger */}
+                <button 
+                  onClick={() => setIsSearchModalOpen(true)}
+                  aria-label="Search" 
+                  className="p-2 rounded-full text-slateMuted hover:text-charcoal hover:bg-gold-100/50 transition"
+                >
+                  <i data-lucide="search" className="w-5 h-5"></i>
+                </button>
+
+                {/* Wishlist count */}
+                <button 
+                  onClick={() => setCurrentRoute('wishlist')}
+                  aria-label="Wishlist" 
+                  className="relative p-2 rounded-full text-slateMuted hover:text-charcoal hover:bg-gold-100/50 transition"
+                >
+                  <i data-lucide="heart" className="w-5 h-5"></i>
+                  {wishlist.length > 0 && (
+                    <span className="absolute top-1 right-1 w-4 h-4 rounded-full bg-gold-500 text-white text-[10px] font-bold flex items-center justify-center shadow">
+                      {wishlist.length}
+                    </span>
+                  )}
+                </button>
+
+                {/* Shopping Bag Drawer Button */}
+                <button 
+                  onClick={() => setIsCartOpen(true)}
+                  aria-label="Cart" 
+                  className="relative flex items-center gap-2.5 px-3.5 py-2 rounded-full bg-charcoal text-white hover:bg-black transition shadow-gold-glow"
+                >
+                  <i data-lucide="shopping-bag" className="w-4 h-4 text-gold-400"></i>
+                  <span className="text-xs font-semibold tracking-wider hidden sm:inline">BAG</span>
+                  <span className="text-xs font-bold text-gold-300 bg-white/10 px-1.5 py-0.5 rounded-full">
+                    {cartCalculations.totalCount}
+                  </span>
+                </button>
+
+                {/* Mobile Hamburger toggle */}
+                <button 
+                  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                  className="lg:hidden p-2 text-charcoal hover:text-gold-700 focus:outline-none"
+                  aria-label="Menu"
+                >
+                  <i data-lucide={isMobileMenuOpen ? "x" : "menu"} className="w-6 h-6"></i>
+                </button>
+              </div>
+
+            </div>
+
+            {/* Mobile Drawer Navigation */}
+            {isMobileMenuOpen && (
+              <div className="lg:hidden bg-white/95 border-b border-gold-200 px-6 py-6 space-y-4 shadow-xl">
+                <div className="flex flex-col space-y-3 font-medium text-base">
+                  <button 
+                    onClick={() => { setCurrentRoute('home'); setIsMobileMenuOpen(false); }} 
+                    className="text-left py-2 border-b border-gold-100 flex justify-between items-center"
+                  >
+                    <span>Flagship Showroom</span>
+                    <i data-lucide="chevron-right" className="w-4 h-4 text-gold-500"></i>
+                  </button>
+                  <button 
+                    onClick={() => { setCategoryFilter('all'); setBrandFilter('All'); setCurrentRoute('shop'); setIsMobileMenuOpen(false); }} 
+                    className="text-left py-2 border-b border-gold-100 flex justify-between items-center"
+                  >
+                    <span>Browse All Phones</span>
+                    <i data-lucide="chevron-right" className="w-4 h-4 text-gold-500"></i>
+                  </button>
+                  <button 
+                    onClick={() => { setCurrentRoute('compare'); setIsMobileMenuOpen(false); }} 
+                    className="text-left py-2 border-b border-gold-100 flex justify-between items-center"
+                  >
+                    <span>Compare Matrix ({compareList.length})</span>
+                    <i data-lucide="chevron-right" className="w-4 h-4 text-gold-500"></i>
+                  </button>
+                  <button 
+                    onClick={() => { setCurrentRoute('offers'); setIsMobileMenuOpen(false); }} 
+                    className="text-left py-2 border-b border-gold-100 flex justify-between items-center"
+                  >
+                    <span>Indian Privilege Offers &amp; Bank EMI</span>
+                    <i data-lucide="chevron-right" className="w-4 h-4 text-gold-500"></i>
+                  </button>
+                  <button 
+                    onClick={() => { setCurrentRoute('about'); setIsMobileMenuOpen(false); }} 
+                    className="text-left py-2 border-b border-gold-100 flex justify-between items-center"
+                  >
+                    <span>Our Atelier Story &amp; Genuine GST</span>
+                    <i data-lucide="chevron-right" className="w-4 h-4 text-gold-500"></i>
+                  </button>
+                  <button 
+                    onClick={() => { setCurrentRoute('contact'); setIsMobileMenuOpen(false); }} 
+                    className="text-left py-2 flex justify-between items-center"
+                  >
+                    <span>Flagship Experience Centres</span>
+                    <i data-lucide="chevron-right" className="w-4 h-4 text-gold-500"></i>
+                  </button>
+                </div>
+                <div className="pt-4 border-t border-gold-200/70 flex gap-3">
+                  <a 
+                    href="https://wa.me/919876543210?text=Hello%20Aurum%20Concierge%20India,%20I%20am%20interested%20in%20a%20smartphone" 
+                    target="_blank" 
+                    rel="noreferrer"
+                    className="flex-1 bg-emerald-50 text-emerald-800 border border-emerald-300 py-2.5 rounded-lg text-center text-xs font-semibold flex items-center justify-center gap-2"
+                  >
+                    <i data-lucide="message-circle" className="w-4 h-4 text-emerald-600"></i>
+                    WhatsApp VIP
+                  </a>
+                  <a 
+                    href="tel:18002094321" 
+                    className="flex-1 bg-gold-100 text-gold-900 border border-gold-300 py-2.5 rounded-lg text-center text-xs font-semibold flex items-center justify-center gap-2"
+                  >
+                    <i data-lucide="phone" className="w-4 h-4 text-gold-700"></i>
+                    1800 209 AURUM
+                  </a>
+                </div>
+              </div>
+            )}
+          </header>
+
+          {/* MAIN VIEW ROUTING SWITCH */}
+          <main className="flex-1">
+            {currentRoute === 'home' && (
+              <HomeView 
+                onSelectProduct={viewProduct} 
+                onGoShop={(cat, b) => {
+                  if(cat) setCategoryFilter(cat);
+                  if(b) setBrandFilter(b);
+                  setCurrentRoute('shop');
+                }}
+                onAddToCart={addToCart}
+                wishlist={wishlist}
+                onToggleWishlist={toggleWishlist}
+                onToggleCompare={toggleCompare}
+                compareList={compareList}
+              />
+            )}
+
+            {currentRoute === 'shop' && (
+              <ShopView 
+                products={filteredProducts}
+                totalCount={PRODUCTS.length}
+                brandFilter={brandFilter}
+                setBrandFilter={setBrandFilter}
+                categoryFilter={categoryFilter}
+                setCategoryFilter={setCategoryFilter}
+                sortBy={sortBy}
+                setSortBy={setSortBy}
+                searchQuery={searchQuery}
+                setSearchQuery={setSearchQuery}
+                onSelectProduct={viewProduct}
+                onAddToCart={addToCart}
+                wishlist={wishlist}
+                onToggleWishlist={toggleWishlist}
+                onToggleCompare={toggleCompare}
+                compareList={compareList}
+              />
+            )}
+
+            {currentRoute === 'product' && (
+              <ProductDetailsView 
+                slug={selectedProductSlug}
+                onSelectProduct={viewProduct}
+                onAddToCart={addToCart}
+                onDirectBuy={(prod, clr, strg) => {
+                  addToCart(prod, clr, strg);
+                  setIsCartOpen(false);
+                  setIsCheckoutModalOpen(true);
+                }}
+                wishlist={wishlist}
+                onToggleWishlist={toggleWishlist}
+                compareList={compareList}
+                onToggleCompare={toggleCompare}
+                onBack={() => setCurrentRoute('shop')}
+              />
+            )}
+
+            {currentRoute === 'compare' && (
+              <CompareView 
+                compareList={compareList}
+                onRemoveCompare={(id) => setCompareList(compareList.filter(x => x !== id))}
+                onAddDeviceModal={() => { setCurrentRoute('shop'); }}
+                onAddToCart={addToCart}
+                onViewDetails={viewProduct}
+              />
+            )}
+
+            {currentRoute === 'wishlist' && (
+              <WishlistView 
+                wishlistIds={wishlist}
+                onSelectProduct={viewProduct}
+                onAddToCart={addToCart}
+                onToggleWishlist={toggleWishlist}
+                onGoShop={() => setCurrentRoute('shop')}
+              />
+            )}
+
+            {currentRoute === 'offers' && (
+              <OffersView onGoShop={() => setCurrentRoute('shop')} />
+            )}
+
+            {currentRoute === 'about' && (
+              <AboutView onVisitBoutique={() => setCurrentRoute('contact')} />
+            )}
+
+            {currentRoute === 'contact' && (
+              <ContactView />
+            )}
+          </main>
+
+          {/* 3. CART DRAWER OVERLAY */}
+          {isCartOpen && (
+            <div className="fixed inset-0 z-50 overflow-hidden bg-black/40 backdrop-blur-sm flex justify-end">
+              <div className="w-full max-w-md bg-white h-full shadow-2xl flex flex-col justify-between transform transition-transform duration-300">
+                {/* Header */}
+                <div className="p-6 border-b border-gold-200/80 flex items-center justify-between bg-ivory">
+                  <div className="flex items-center gap-2">
+                    <i data-lucide="shopping-bag" className="w-5 h-5 text-gold-600"></i>
+                    <h2 className="font-display font-semibold text-lg text-charcoal">Your Atelier Bag</h2>
+                    <span className="text-xs font-bold bg-gold-200 text-gold-900 px-2 py-0.5 rounded-full ml-1">
+                      {cartCalculations.totalCount}
+                    </span>
+                  </div>
+                  <button 
+                    onClick={() => setIsCartOpen(false)} 
+                    className="p-1 rounded-full text-slateMuted hover:text-charcoal hover:bg-gold-100"
+                  >
+                    <i data-lucide="x" className="w-5 h-5"></i>
+                  </button>
+                </div>
+
+                {/* Items List */}
+                <div className="flex-1 overflow-y-auto p-6 space-y-4">
+                  {cart.length === 0 ? (
+                    <div className="h-full flex flex-col items-center justify-center text-center py-12">
+                      <div className="w-16 h-16 rounded-full bg-gold-100 flex items-center justify-center text-gold-600 mb-4">
+                        <i data-lucide="shopping-bag" className="w-8 h-8"></i>
+                      </div>
+                      <h3 className="font-serif text-xl font-medium text-charcoal">Your bag is currently empty</h3>
+                      <p className="text-xs text-slateMuted mt-1 max-w-xs">Curate your next smartphone from our flagship collection of authentic Indian retail handsets.</p>
+                      <button 
+                        onClick={() => { setIsCartOpen(false); setCurrentRoute('shop'); }}
+                        className="mt-6 px-6 py-2.5 rounded-full gold-metallic-bg text-charcoal font-semibold text-xs tracking-wider uppercase shadow-gold-glow hover:opacity-90"
+                      >
+                        Explore Showroom
+                      </button>
+                    </div>
+                  ) : (
+                    cart.map((item, index) => {
+                      const prod = PRODUCTS.find(p => p.id === item.id);
+                      if (!prod) return null;
+                      return (
+                        <div key={`${item.id}-${index}`} className="flex gap-4 p-4 rounded-xl border border-gold-200 bg-white hover:border-gold-400 transition">
+                          <img 
+                            src={prod.images[0]} 
+                            alt={prod.model} 
+                            className="w-20 h-20 object-cover rounded-lg border border-gold-100 bg-ivory" 
+                          />
+                          <div className="flex-1 min-w-0">
+                            <span className="text-[10px] uppercase font-bold tracking-wider text-gold-700">{prod.brand}</span>
+                            <h4 className="font-medium text-sm text-charcoal truncate">{prod.model}</h4>
+                            <div className="text-xs text-slateMuted mt-0.5">
+                              <span>{item.selectedStorage}</span> • <span>{item.selectedColor}</span>
+                            </div>
+                            
+                            <div className="mt-2 flex items-center justify-between">
+                              <span className="font-serif font-bold text-sm text-charcoal">{formatINR(prod.price)}</span>
+                              
+                              <div className="flex items-center border border-gold-300 rounded-lg overflow-hidden bg-ivory">
+                                <button 
+                                  onClick={() => updateCartQty(index, -1)}
+                                  className="px-2 py-0.5 hover:bg-gold-200 text-charcoal text-xs"
+                                >
+                                  -
+                                </button>
+                                <span className="px-2.5 py-0.5 text-xs font-semibold">{item.quantity}</span>
+                                <button 
+                                  onClick={() => updateCartQty(index, 1)}
+                                  className="px-2 py-0.5 hover:bg-gold-200 text-charcoal text-xs"
+                                >
+                                  +
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                          <button 
+                            onClick={() => removeFromCart(index)}
+                            className="text-slateMuted hover:text-red-500 self-start p-1"
+                            title="Remove"
+                          >
+                            <i data-lucide="trash-2" className="w-4 h-4"></i>
+                          </button>
+                        </div>
+                      );
+                    })
+                  )}
+                </div>
+
+                {/* Footer and Checkout Button */}
+                {cart.length > 0 && (
+                  <div className="p-6 border-t border-gold-200 bg-ivory space-y-4">
+                    <div className="space-y-1.5 text-xs">
+                      <div className="flex justify-between text-slateMuted">
+                        <span>Original MRP Total</span>
+                        <span className="line-through">{formatINR(cartCalculations.totalMrp)}</span>
+                      </div>
+                      <div className="flex justify-between text-emerald-700 font-medium">
+                        <span>Atelier Privilege Savings</span>
+                        <span>- {formatINR(cartCalculations.totalSavings)}</span>
+                      </div>
+                      <div className="flex justify-between text-slateMuted">
+                        <span>Express Insured Transit</span>
+                        <span className="text-emerald-700 font-medium">Complimentary</span>
+                      </div>
+                      <div className="flex justify-between text-base font-bold text-charcoal pt-2 border-t border-gold-200/60 font-serif">
+                        <span>Payable Amount</span>
+                        <span className="text-gold-800">{formatINR(cartCalculations.finalAmount)}</span>
+                      </div>
+                      <p className="text-[10px] text-slateMuted text-center pt-1 italic">
+                        Includes GST invoice • 1-Year Official Brand India Warranty
+                      </p>
+                    </div>
+
+                    <button 
+                      onClick={() => {
+                        setIsCartOpen(false);
+                        setIsCheckoutModalOpen(true);
+                      }}
+                      className="w-full py-3.5 rounded-xl gold-metallic-bg text-charcoal font-bold text-sm tracking-widest uppercase shadow-gold-glow hover:opacity-95 flex items-center justify-center gap-2"
+                    >
+                      <i data-lucide="shield-check" className="w-4 h-4 text-charcoal"></i>
+                      Proceed to Secure Checkout
+                    </button>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+
+          {/* 4. MODAL: SEARCH OVERLAY WITH AUTOCOMPLETE */}
+          {isSearchModalOpen && (
+            <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-md flex items-start justify-center pt-20 px-4">
+              <div className="bg-white w-full max-w-2xl rounded-2xl shadow-2xl border border-gold-300 overflow-hidden">
+                <div className="p-4 border-b border-gold-100 flex items-center gap-3">
+                  <i data-lucide="search" className="w-5 h-5 text-gold-600"></i>
+                  <input 
+                    type="text" 
+                    placeholder="Search by model, brand, Snapdragon, Hasselblad, Titanium..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    autoFocus
+                    className="flex-1 text-base outline-none bg-transparent placeholder-slateMuted"
+                  />
+                  <button 
+                    onClick={() => setIsSearchModalOpen(false)}
+                    className="p-1 rounded-full text-slateMuted hover:text-charcoal"
+                  >
+                    <i data-lucide="x" className="w-5 h-5"></i>
+                  </button>
+                </div>
+
+                <div className="max-h-96 overflow-y-auto p-4 space-y-2">
+                  <div className="text-[11px] uppercase font-bold tracking-wider text-slateMuted px-2 mb-1">
+                    {searchQuery ? 'Matching Flagships' : 'Trending in India Showroom'}
+                  </div>
+                  {filteredProducts.slice(0, 5).map(prod => (
+                    <div 
+                      key={prod.id}
+                      onClick={() => {
+                        viewProduct(prod.slug);
+                        setIsSearchModalOpen(false);
+                      }}
+                      className="flex items-center gap-4 p-2.5 rounded-xl hover:bg-gold-50/70 cursor-pointer transition border border-transparent hover:border-gold-200"
+                    >
+                      <img src={prod.images[0]} alt={prod.model} className="w-12 h-12 object-cover rounded-lg bg-ivory" />
+                      <div className="flex-1 min-w-0">
+                        <div className="text-xs font-semibold text-gold-700 uppercase">{prod.brand}</div>
+                        <div className="text-sm font-medium text-charcoal">{prod.model}</div>
+                        <div className="text-xs text-slateMuted truncate">{prod.processor} • {prod.camera}</div>
+                      </div>
+                      <div className="text-right">
+                        <div className="font-serif font-bold text-sm text-charcoal">{formatINR(prod.price)}</div>
+                        <span className="text-[10px] text-emerald-600 font-semibold">In Stock</span>
+                      </div>
+                    </div>
+                  ))}
+                  
+                  {filteredProducts.length === 0 && (
+                    <div className="py-8 text-center text-sm text-slateMuted">
+                      No boutique handset matching "{searchQuery}". Try "Samsung", "iPhone", or "Titanium".
+                    </div>
+                  )}
+                </div>
+
+                <div className="p-3 bg-ivory border-t border-gold-100 flex justify-between items-center text-xs text-slateMuted">
+                  <span>Press <kbd className="px-1.5 py-0.5 bg-white border border-gray-300 rounded font-mono text-[10px]">ESC</kbd> to close</span>
+                  <button 
+                    onClick={() => {
+                      setCurrentRoute('shop');
+                      setIsSearchModalOpen(false);
+                    }}
+                    className="text-gold-700 font-medium hover:underline"
+                  >
+                    View all matching results →
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* 5. MODAL: DEMO CHECKOUT FLOW (INDIAN UX) */}
+          {isCheckoutModalOpen && (
+            <CheckoutModal 
+              cartCalculations={cartCalculations}
+              onClose={() => setIsCheckoutModalOpen(false)}
+              onSuccess={(orderData) => {
+                setCheckoutSuccessOrder(orderData);
+                setCart([]); // Clear cart
+              }}
+            />
+          )}
+
+          {/* 6. MODAL: SUCCESS STATE (GST / ORDER CONFIRMATION) */}
+          {checkoutSuccessOrder && (
+            <OrderSuccessModal 
+              order={checkoutSuccessOrder}
+              onClose={() => {
+                setCheckoutSuccessOrder(null);
+                setCurrentRoute('home');
+              }}
+            />
+          )}
+
+          {/* FLOATING WHATSAPP VIP CONCIERGE BUTTON */}
+          <aside aria-label="Customer Support Concierge" className="fixed bottom-6 left-6 z-40">
+            <a 
+              href="https://wa.me/919876543210?text=Namaste%20Aurum%20Concierge,%20I%20request%20guidance%20on%20purchasing%20a%20flagship%20smartphone"
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-3 bg-[#1A1814] text-white px-4 py-2.5 rounded-full shadow-2xl border border-gold-400/40 hover:scale-105 transition group"
+              title="Speak with Luxury Specialist"
+            >
+              <div className="w-7 h-7 rounded-full bg-emerald-500 flex items-center justify-center text-white">
+                <i data-lucide="message-circle" className="w-4 h-4"></i>
+              </div>
+              <div className="text-left hidden sm:block pr-1">
+                <div className="text-[10px] text-gold-300 uppercase font-semibold tracking-wider">Live Concierge</div>
+                <div className="text-xs font-medium text-white">WhatsApp Atelier VIP</div>
+              </div>
+            </a>
+          </aside>
+
+          {/* GLOBAL FOOTER */}
+          <Footer onNavigate={(route) => setCurrentRoute(route)} />
+
+        </div>
+      );
+    }
+
+    // ==========================================
+    // --- COMPONENT: 1. HOME VIEW PAGE ---
+    // ==========================================
+    function HomeView({ onSelectProduct, onGoShop, onAddToCart, wishlist, onToggleWishlist, onToggleCompare, compareList }) {
+      const featuredList = PRODUCTS.slice(0, 4);
+
+      return (
+        <div>
+          {/* A. HERO SECTION: Luxury Editorial Split Layout */}
+          <section className="relative overflow-hidden pt-8 pb-16 lg:pt-16 lg:pb-24 mesh-radial border-b border-gold-200/50">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                
+                {/* Hero Left: Value proposition & Indian Luxury Atelier ethos */}
+                <div className="lg:col-span-7 space-y-6">
+                  <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-gold-100 border border-gold-300 text-gold-900 text-xs font-semibold uppercase tracking-wider">
+                    <span className="w-1.5 h-1.5 rounded-full bg-gold-600"></span>
+                    India’s Pre-eminent Smartphone Curators
+                  </div>
+
+                  <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-normal text-charcoal leading-[1.12] tracking-tight">
+                    The Right Phone. <br />
+                    <span className="gold-gradient-text font-semibold italic">The Right Price.</span> <br />
+                    The Noble Choice.
+                  </h1>
+
+                  <p className="text-base sm:text-lg text-slateMuted font-light max-w-xl leading-relaxed">
+                    Step inside an authentic Indian retail sanctuary. Pristine factory-sealed flagships, transparent zero-gimmick pricing, 100% GST claim compliance, and white-glove hand delivery across 19,000+ Indian pincodes.
+                  </p>
+
+                  <div className="flex flex-wrap items-center gap-4 pt-3">
+                    <button 
+                      onClick={() => onGoShop('all', 'All')}
+                      className="px-8 py-4 rounded-full gold-metallic-bg text-charcoal font-semibold text-sm tracking-wider uppercase shadow-gold-glow hover:opacity-95 transition flex items-center gap-2 group"
+                    >
+                      <span>Explore Showcase</span>
+                      <i data-lucide="arrow-right" className="w-4 h-4 transform group-hover:translate-x-1 transition"></i>
+                    </button>
+
+                    <button 
+                      onClick={() => onGoShop('camera', 'All')}
+                      className="px-7 py-4 rounded-full border border-gold-300 bg-white/70 hover:bg-gold-50 text-charcoal font-medium text-sm tracking-wider transition flex items-center gap-2"
+                    >
+                      <i data-lucide="camera" className="w-4 h-4 text-gold-600"></i>
+                      <span>Studio Optics</span>
+                    </button>
+                  </div>
+
+                  {/* Micro reassurance badges */}
+                  <div className="pt-6 grid grid-cols-3 gap-4 border-t border-gold-200/60 max-w-lg text-xs">
+                    <div>
+                      <span className="block font-bold text-charcoal font-serif text-lg">100% Genuine</span>
+                      <span className="text-slateMuted text-[11px]">Brand India Warranty</span>
+                    </div>
+                    <div>
+                      <span className="block font-bold text-charcoal font-serif text-lg">GST Claim</span>
+                      <span className="text-slateMuted text-[11px]">Input Tax Credit Invoices</span>
+                    </div>
+                    <div>
+                      <span className="block font-bold text-charcoal font-serif text-lg">Instant EMI</span>
+                      <span className="text-slateMuted text-[11px]">HDFC, ICICI, Bajaj 0%</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Hero Right: Featured Phone Visual with spec chips */}
+                <div className="lg:col-span-5 relative flex justify-center">
+                  {/* Subtle golden halo background */}
+                  <div className="absolute -inset-4 bg-gradient-to-tr from-gold-300/30 to-gold-100/50 rounded-full blur-3xl -z-10"></div>
+                  
+                  <div className="relative w-full max-w-sm bg-white p-5 rounded-3xl border border-gold-300/80 shadow-gold-glow">
+                    <div className="relative overflow-hidden rounded-2xl bg-ivory aspect-[4/5] border border-gold-100">
+                      <img 
+                        src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?q=80&w=900&auto=format&fit=crop" 
+                        alt="Flagship Showcase" 
+                        className="w-full h-full object-cover object-center transform hover:scale-105 transition duration-700" 
+                      />
+                      <div className="absolute top-3 left-3 bg-charcoal/80 backdrop-blur text-gold-300 text-[10px] tracking-widest font-bold uppercase px-3 py-1 rounded-full">
+                        Atelier Crown Jewel
+                      </div>
+                    </div>
+
+                    {/* Floating Specification Pill (Left) */}
+                    <div className="absolute -left-6 top-1/4 bg-white/95 backdrop-blur border border-gold-300/70 rounded-2xl p-3 shadow-luxury flex items-center gap-3 hidden sm:flex">
+                      <div className="w-9 h-9 rounded-full bg-gold-100 flex items-center justify-center text-gold-700">
+                        <i data-lucide="cpu" className="w-4 h-4"></i>
+                      </div>
+                      <div className="pr-2">
+                        <span className="text-[10px] text-slateMuted uppercase block">Processor</span>
+                        <span className="text-xs font-bold text-charcoal">Apple A18 Pro (3nm)</span>
+                      </div>
+                    </div>
+
+                    {/* Floating Benefit Pill (Right) */}
+                    <div className="absolute -right-6 bottom-16 bg-white/95 backdrop-blur border border-gold-300/70 rounded-2xl p-3 shadow-luxury flex items-center gap-3 hidden sm:flex">
+                      <div className="w-9 h-9 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-700">
+                        <i data-lucide="zap" className="w-4 h-4"></i>
+                      </div>
+                      <div className="pr-2">
+                        <span className="text-[10px] text-slateMuted uppercase block">White Glove</span>
+                        <span className="text-xs font-bold text-charcoal">2-Hour Express Delivery</span>
+                      </div>
+                    </div>
+
+                    {/* Hero Phone Quick Info */}
+                    <div className="mt-4 flex items-center justify-between">
+                      <div>
+                        <h4 className="font-serif font-bold text-base text-charcoal">iPhone 16 Pro Max</h4>
+                        <p className="text-xs text-slateMuted">Desert Titanium • 256GB</p>
+                      </div>
+                      <button 
+                        onClick={() => onSelectProduct("apple-iphone-16-pro-max")}
+                        className="px-4 py-2 rounded-xl bg-charcoal text-gold-300 text-xs font-semibold hover:bg-black transition"
+                      >
+                        Inspect
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </section>
+
+          {/* B. TRUST / REASSURANCE RAIL */}
+          <section className="bg-white py-8 border-b border-gold-200/60">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 text-center">
+                
+                <div className="flex flex-col items-center space-y-2 p-2">
+                  <div className="w-10 h-10 rounded-full bg-gold-50 border border-gold-200 flex items-center justify-center text-gold-700">
+                    <i data-lucide="shield-check" className="w-5 h-5"></i>
+                  </div>
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-charcoal">100% Brand Sealed</h4>
+                  <p className="text-[11px] text-slateMuted">Direct official brand warranty</p>
+                </div>
+
+                <div className="flex flex-col items-center space-y-2 p-2">
+                  <div className="w-10 h-10 rounded-full bg-gold-50 border border-gold-200 flex items-center justify-center text-gold-700">
+                    <i data-lucide="receipt" className="w-5 h-5"></i>
+                  </div>
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-charcoal">GST Tax Invoice</h4>
+                  <p className="text-[11px] text-slateMuted">Input tax credit eligible</p>
+                </div>
+
+                <div className="flex flex-col items-center space-y-2 p-2">
+                  <div className="w-10 h-10 rounded-full bg-gold-50 border border-gold-200 flex items-center justify-center text-gold-700">
+                    <i data-lucide="credit-card" className="w-5 h-5"></i>
+                  </div>
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-charcoal">Instant 0% EMI</h4>
+                  <p className="text-[11px] text-slateMuted">Leading Indian banks support</p>
+                </div>
+
+                <div className="flex flex-col items-center space-y-2 p-2">
+                  <div className="w-10 h-10 rounded-full bg-gold-50 border border-gold-200 flex items-center justify-center text-gold-700">
+                    <i data-lucide="refresh-cw" className="w-5 h-5"></i>
+                  </div>
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-charcoal">7-Day Swap Policy</h4>
+                  <p className="text-[11px] text-slateMuted">Guaranteed hardware exchange</p>
+                </div>
+
+                <div className="flex flex-col items-center space-y-2 p-2">
+                  <div className="w-10 h-10 rounded-full bg-gold-50 border border-gold-200 flex items-center justify-center text-gold-700">
+                    <i data-lucide="truck" className="w-5 h-5"></i>
+                  </div>
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-charcoal">Insured Transit</h4>
+                  <p className="text-[11px] text-slateMuted">Same-day in Metro cities</p>
+                </div>
+
+                <div className="flex flex-col items-center space-y-2 p-2">
+                  <div className="w-10 h-10 rounded-full bg-gold-50 border border-gold-200 flex items-center justify-center text-gold-700">
+                    <i data-lucide="map-pin" className="w-5 h-5"></i>
+                  </div>
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-charcoal">Store Handover</h4>
+                  <p className="text-[11px] text-slateMuted">Bandra &amp; Indiranagar Salons</p>
+                </div>
+
+              </div>
+            </div>
+          </section>
+
+          {/* C. SHOP BY NEED: Interactive Visual Tiles */}
+          <section className="py-16 bg-ivory">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="flex flex-col md:flex-row md:items-end justify-between mb-10">
+                <div>
+                  <span className="text-gold-700 font-bold uppercase text-xs tracking-widest block mb-1">Tailored Navigation</span>
+                  <h2 className="font-serif text-3xl sm:text-4xl font-normal text-charcoal">Choose by Your Lifestyle Need</h2>
+                </div>
+                <button 
+                  onClick={() => onGoShop('all', 'All')} 
+                  className="mt-4 md:mt-0 text-sm font-semibold text-gold-800 hover:text-gold-600 flex items-center gap-1 group"
+                >
+                  View Complete Inventory <i data-lucide="chevron-right" className="w-4 h-4 transform group-hover:translate-x-1 transition"></i>
+                </button>
+              </div>
+
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                {CATEGORIES.map(cat => (
+                  <div 
+                    key={cat.id}
+                    onClick={() => onGoShop(cat.id, 'All')}
+                    className="group bg-white p-5 rounded-2xl border border-gold-200/80 hover:border-gold-500 shadow-sm hover:shadow-gold-soft cursor-pointer transition transform hover:-translate-y-1 text-center flex flex-col items-center justify-center"
+                  >
+                    <div className="w-12 h-12 rounded-2xl bg-gold-50 border border-gold-200 flex items-center justify-center text-gold-700 group-hover:gold-metallic-bg group-hover:text-charcoal transition mb-3">
+                      <i data-lucide={cat.icon} className="w-5 h-5"></i>
+                    </div>
+                    <h3 className="font-semibold text-sm text-charcoal group-hover:text-gold-800 transition">{cat.name}</h3>
+                    <p className="text-[11px] text-slateMuted mt-1 leading-tight">{cat.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* D. FEATURED PHONES SHOWCASE */}
+          <section className="py-16 bg-white border-y border-gold-200/50">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12">
+                <div>
+                  <span className="text-gold-700 font-bold uppercase text-xs tracking-widest block mb-1">Handpicked Flagships</span>
+                  <h2 className="font-serif text-3xl sm:text-4xl text-charcoal">The Prime Atelier Showcase</h2>
+                </div>
+                <p className="text-slateMuted text-xs sm:text-sm max-w-xs mt-2 sm:mt-0">
+                  Every handset is unactivated, sealed with tamper-proof security tags, and backed by Pan-India service.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                {featuredList.map(phone => (
+                  <ProductCard 
+                    key={phone.id}
+                    product={phone}
+                    onSelect={() => onSelectProduct(phone.slug)}
+                    onAddToCart={onAddToCart}
+                    isWishlisted={wishlist.includes(phone.id)}
+                    onToggleWishlist={() => onToggleWishlist(phone.id)}
+                    isCompared={compareList.includes(phone.id)}
+                    onToggleCompare={() => onToggleCompare(phone.id)}
+                  />
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* E. BRAND ATELIER WALL */}
+          <section className="py-16 bg-[#FDFBF7]">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+              <span className="text-gold-700 font-bold uppercase text-xs tracking-widest block mb-2">Authorized Showroom Partners</span>
+              <h2 className="font-serif text-3xl sm:text-4xl text-charcoal mb-4">Official Tier-1 Device Houses</h2>
+              <p className="text-slateMuted text-sm max-w-xl mx-auto mb-10">
+                Direct authorized retail allocation in India. Enjoy manufacturer warranty honored at thousands of authorized service points across the subcontinent.
+              </p>
+
+              <div className="flex flex-wrap items-center justify-center gap-4">
+                {BRANDS.map(brand => (
+                  <button 
+                    key={brand}
+                    onClick={() => onGoShop('all', brand)}
+                    className="px-6 py-3 rounded-2xl bg-white border border-gold-200 text-charcoal font-medium text-sm hover:border-gold-500 hover:shadow-gold-soft transition flex items-center gap-2 group"
+                  >
+                    <span>{brand}</span>
+                    <i data-lucide="arrow-up-right" className="w-3.5 h-3.5 text-gold-600 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition"></i>
+                  </button>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* F. INDIA PRIVILEGE FINANCE & EXCHANGE BANNER */}
+          <section className="py-16 bg-charcoal text-white relative overflow-hidden">
+            <div className="absolute right-0 top-0 bottom-0 w-1/3 bg-gold-500/10 blur-3xl -z-0"></div>
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div className="lg:col-span-8 space-y-4">
+                  <span className="px-3 py-1 rounded-full bg-gold-400/20 text-gold-300 text-xs font-semibold tracking-wider uppercase border border-gold-400/30">
+                    Privilege Smart Financing
+                  </span>
+                  <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal leading-tight text-white">
+                    Upgrade with Seamless <span className="text-gold-300 italic font-semibold">No-Cost EMI</span> &amp; Instant Exchange
+                  </h2>
+                  <p className="text-gray-300 text-sm sm:text-base max-w-2xl font-light">
+                    Enjoy up to 24 Months Zero Down Payment with HDFC, ICICI, SBI, and Axis Bank credit cards. Exchange your older smartphone for up to ₹52,000 doorstep valuation credit.
+                  </p>
+                  
+                  <div className="pt-2 flex flex-wrap gap-4 text-xs text-gold-200">
+                    <span className="flex items-center gap-1.5">
+                      <i data-lucide="check-circle" className="w-4 h-4 text-gold-400"></i> Zero Paperwork at Pincode Delivery
+                    </span>
+                    <span className="flex items-center gap-1.5">
+                      <i data-lucide="check-circle" className="w-4 h-4 text-gold-400"></i> Corporate &amp; GST ITC Billing Available
+                    </span>
+                    <span className="flex items-center gap-1.5">
+                      <i data-lucide="check-circle" className="w-4 h-4 text-gold-400"></i> Assured Buyback Value Program
+                    </span>
+                  </div>
+                </div>
+
+                <div className="lg:col-span-4 bg-white/5 border border-gold-400/30 backdrop-blur rounded-2xl p-6 text-center space-y-4">
+                  <span className="text-xs font-bold text-gold-300 uppercase tracking-widest">Exchange Calculator Demo</span>
+                  <h4 className="font-serif text-xl font-medium text-white">Have an older flagship?</h4>
+                  <p className="text-xs text-gray-300">Bring your iPhone 13, Galaxy S22 or OnePlus 10 to receive minimum guaranteed exchange value.</p>
+                  <button 
+                    onClick={() => onGoShop('all', 'All')}
+                    className="w-full py-3 rounded-xl gold-metallic-bg text-charcoal font-bold text-xs uppercase tracking-wider shadow-gold-glow hover:opacity-90"
+                  >
+                    Calculate Exchange Value
+                  </button>
+                  <span className="text-[10px] text-gray-400 block">*Static demonstration estimate. Condition assessed upon dispatch.</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* G. FLAGSHIP PHYSICAL SALONS (LOCAL TRUST SECTION) */}
+          <section className="py-16 bg-white border-b border-gold-200/60">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="text-center max-w-2xl mx-auto mb-12">
+                <span className="text-gold-700 font-bold uppercase text-xs tracking-widest block mb-1">Experiential Touchpoints</span>
+                <h2 className="font-serif text-3xl sm:text-4xl text-charcoal">Visit the AURUM Flagship Salons</h2>
+                <p className="text-slateMuted text-sm mt-2">
+                  Experience every flagship model in person with an espresso at our private tasting lounge.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {/* Mumbai Salon */}
+                <div className="p-6 rounded-2xl border border-gold-200 bg-ivory space-y-4 hover:border-gold-400 transition">
+                  <div className="flex items-start justify-between">
+                    <div>
+                      <span className="text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 bg-gold-200 text-gold-900 rounded">Mumbai Flagship</span>
+                      <h3 className="font-serif font-bold text-xl text-charcoal mt-1">AURUM Atelier • Bandra West</h3>
+                    </div>
+                    <span className="text-xs text-emerald-700 font-bold flex items-center gap-1">
+                      <span className="w-2 h-2 rounded-full bg-emerald-500"></span> Open Today till 9:30 PM
+                    </span>
+                  </div>
+
+                  <p className="text-xs text-slateMuted">
+                    402, Corner of Waterfield Road &amp; Hill Road, Bandra West, Mumbai, Maharashtra 400050.
+                  </p>
+
+                  <div className="flex flex-wrap gap-2 text-xs pt-2">
+                    <a 
+                      href="https://maps.google.com" 
+                      target="_blank" 
+                      rel="noreferrer"
+                      className="px-3.5 py-2 rounded-lg bg-white border border-gold-300 text-charcoal font-medium hover:bg-gold-50 flex items-center gap-1.5"
+                    >
+                      <i data-lucide="map" className="w-3.5 h-3.5 text-gold-700"></i> Get Directions
+                    </a>
+                    <a 
+                      href="tel:02269874500" 
+                      className="px-3.5 py-2 rounded-lg bg-white border border-gold-300 text-charcoal font-medium hover:bg-gold-50 flex items-center gap-1.5"
+                    >
+                      <i data-lucide="phone" className="w-3.5 h-3.5 text-gold-700"></i> 022 6987 4500
+                    </a>
+                    <a 
+                      href="https://wa.me/919876543210" 
+                      target="_blank" 
+                      rel="noreferrer"
+                      className="px-3.5 py-2 rounded-lg bg-emerald-50 border border-emerald-300 text-emerald-800 font-medium hover:bg-emerald-100 flex items-center gap-1.5"
+                    >
+                      <i data-lucide="message-circle" className="w-3.5 h-3.5 text-emerald-600"></i> WhatsApp Concierge
+                    </a>
+                  </div>
+                </div>
+
+                {/* Bengaluru Salon */}
+                <div className="p-6 rounded-2xl border border-gold-200 bg-ivory space-y-4 hover:border-gold-400 transition">
+                  <div className="flex items-start justify-between">
+                    <div>
+                      <span className="text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 bg-gold-200 text-gold-900 rounded">Bengaluru Flagship</span>
+                      <h3 className="font-serif font-bold text-xl text-charcoal mt-1">AURUM Pavilion • Indiranagar</h3>
+                    </div>
+                    <span className="text-xs text-emerald-700 font-bold flex items-center gap-1">
+                      <span className="w-2 h-2 rounded-full bg-emerald-500"></span> Open Today till 9:30 PM
+                    </span>
+                  </div>
+
+                  <p className="text-xs text-slateMuted">
+                    12th Main Road, HAL 2nd Stage, Indiranagar, Bengaluru, Karnataka 560038.
+                  </p>
+
+                  <div className="flex flex-wrap gap-2 text-xs pt-2">
+                    <a 
+                      href="https://maps.google.com" 
+                      target="_blank" 
+                      rel="noreferrer"
+                      className="px-3.5 py-2 rounded-lg bg-white border border-gold-300 text-charcoal font-medium hover:bg-gold-50 flex items-center gap-1.5"
+                    >
+                      <i data-lucide="map" className="w-3.5 h-3.5 text-gold-700"></i> Get Directions
+                    </a>
+                    <a 
+                      href="tel:08041238900" 
+                      className="px-3.5 py-2 rounded-lg bg-white border border-gold-300 text-charcoal font-medium hover:bg-gold-50 flex items-center gap-1.5"
+                    >
+                      <i data-lucide="phone" className="w-3.5 h-3.5 text-gold-700"></i> 080 4123 8900
+                    </a>
+                    <a 
+                      href="https://wa.me/919876543210" 
+                      target="_blank" 
+                      rel="noreferrer"
+                      className="px-3.5 py-2 rounded-lg bg-emerald-50 border border-emerald-300 text-emerald-800 font-medium hover:bg-emerald-100 flex items-center gap-1.5"
+                    >
+                      <i data-lucide="message-circle" className="w-3.5 h-3.5 text-emerald-600"></i> WhatsApp Concierge
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* H. INDIAN CUSTOMER PATRON TESTIMONIALS */}
+          <section className="py-16 bg-ivory">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="text-center max-w-xl mx-auto mb-10">
+                <span className="text-gold-700 font-bold uppercase text-xs tracking-widest block mb-1">Patron Voices</span>
+                <h2 className="font-serif text-3xl text-charcoal">Respected Across the Republic</h2>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="bg-white p-6 rounded-2xl border border-gold-200/80 shadow-sm space-y-3">
+                  <div className="flex text-gold-500">
+                    {"★".repeat(5)}
+                  </div>
+                  <p className="text-xs text-charcoal leading-relaxed italic">
+                    "Purchased the iPhone 16 Pro Max for our design firm in Gurugram. GST ITC invoice was provided instantly with valid QR code. Delivered in a pristine sealed box with velvet carrying bag. Superior to online marketplaces."
+                  </p>
+                  <div className="border-t border-gold-100 pt-3 flex items-center justify-between">
+                    <div>
+                      <div className="text-xs font-bold text-charcoal">Arjun Singhania</div>
+                      <div className="text-[10px] text-slateMuted">Singhania Studio, Gurugram</div>
+                    </div>
+                    <span className="text-[10px] bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded font-semibold">Verified Buyer</span>
+                  </div>
+                </div>
+
+                <div className="bg-white p-6 rounded-2xl border border-gold-200/80 shadow-sm space-y-3">
+                  <div className="flex text-gold-500">
+                    {"★".repeat(5)}
+                  </div>
+                  <p className="text-xs text-charcoal leading-relaxed italic">
+                    "Upgraded to the Galaxy S24 Ultra in Indiranagar showroom. The concierge helped transfer 120GB of data while offering fine filter coffee. True luxury retail experience in Bangalore."
+                  </p>
+                  <div className="border-t border-gold-100 pt-3 flex items-center justify-between">
+                    <div>
+                      <div className="text-xs font-bold text-charcoal">Pooja Kulkarni</div>
+                      <div className="text-[10px] text-slateMuted">Architect, Bengaluru</div>
+                    </div>
+                    <span className="text-[10px] bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded font-semibold">Verified Buyer</span>
+                  </div>
+                </div>
+
+                <div className="bg-white p-6 rounded-2xl border border-gold-200/80 shadow-sm space-y-3">
+                  <div className="flex text-gold-500">
+                    {"★".repeat(5)}
+                  </div>
+                  <p className="text-xs text-charcoal leading-relaxed italic">
+                    "No-Cost EMI on my HDFC card went through without a hitch. The phone was delivered within 3 hours to Malabar Hill, Mumbai. The packaging was immaculate."
+                  </p>
+                  <div className="border-t border-gold-100 pt-3 flex items-center justify-between">
+                    <div>
+                      <div className="text-xs font-bold text-charcoal">Rohit Mehta</div>
+                      <div className="text-[10px] text-slateMuted">Investment Banker, Mumbai</div>
+                    </div>
+                    <span className="text-[10px] bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded font-semibold">Verified Buyer</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      );
+    }
+
+    // ==========================================
+    // --- COMPONENT: 2. SHOP LISTING VIEW ---
+    // ==========================================
+    function ShopView({ 
+      products, 
+      totalCount, 
+      brandFilter, 
+      setBrandFilter, 
+      categoryFilter, 
+      setCategoryFilter, 
+      sortBy, 
+      setSortBy, 
+      searchQuery, 
+      setSearchQuery, 
+      onSelectProduct, 
+      onAddToCart, 
+      wishlist, 
+      onToggleWishlist, 
+      onToggleCompare, 
+      compareList 
+    }) {
+      const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
+
+      return (
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+          
+          {/* Breadcrumb & Header */}
+          <div className="mb-6">
+            <div className="flex items-center gap-2 text-xs text-slateMuted mb-2">
+              <span>Showroom</span>
+              <span>/</span>
+              <span className="text-gold-700 font-medium">All Curated Handsets</span>
+              {brandFilter !== "All" && <span>/ {brandFilter}</span>}
+            </div>
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+              <div>
+                <h1 className="font-serif text-3xl sm:text-4xl text-charcoal">The Fine Device Showcase</h1>
+                <p className="text-xs sm:text-sm text-slateMuted mt-1">
+                  Presenting {products.length} of {totalCount} authentic factory sealed flagship creations.
+                </p>
+              </div>
+
+              {/* Mobile Filter Toggle */}
+              <div className="flex items-center gap-3 lg:hidden">
+                <button 
+                  onClick={() => setIsMobileFilterOpen(true)}
+                  className="flex-1 py-2 px-4 rounded-xl border border-gold-300 bg-white text-xs font-semibold flex items-center justify-center gap-2"
+                >
+                  <i data-lucide="sliders-horizontal" className="w-4 h-4 text-gold-700"></i>
+                  Refine Filters
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Quick Category Chips Strip */}
+          <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-6 scrollbar-none">
+            {CATEGORIES.map(c => (
+              <button 
+                key={c.id}
+                onClick={() => setCategoryFilter(c.id)}
+                className={`px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap transition border ${
+                  categoryFilter === c.id 
+                    ? 'gold-metallic-bg text-charcoal border-gold-400 shadow-gold-soft' 
+                    : 'bg-white text-slateMuted border-gold-200 hover:border-gold-400'
+                }`}
+              >
+                {c.name}
+              </button>
+            ))}
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 items-start">
+            
+            {/* DESKTOP FILTER SIDEBAR */}
+            <aside className="hidden lg:block space-y-6 bg-white p-6 rounded-2xl border border-gold-200 shadow-sm sticky top-28">
+              <div className="flex items-center justify-between pb-4 border-b border-gold-100">
+                <h3 className="font-serif font-bold text-base text-charcoal">Filters</h3>
+                {(brandFilter !== 'All' || categoryFilter !== 'all' || searchQuery) && (
+                  <button 
+                    onClick={() => { setBrandFilter('All'); setCategoryFilter('all'); setSearchQuery(''); }}
+                    className="text-xs text-gold-700 hover:underline font-semibold"
+                  >
+                    Clear All
+                  </button>
+                )}
+              </div>
+
+              {/* Brand Filter */}
+              <div>
+                <label className="text-xs font-bold uppercase tracking-wider text-slateMuted block mb-3">Brand Atelier</label>
+                <div className="space-y-2">
+                  {BRANDS.map(b => (
+                    <button
+                      key={b}
+                      onClick={() => setBrandFilter(b)}
+                      className={`w-full text-left px-3 py-1.5 rounded-lg text-xs font-medium flex items-center justify-between transition ${
+                        brandFilter === b ? 'bg-gold-100 text-gold-900 font-bold' : 'text-slateMuted hover:bg-gold-50/50'
+                      }`}
+                    >
+                      <span>{b}</span>
+                      {brandFilter === b && <i data-lucide="check" className="w-3.5 h-3.5 text-gold-700"></i>}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Verified Reassurance Box */}
+              <div className="p-4 rounded-xl bg-ivory border border-gold-200/80 space-y-2 text-xs">
+                <div className="flex items-center gap-2 text-gold-800 font-bold">
+                  <i data-lucide="badge-check" className="w-4 h-4 text-gold-600"></i>
+                  Direct India Stock
+                </div>
+                <p className="text-slateMuted text-[11px] leading-relaxed">
+                  Zero grey-market units. Every unit carries authentic IMEI registered with Indian Telecommunications Authority.
+                </p>
+              </div>
+            </aside>
+
+            {/* PRODUCT GRID & SORT CONTROLS */}
+            <div className="lg:col-span-3 space-y-6">
+              
+              {/* Controls bar: Sort & active tags */}
+              <div className="bg-white p-4 rounded-2xl border border-gold-200/80 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div className="flex items-center gap-2 flex-wrap text-xs">
+                  <span className="text-slateMuted">Showing:</span>
+                  <span className="font-bold text-charcoal">{products.length} models</span>
+                  {brandFilter !== 'All' && (
+                    <span className="bg-gold-100 text-gold-900 px-2.5 py-1 rounded-full font-medium flex items-center gap-1">
+                      {brandFilter}
+                      <button onClick={() => setBrandFilter('All')}>×</button>
+                    </span>
+                  )}
+                  {searchQuery && (
+                    <span className="bg-gold-100 text-gold-900 px-2.5 py-1 rounded-full font-medium flex items-center gap-1">
+                      "{searchQuery}"
+                      <button onClick={() => setSearchQuery('')}>×</button>
+                    </span>
+                  )}
+                </div>
+
+                <div className="flex items-center gap-2 self-end sm:self-auto text-xs">
+                  <span className="text-slateMuted">Sort by:</span>
+                  <select 
+                    value={sortBy} 
+                    onChange={(e) => setSortBy(e.target.value)}
+                    className="bg-ivory border border-gold-300 rounded-lg px-3 py-1.5 text-xs text-charcoal font-medium outline-none cursor-pointer"
+                  >
+                    <option value="popular">Most Coveted</option>
+                    <option value="price-asc">Price: Low to High</option>
+                    <option value="price-desc">Price: High to Low</option>
+                    <option value="rating">Patron Rating</option>
+                  </select>
+                </div>
+              </div>
+
+              {/* Product Grid */}
+              {products.length === 0 ? (
+                <div className="bg-white rounded-2xl border border-gold-200 p-12 text-center space-y-4">
+                  <div className="w-16 h-16 rounded-full bg-gold-50 text-gold-600 flex items-center justify-center mx-auto">
+                    <i data-lucide="search-x" className="w-8 h-8"></i>
+                  </div>
+                  <h3 className="font-serif text-xl text-charcoal">No Handsets Match Your Criteria</h3>
+                  <p className="text-xs text-slateMuted max-w-sm mx-auto">
+                    We could not find any smartphone matching your current selections. Try clearing applied filters.
+                  </p>
+                  <button 
+                    onClick={() => { setBrandFilter('All'); setCategoryFilter('all'); setSearchQuery(''); }}
+                    className="px-6 py-2.5 rounded-full gold-metallic-bg text-charcoal font-bold text-xs uppercase shadow-gold-glow"
+                  >
+                    Reset All Filters
+                  </button>
+                </div>
+              ) : (
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {products.map(phone => (
+                    <ProductCard 
+                      key={phone.id}
+                      product={phone}
+                      onSelect={() => onSelectProduct(phone.slug)}
+                      onAddToCart={onAddToCart}
+                      isWishlisted={wishlist.includes(phone.id)}
+                      onToggleWishlist={() => onToggleWishlist(phone.id)}
+                      isCompared={compareList.includes(phone.id)}
+                      onToggleCompare={() => onToggleCompare(phone.id)}
+                    />
+                  ))}
+                </div>
+              )}
+            </div>
+
+          </div>
+
+          {/* MOBILE FILTER BOTTOM SHEET */}
+          {isMobileFilterOpen && (
+            <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex justify-end">
+              <div className="w-full max-w-xs bg-white h-full p-6 flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center justify-between pb-4 border-b border-gold-200">
+                    <h3 className="font-serif font-bold text-lg">Filter Atelier</h3>
+                    <button onClick={() => setIsMobileFilterOpen(false)}>
+                      <i data-lucide="x" className="w-5 h-5"></i>
+                    </button>
+                  </div>
+
+                  <div className="mt-6 space-y-4">
+                    <label className="text-xs font-bold uppercase tracking-wider text-slateMuted block">Brand</label>
+                    <div className="grid grid-cols-2 gap-2">
+                      {BRANDS.map(b => (
+                        <button 
+                          key={b}
+                          onClick={() => { setBrandFilter(b); setIsMobileFilterOpen(false); }}
+                          className={`p-2 rounded-lg text-xs font-medium border text-center ${brandFilter === b ? 'bg-gold-100 border-gold-400 font-bold' : 'border-gold-100 text-slateMuted'}`}
+                        >
+                          {b}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                <button 
+                  onClick={() => setIsMobileFilterOpen(false)}
+                  className="w-full py-3 rounded-xl gold-metallic-bg text-charcoal font-bold text-xs uppercase"
+                >
+                  Apply &amp; View Results
+                </button>
+              </div>
+            </div>
+          )}
+
+        </div>
+      );
+    }
+
+    // ==========================================
+    // --- COMPONENT: 3. LUXURY PRODUCT DETAIL ---
+    // ==========================================
+    function ProductDetailsView({ 
+      slug, 
+      onSelectProduct, 
+      onAddToCart, 
+      onDirectBuy, 
+      wishlist, 
+      onToggleWishlist, 
+      compareList, 
+      onToggleCompare, 
+      onBack 
+    }) {
+      const product = PRODUCTS.find(p => p.slug === slug) || PRODUCTS[0];
+      
+      const [activeImageIndex, setActiveImageIndex] = useState(0);
+      const [selectedColor, setSelectedColor] = useState(product.colors[0].name);
+      const [selectedStorage, setSelectedStorage] = useState(product.storageOptions[0]);
+      
+      // Pincode lookup simulator
+      const [pincode, setPincode] = useState("");
+      const [pincodeStatus, setPincodeStatus] = useState(null); // null | checking | { success, text }
+
+      // Tabs: 'specs' | 'offers' | 'box'
+      const [activeTab, setActiveTab] = useState('specs');
+
+      const handlePincodeCheck = (e) => {
+        e.preventDefault();
+        if (!pincode || pincode.length !== 6) {
+          setPincodeStatus({ success: false, text: "Please enter a valid 6-digit Indian PIN code." });
+          return;
+        }
+        setPincodeStatus("checking");
+        setTimeout(() => {
+          if (["110001", "400001", "560001", "500001", "600001", "700001", "400050", "560038"].includes(pincode)) {
+            setPincodeStatus({
+              success: true,
+              text: `Express VIP Delivery by Tomorrow, 4:00 PM to PIN ${pincode}. Store pickup available at Bandra / Indiranagar.`
+            });
+          } else {
+            setPincodeStatus({
+              success: true,
+              text: `Standard Insured Delivery within 2-3 business days to PIN ${pincode} via Bluedart Apex.`
+            });
+          }
+        }, 600);
+      };
+
+      const isWishlisted = wishlist.includes(product.id);
+      const isCompared = compareList.includes(product.id);
+
+      return (
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+          
+          {/* Breadcrumb Navigation */}
+          <div className="flex items-center gap-2 text-xs text-slateMuted mb-6">
+            <button onClick={onBack} className="hover:text-gold-700">← Back to Showcase</button>
+            <span>/</span>
+            <span>{product.brand}</span>
+            <span>/</span>
+            <span className="text-gold-800 font-semibold">{product.model}</span>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            {/* LEFT COLUMN: Gallery */}
+            <div className="lg:col-span-7 space-y-4">
+              <div className="relative aspect-square sm:aspect-[4/3] rounded-3xl bg-ivory border border-gold-200 overflow-hidden shadow-gold-soft flex items-center justify-center p-6">
+                <img 
+                  src={product.images[activeImageIndex] || product.images[0]} 
+                  alt={product.model} 
+                  className="max-h-full max-w-full object-contain transform hover:scale-110 transition duration-500" 
+                />
+                
+                {product.badge && (
+                  <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-charcoal text-gold-300 text-xs font-bold tracking-wider uppercase">
+                    {product.badge}
+                  </span>
+                )}
+
+                <div className="absolute top-4 right-4 flex flex-col gap-2">
+                  <button 
+                    onClick={() => onToggleWishlist(product.id)}
+                    className="p-2.5 rounded-full bg-white/90 backdrop-blur shadow hover:text-gold-600 transition"
+                  >
+                    <i data-lucide="heart" className={`w-5 h-5 ${isWishlisted ? 'fill-gold-500 text-gold-500' : 'text-charcoal'}`}></i>
+                  </button>
+                  <button 
+                    onClick={() => onToggleCompare(product.id)}
+                    className="p-2.5 rounded-full bg-white/90 backdrop-blur shadow hover:text-gold-600 transition"
+                  >
+                    <i data-lucide="columns" className={`w-5 h-5 ${isCompared ? 'text-gold-600' : 'text-charcoal'}`}></i>
+                  </button>
+                </div>
+              </div>
+
+              {/* Thumbnails */}
+              {product.images.length > 1 && (
+                <div className="flex gap-3 overflow-x-auto pb-2">
+                  {product.images.map((img, idx) => (
+                    <button 
+                      key={idx}
+                      onClick={() => setActiveImageIndex(idx)}
+                      className={`w-20 h-20 rounded-xl overflow-hidden border-2 bg-ivory p-1 transition ${
+                        activeImageIndex === idx ? 'border-gold-500 shadow-md' : 'border-gold-100 opacity-70 hover:opacity-100'
+                      }`}
+                    >
+                      <img src={img} alt="thumbnail" className="w-full h-full object-cover rounded-lg" />
+                    </button>
+                  ))}
+                </div>
+              )}
+
+              {/* Highlights Accordion & Specifications */}
+              <div className="pt-8">
+                <div className="flex border-b border-gold-200 gap-8 text-sm">
+                  <button 
+                    onClick={() => setActiveTab('specs')}
+                    className={`pb-3 font-semibold transition relative ${activeTab === 'specs' ? 'text-charcoal' : 'text-slateMuted'}`}
+                  >
+                    Atelier Specifications
+                    {activeTab === 'specs' && <span className="absolute bottom-0 left-0 w-full h-[2px] bg-gold-500"></span>}
+                  </button>
+
+                  <button 
+                    onClick={() => setActiveTab('offers')}
+                    className={`pb-3 font-semibold transition relative ${activeTab === 'offers' ? 'text-charcoal' : 'text-slateMuted'}`}
+                  >
+                    Bank &amp; GST Privileges
+                    {activeTab === 'offers' && <span className="absolute bottom-0 left-0 w-full h-[2px] bg-gold-500"></span>}
+                  </button>
+
+                  <button 
+                    onClick={() => setActiveTab('box')}
+                    className={`pb-3 font-semibold transition relative ${activeTab === 'box' ? 'text-charcoal' : 'text-slateMuted'}`}
+                  >
+                    In The Factory Box
+                    {activeTab === 'box' && <span className="absolute bottom-0 left-0 w-full h-[2px] bg-gold-500"></span>}
+                  </button>
+                </div>
+
+                <div className="py-6">
+                  {activeTab === 'specs' && (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+                      <div className="p-3 bg-white rounded-xl border border-gold-200/80">
+                        <span className="text-slateMuted block font-medium">Silicon Processor</span>
+                        <span className="font-semibold text-charcoal text-sm">{product.processor}</span>
+                      </div>
+                      <div className="p-3 bg-white rounded-xl border border-gold-200/80">
+                        <span className="text-slateMuted block font-medium">Display Canvas</span>
+                        <span className="font-semibold text-charcoal text-sm">{product.display}</span>
+                      </div>
+                      <div className="p-3 bg-white rounded-xl border border-gold-200/80">
+                        <span className="text-slateMuted block font-medium">Optics &amp; Sensors</span>
+                        <span className="font-semibold text-charcoal text-sm">{product.camera}</span>
+                      </div>
+                      <div className="p-3 bg-white rounded-xl border border-gold-200/80">
+                        <span className="text-slateMuted block font-medium">Battery &amp; Charging</span>
+                        <span className="font-semibold text-charcoal text-sm">{product.battery} • {product.charging}</span>
+                      </div>
+                      <div className="p-3 bg-white rounded-xl border border-gold-200/80">
+                        <span className="text-slateMuted block font-medium">Operating System</span>
+                        <span className="font-semibold text-charcoal text-sm">{product.os}</span>
+                      </div>
+                      <div className="p-3 bg-white rounded-xl border border-gold-200/80">
+                        <span className="text-slateMuted block font-medium">India Network Bands</span>
+                        <span className="font-semibold text-charcoal text-sm">{product.network}</span>
+                      </div>
+                    </div>
+                  )}
+
+                  {activeTab === 'offers' && (
+                    <div className="space-y-3 text-xs">
+                      <div className="p-3.5 bg-gold-50 rounded-xl border border-gold-200 flex items-start gap-3">
+                        <i data-lucide="tag" className="w-5 h-5 text-gold-700 flex-shrink-0 mt-0.5"></i>
+                        <div>
+                          <span className="font-bold text-gold-900 block">HDFC &amp; ICICI Bank Credit Card Instant Rebate</span>
+                          <span className="text-slateMuted">Flat ₹5,000 instant reduction on 6, 9 &amp; 12 months No-Cost EMI tenures.</span>
+                        </div>
+                      </div>
+                      <div className="p-3.5 bg-gold-50 rounded-xl border border-gold-200 flex items-start gap-3">
+                        <i data-lucide="building" className="w-5 h-5 text-gold-700 flex-shrink-0 mt-0.5"></i>
+                        <div>
+                          <span className="font-bold text-gold-900 block">GST Input Tax Credit (ITC) of 18%</span>
+                          <span className="text-slateMuted">Save up to {formatINR(Math.round(product.price * 0.18))} for registered businesses with valid GSTIN.</span>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {activeTab === 'box' && (
+                    <div className="p-4 bg-white rounded-xl border border-gold-200 text-xs space-y-2 text-slateMuted">
+                      <p>✓ 1x Authentic Factory Sealed Handset ({product.model})</p>
+                      <p>✓ 1x Braided USB-C Power Delivery Cable</p>
+                      <p>✓ 1x Official India Warranty Card &amp; Regulatory Booklet</p>
+                      <p>✓ 1x SIM Ejector Pin</p>
+                      <p className="text-gold-700 font-semibold pt-1">★ Complimentary AURUM Suede Cleaning Cloth &amp; VIP Concierge Pass</p>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+
+            {/* RIGHT COLUMN: Sticky Selection & Action Panel */}
+            <div className="lg:col-span-5 space-y-6">
+              <div className="bg-white p-6 sm:p-8 rounded-3xl border border-gold-200 shadow-sm space-y-6">
+                
+                {/* Brand & Title */}
+                <div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-bold uppercase tracking-widest text-gold-700">{product.brand}</span>
+                    <div className="flex items-center gap-1 text-xs font-semibold text-charcoal">
+                      <span className="text-gold-500">★</span>
+                      <span>{product.rating}</span>
+                      <span className="text-slateMuted">({product.reviewsCount} reviews)</span>
+                    </div>
+                  </div>
+                  <h1 className="font-serif text-2xl sm:text-3xl text-charcoal mt-1">{product.model}</h1>
+                </div>
+
+                {/* Price Display */}
+                <div className="p-4 rounded-2xl bg-ivory border border-gold-200/80">
+                  <div className="flex items-baseline gap-3">
+                    <span className="font-serif text-3xl font-bold text-charcoal">{formatINR(product.price)}</span>
+                    <span className="text-sm text-slateMuted line-through">{formatINR(product.mrp)}</span>
+                    <span className="text-xs font-bold px-2 py-0.5 rounded bg-emerald-100 text-emerald-800">
+                      Save {formatINR(product.mrp - product.price)}
+                    </span>
+                  </div>
+                  <p className="text-[11px] text-gold-800 font-medium mt-1">
+                    {product.emiText}
+                  </p>
+                </div>
+
+                {/* Color Selector */}
+                <div>
+                  <label className="text-xs font-bold uppercase tracking-wider text-slateMuted block mb-2">
+                    Finish: <span className="text-charcoal font-semibold">{selectedColor}</span>
+                  </label>
+                  <div className="flex gap-3">
+                    {product.colors.map(color => (
+                      <button 
+                        key={color.name}
+                        onClick={() => setSelectedColor(color.name)}
+                        className={`w-9 h-9 rounded-full border-2 flex items-center justify-center transition ${
+                          selectedColor === color.name ? 'border-gold-600 scale-110 shadow-md' : 'border-transparent'
+                        }`}
+                        title={color.name}
+                      >
+                        <span className="w-7 h-7 rounded-full shadow-inner" style={{ backgroundColor: color.hex }}></span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Storage Selector */}
+                <div>
+                  <label className="text-xs font-bold uppercase tracking-wider text-slateMuted block mb-2">
+                    Storage Capacity
+                  </label>
+                  <div className="grid grid-cols-3 gap-2">
+                    {product.storageOptions.map(storage => (
+                      <button 
+                        key={storage}
+                        onClick={() => setSelectedStorage(storage)}
+                        className={`py-2 rounded-xl text-xs font-bold border transition ${
+                          selectedStorage === storage 
+                            ? 'gold-metallic-bg text-charcoal border-gold-500 shadow-sm' 
+                            : 'bg-white border-gold-200 text-slateMuted hover:border-gold-400'
+                        }`}
+                      >
+                        {storage}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Indian Pincode Delivery Check */}
+                <div className="pt-2 border-t border-gold-100">
+                  <label className="text-xs font-bold text-slateMuted block mb-2">
+                    Check Transit Time to Your Pincode
+                  </label>
+                  <form onSubmit={handlePincodeCheck} className="flex gap-2">
+                    <input 
+                      type="text" 
+                      maxLength="6"
+                      placeholder="e.g. 400050 or 560038"
+                      value={pincode}
+                      onChange={(e) => setPincode(e.target.value.replace(/\D/g, ''))}
+                      className="flex-1 px-3.5 py-2 rounded-xl border border-gold-300 text-xs outline-none bg-ivory focus:bg-white"
+                    />
+                    <button 
+                      type="submit"
+                      className="px-4 py-2 rounded-xl bg-charcoal text-white text-xs font-semibold hover:bg-black transition"
+                    >
+                      Verify
+                    </button>
+                  </form>
+
+                  {pincodeStatus === "checking" && (
+                    <p className="text-[11px] text-slateMuted mt-2 animate-pulse">Consulting Bluedart Apex courier logistics...</p>
+                  )}
+
+                  {pincodeStatus && pincodeStatus !== "checking" && (
+                    <div className={`mt-2.5 p-3 rounded-xl text-xs flex items-start gap-2 ${
+                      pincodeStatus.success ? 'bg-emerald-50 text-emerald-800 border border-emerald-200' : 'bg-red-50 text-red-800 border border-red-200'
+                    }`}>
+                      <i data-lucide={pincodeStatus.success ? "check-circle" : "alert-circle"} className="w-4 h-4 mt-0.5 flex-shrink-0"></i>
+                      <span>{pincodeStatus.text}</span>
+                    </div>
+                  )}
+                </div>
+
+                {/* CTAs */}
+                <div className="space-y-3 pt-2">
+                  <button 
+                    onClick={() => onAddToCart(product, selectedColor, selectedStorage)}
+                    className="w-full py-4 rounded-2xl gold-metallic-bg text-charcoal font-bold text-sm tracking-wider uppercase shadow-gold-glow hover:opacity-90 flex items-center justify-center gap-2"
+                  >
+                    <i data-lucide="shopping-bag" className="w-4 h-4"></i>
+                    Add to Bag
+                  </button>
+
+                  <button 
+                    onClick={() => onDirectBuy(product, selectedColor, selectedStorage)}
+                    className="w-full py-3.5 rounded-2xl bg-charcoal text-white font-semibold text-xs tracking-wider uppercase hover:bg-black transition flex items-center justify-center gap-2"
+                  >
+                    <i data-lucide="zap" className="w-4 h-4 text-gold-400"></i>
+                    Express VIP Checkout
+                  </button>
+                </div>
+
+                {/* Assurances micro-strip */}
+                <div className="grid grid-cols-2 gap-2 text-[11px] text-slateMuted pt-2">
+                  <div className="flex items-center gap-1.5">
+                    <i data-lucide="check" className="w-3.5 h-3.5 text-gold-600"></i>
+                    <span>Brand sealed box</span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <i data-lucide="check" className="w-3.5 h-3.5 text-gold-600"></i>
+                    <span>1-Year India Warranty</span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <i data-lucide="check" className="w-3.5 h-3.5 text-gold-600"></i>
+                    <span>GST Bill included</span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <i data-lucide="check" className="w-3.5 h-3.5 text-gold-600"></i>
+                    <span>Free doorstep returns</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      );
+    }
+
+    // ==========================================
+    // --- COMPONENT: 4. COMPARE FLOW VIEW ---
+    // ==========================================
+    function CompareView({ compareList, onRemoveCompare, onAddDeviceModal, onAddToCart, onViewDetails }) {
+      const comparedPhones = useMemo(() => {
+        return compareList.map(id => PRODUCTS.find(p => p.id === id)).filter(Boolean);
+      }, [compareList]);
+
+      return (
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
+            <div>
+              <span className="text-gold-700 font-bold uppercase text-xs tracking-widest block mb-1">Matrix Studio</span>
+              <h1 className="font-serif text-3xl sm:text-4xl text-charcoal">Side-by-Side Comparison</h1>
+              <p className="text-xs sm:text-sm text-slateMuted mt-1">
+                Scrutinize technical specifications, silicon architecture, camera systems, and INR pricing.
+              </p>
+            </div>
+
+            {comparedPhones.length < 3 && (
+              <button 
+                onClick={onAddDeviceModal}
+                className="px-5 py-2.5 rounded-full gold-metallic-bg text-charcoal font-bold text-xs uppercase tracking-wider shadow-gold-glow flex items-center gap-2"
+              >
+                <i data-lucide="plus" className="w-4 h-4"></i> Add Another Device
+              </button>
+            )}
+          </div>
+
+          {comparedPhones.length === 0 ? (
+            <div className="bg-white rounded-3xl border border-gold-200 p-12 text-center max-w-lg mx-auto space-y-4">
+              <div className="w-16 h-16 rounded-full bg-gold-50 text-gold-600 flex items-center justify-center mx-auto">
+                <i data-lucide="columns" className="w-8 h-8"></i>
+              </div>
+              <h3 className="font-serif text-xl font-medium">Comparison deck is clear</h3>
+              <p className="text-xs text-slateMuted">
+                Select 2 or 3 smartphones from our showroom to examine side-by-side differences.
+              </p>
+              <button 
+                onClick={onAddDeviceModal}
+                className="px-6 py-2.5 rounded-full gold-metallic-bg text-charcoal font-bold text-xs uppercase"
+              >
+                Browse Collection
+              </button>
+            </div>
+          ) : (
+            <div className="bg-white rounded-3xl border border-gold-200 overflow-x-auto shadow-sm">
+              <table className="w-full text-left text-xs border-collapse min-w-[700px]">
+                <thead>
+                  <tr className="border-b border-gold-200 bg-ivory">
+                    <th className="p-6 w-1/4 font-serif font-bold text-sm text-charcoal">Handset Model</th>
+                    {comparedPhones.map(phone => (
+                      <th key={phone.id} className="p-6 w-1/4 align-top">
+                        <div className="space-y-3">
+                          <div className="relative aspect-square w-28 bg-white rounded-xl border border-gold-200 p-2 mx-auto">
+                            <img src={phone.images[0]} alt={phone.model} className="w-full h-full object-contain" />
+                            <button 
+                              onClick={() => onRemoveCompare(phone.id)}
+                              className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-charcoal text-white flex items-center justify-center text-xs hover:bg-red-600"
+                              title="Remove"
+                            >
+                              ×
+                            </button>
+                          </div>
+
+                          <div className="text-center">
+                            <span className="text-[10px] font-bold text-gold-700 uppercase tracking-wider">{phone.brand}</span>
+                            <h4 className="font-serif font-bold text-sm text-charcoal">{phone.model}</h4>
+                            <div className="font-serif text-base font-bold text-gold-800 mt-1">{formatINR(phone.price)}</div>
+                          </div>
+
+                          <div className="flex gap-2 justify-center">
+                            <button 
+                              onClick={() => onAddToCart(phone)}
+                              className="px-3 py-1.5 rounded-lg gold-metallic-bg text-charcoal text-[11px] font-bold"
+                            >
+                              Add to Bag
+                            </button>
+                            <button 
+                              onClick={() => onViewDetails(phone.slug)}
+                              className="px-3 py-1.5 rounded-lg border border-gold-300 text-charcoal text-[11px] font-medium hover:bg-gold-50"
+                            >
+                              Details
+                            </button>
+                          </div>
+                        </div>
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gold-100">
+                  <tr>
+                    <td className="p-4 font-semibold text-charcoal bg-gold-50/40">Category / Aura</td>
+                    {comparedPhones.map(phone => (
+                      <td key={phone.id} className="p-4 text-charcoal font-medium">
+                        <span className="px-2.5 py-1 rounded bg-gold-100 text-gold-900 font-bold text-[11px]">
+                          {phone.badge || phone.category}
+                        </span>
+                      </td>
+                    ))}
+                  </tr>
+                  <tr>
+                    <td className="p-4 font-semibold text-charcoal bg-gold-50/40">Silicon Processor</td>
+                    {comparedPhones.map(phone => (
+                      <td key={phone.id} className="p-4 font-semibold text-charcoal">
+                        {phone.processor}
+                      </td>
+                    ))}
+                  </tr>
+                  <tr>
+                    <td className="p-4 font-semibold text-charcoal bg-gold-50/40">Display &amp; Refresh</td>
+                    {comparedPhones.map(phone => (
+                      <td key={phone.id} className="p-4 text-slateMuted">
+                        {phone.display}
+                      </td>
+                    ))}
+                  </tr>
+                  <tr>
+                    <td className="p-4 font-semibold text-charcoal bg-gold-50/40">Camera Architecture</td>
+                    {comparedPhones.map(phone => (
+                      <td key={phone.id} className="p-4 text-slateMuted">
+                        {phone.camera}
+                      </td>
+                    ))}
+                  </tr>
+                  <tr>
+                    <td className="p-4 font-semibold text-charcoal bg-gold-50/40">Battery &amp; Fast Charge</td>
+                    {comparedPhones.map(phone => (
+                      <td key={phone.id} className="p-4 text-slateMuted">
+                        {phone.battery} • {phone.charging}
+                      </td>
+                    ))}
+                  </tr>
+                  <tr>
+                    <td className="p-4 font-semibold text-charcoal bg-gold-50/40">Software &amp; OS</td>
+                    {comparedPhones.map(phone => (
+                      <td key={phone.id} className="p-4 text-slateMuted">
+                        {phone.os}
+                      </td>
+                    ))}
+                  </tr>
+                  <tr>
+                    <td className="p-4 font-semibold text-charcoal bg-gold-50/40">Patron Satisfaction</td>
+                    {comparedPhones.map(phone => (
+                      <td key={phone.id} className="p-4 font-bold text-charcoal">
+                        ★ {phone.rating} / 5.0 ({phone.reviewsCount} verified reviews)
+                      </td>
+                    ))}
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          )}
+        </div>
+      );
+    }
+
+    // ==========================================
+    // --- COMPONENT: 5. WISHLIST VIEW ---
+    // ==========================================
+    function WishlistView({ wishlistIds, onSelectProduct, onAddToCart, onToggleWishlist, onGoShop }) {
+      const wishlistedPhones = PRODUCTS.filter(p => wishlistIds.includes(p.id));
+
+      return (
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+          <div className="mb-8">
+            <span className="text-gold-700 font-bold uppercase text-xs tracking-widest block mb-1">Private Sanctuary</span>
+            <h1 className="font-serif text-3xl sm:text-4xl text-charcoal">Your Saved Wishlist</h1>
+            <p className="text-xs sm:text-sm text-slateMuted mt-1">
+              Devices you have set aside for special celebration or upcoming festivals.
+            </p>
+          </div>
+
+          {wishlistedPhones.length === 0 ? (
+            <div className="bg-white rounded-3xl border border-gold-200 p-12 text-center max-w-md mx-auto space-y-4">
+              <div className="w-16 h-16 rounded-full bg-gold-50 text-gold-600 flex items-center justify-center mx-auto">
+                <i data-lucide="heart" className="w-8 h-8"></i>
+              </div>
+              <h3 className="font-serif text-xl font-medium">Your sanctuary is pristine</h3>
+              <p className="text-xs text-slateMuted">
+                Save phones while exploring the collection by clicking the heart token.
+              </p>
+              <button 
+                onClick={onGoShop}
+                className="px-6 py-2.5 rounded-full gold-metallic-bg text-charcoal font-bold text-xs uppercase"
+              >
+                Browse Handsets
+              </button>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {wishlistedPhones.map(phone => (
+                <div key={phone.id} className="bg-white rounded-2xl border border-gold-200 p-4 space-y-3 relative">
+                  <button 
+                    onClick={() => onToggleWishlist(phone.id)}
+                    className="absolute top-3 right-3 text-red-500 hover:scale-110 p-1"
+                    title="Remove from saved"
+                  >
+                    <i data-lucide="trash-2" className="w-4 h-4"></i>
+                  </button>
+                  <img src={phone.images[0]} alt={phone.model} className="w-full aspect-square object-contain bg-ivory rounded-xl p-2" />
+                  <div>
+                    <span className="text-[10px] font-bold text-gold-700 uppercase">{phone.brand}</span>
+                    <h4 className="font-serif font-bold text-sm text-charcoal">{phone.model}</h4>
+                    <div className="font-serif text-base font-bold text-gold-800 mt-1">{formatINR(phone.price)}</div>
+                  </div>
+                  <div className="flex gap-2 pt-2">
+                    <button 
+                      onClick={() => onAddToCart(phone)}
+                      className="flex-1 py-2 rounded-xl gold-metallic-bg text-charcoal text-xs font-bold shadow-sm"
+                    >
+                      Move to Bag
+                    </button>
+                    <button 
+                      onClick={() => onSelectProduct(phone.slug)}
+                      className="px-3 py-2 rounded-xl border border-gold-300 text-charcoal text-xs font-medium hover:bg-gold-50"
+                    >
+                      View
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      );
+    }
+
+    // ==========================================
+    // --- COMPONENT: 6. OFFERS & PRIVILEGES ---
+    // ==========================================
+    function OffersView({ onGoShop }) {
+      return (
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12">
+          <div className="text-center max-w-2xl mx-auto">
+            <span className="text-gold-700 font-bold uppercase text-xs tracking-widest block mb-1">Financial Privileges</span>
+            <h1 className="font-serif text-3xl sm:text-4xl text-charcoal">Indian Bank &amp; Institutional Offers</h1>
+            <p className="text-xs sm:text-sm text-slateMuted mt-2">
+              Transparent, verified banking concessions curated in official collaboration with India’s leading financial institutions.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="bg-white p-6 rounded-3xl border border-gold-300 shadow-sm space-y-4">
+              <div className="w-12 h-12 rounded-2xl bg-blue-50 border border-blue-200 text-blue-800 flex items-center justify-center font-bold font-serif">
+                HDFC
+              </div>
+              <h3 className="font-serif font-bold text-lg text-charcoal">HDFC Bank SmartEMI</h3>
+              <p className="text-xs text-slateMuted leading-relaxed">
+                Up to ₹6,000 instant reduction on HDFC Bank Credit Cards &amp; EasyEMI on 6, 9 &amp; 12-month tenures. Zero processing fee.
+              </p>
+              <div className="pt-2 text-xs font-bold text-gold-800">Available on Apple &amp; Samsung</div>
+            </div>
+
+            <div className="bg-white p-6 rounded-3xl border border-gold-300 shadow-sm space-y-4">
+              <div className="w-12 h-12 rounded-2xl bg-red-50 border border-red-200 text-red-800 flex items-center justify-center font-bold font-serif">
+                ICICI
+              </div>
+              <h3 className="font-serif font-bold text-lg text-charcoal">ICICI Coral / Rubyx Rebate</h3>
+              <p className="text-xs text-slateMuted leading-relaxed">
+                Flat 10% instant rebate up to ₹5,000 on flagship models above ₹40,000. Valid across both physical salons and online order.
+              </p>
+              <div className="pt-2 text-xs font-bold text-gold-800">Valid on OnePlus, vivo, Nothing</div>
+            </div>
+
+            <div className="bg-white p-6 rounded-3xl border border-gold-300 shadow-sm space-y-4">
+              <div className="w-12 h-12 rounded-2xl bg-gold-100 border border-gold-300 text-gold-900 flex items-center justify-center font-bold font-serif">
+                GST
+              </div>
+              <h3 className="font-serif font-bold text-lg text-charcoal">GST Corporate Input Tax Credit</h3>
+              <p className="text-xs text-slateMuted leading-relaxed">
+                Furnish your company GSTIN during checkout to offset 18% GST against your enterprise tax liability. Fully e-invoiced.
+              </p>
+              <div className="pt-2 text-xs font-bold text-gold-800">Save up to ₹25,000 on Flagships</div>
+            </div>
+          </div>
+
+          <div className="bg-ivory rounded-3xl border border-gold-200 p-8 text-center space-y-4 max-w-xl mx-auto">
+            <h3 className="font-serif text-xl font-medium text-charcoal">Ready to claim your privilege?</h3>
+            <p className="text-xs text-slateMuted">Offers are applied directly during online bag checkout or physically at our Bandra and Indiranagar showrooms.</p>
+            <button 
+              onClick={onGoShop}
+              className="px-8 py-3 rounded-full gold-metallic-bg text-charcoal font-bold text-xs uppercase tracking-wider shadow-gold-glow"
+            >
+              Explore Collection Now
+            </button>
+          </div>
+        </div>
+      );
+    }
+
+    // ==========================================
+    // --- COMPONENT: 7. ABOUT VIEW ---
+    // ==========================================
+    function AboutView({ onVisitBoutique }) {
+      return (
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-16">
+          <div className="max-w-3xl mx-auto text-center space-y-4">
+            <span className="text-gold-700 font-bold uppercase text-xs tracking-widest block">The AURUM Heritage</span>
+            <h1 className="font-serif text-4xl sm:text-5xl text-charcoal leading-tight">
+              Honoring India’s Discerning Smartphone Patrons
+            </h1>
+            <p className="text-base text-slateMuted font-light leading-relaxed">
+              Founded on the belief that acquiring a flagship mobile device should feel as refined as commissioning fine jewelry or haute horlogerie.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-white p-8 rounded-3xl border border-gold-200 space-y-3">
+              <span className="font-display font-bold text-2xl text-gold-600">01</span>
+              <h3 className="font-serif font-bold text-lg text-charcoal">Absolute Authenticity</h3>
+              <p className="text-xs text-slateMuted leading-relaxed">
+                Every unit in our inventory is sourced solely from official Indian brand distribution. No refurbs, no grey imports, zero repackaging.
+              </p>
+            </div>
+
+            <div className="bg-white p-8 rounded-3xl border border-gold-200 space-y-3">
+              <span className="font-display font-bold text-2xl text-gold-600">02</span>
+              <h3 className="font-serif font-bold text-lg text-charcoal">Transparent Pricing</h3>
+              <p className="text-xs text-slateMuted leading-relaxed">
+                We despise hidden fee markups and bait-and-switch flash sales. What you see is the absolute final invoice figure inclusive of all statutory levies.
+              </p>
+            </div>
+
+            <div className="bg-white p-8 rounded-3xl border border-gold-200 space-y-3">
+              <span className="font-display font-bold text-2xl text-gold-600">03</span>
+              <h3 className="font-serif font-bold text-lg text-charcoal">White-Glove Delivery</h3>
+              <p className="text-xs text-slateMuted leading-relaxed">
+                Hand-delivered by trained AURUM couriers in tamper-proof metallic seals, with complimentary device data migration upon request.
+              </p>
+            </div>
+          </div>
+
+          <div className="bg-charcoal text-white rounded-3xl p-8 sm:p-12 flex flex-col md:flex-row items-center justify-between gap-8">
+            <div>
+              <span className="text-gold-300 font-bold uppercase text-xs tracking-widest block mb-2">Physical Sanctuaries</span>
+              <h2 className="font-serif text-2xl sm:text-3xl text-white">Experience Our Showrooms in Mumbai &amp; Bangalore</h2>
+              <p className="text-gray-400 text-xs sm:text-sm mt-2 max-w-md">Private tasting appointments, device engraving, and dedicated corporate relationship managers.</p>
+            </div>
+            <button 
+              onClick={onVisitBoutique}
+              className="px-8 py-4 rounded-full gold-metallic-bg text-charcoal font-bold text-xs uppercase tracking-wider shadow-gold-glow whitespace-nowrap"
+            >
+              Locate Boutiques
+            </button>
+          </div>
+        </div>
+      );
+    }
+
+    // ==========================================
+    // --- COMPONENT: 8. CONTACT & SALONS VIEW ---
+    // ==========================================
+    function ContactView() {
+      const [submitted, setSubmitted] = useState(false);
+
+      const handleSubmit = (e) => {
+        e.preventDefault();
+        setSubmitted(true);
+      };
+
+      return (
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12">
+          <div className="text-center max-w-xl mx-auto">
+            <span className="text-gold-700 font-bold uppercase text-xs tracking-widest block mb-1">Direct Connection</span>
+            <h1 className="font-serif text-3xl sm:text-4xl text-charcoal">Boutique Inquiries &amp; Concierge</h1>
+            <p className="text-xs sm:text-sm text-slateMuted mt-2">
+              Reach our flagship retail lounges or reserve an in-store VIP demonstration.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            
+            {/* Contact Information */}
+            <div className="lg:col-span-5 space-y-6">
+              <div className="bg-white p-6 rounded-2xl border border-gold-200 space-y-4">
+                <h3 className="font-serif font-bold text-lg text-charcoal">Direct Helplines</h3>
+                
+                <div className="flex items-start gap-3 text-xs">
+                  <div className="w-8 h-8 rounded-full bg-gold-100 flex items-center justify-center text-gold-700 flex-shrink-0">
+                    <i data-lucide="phone" className="w-4 h-4"></i>
+                  </div>
+                  <div>
+                    <span className="font-bold text-charcoal block">Toll-Free Pan-India</span>
+                    <a href="tel:18002094321" className="text-gold-800 font-semibold hover:underline">1800 209 AURUM (28786)</a>
+                    <span className="text-slateMuted block text-[11px]">Mon-Sun: 9:00 AM to 10:00 PM IST</span>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3 text-xs">
+                  <div className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-700 flex-shrink-0">
+                    <i data-lucide="message-circle" className="w-4 h-4"></i>
+                  </div>
+                  <div>
+                    <span className="font-bold text-charcoal block">WhatsApp VIP Desk</span>
+                    <a href="https://wa.me/919876543210" target="_blank" rel="noreferrer" className="text-emerald-700 font-semibold hover:underline">+91 98765 43210</a>
+                    <span className="text-slateMuted block text-[11px]">Instant device availability &amp; exchange quotes</span>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3 text-xs">
+                  <div className="w-8 h-8 rounded-full bg-gold-100 flex items-center justify-center text-gold-700 flex-shrink-0">
+                    <i data-lucide="mail" className="w-4 h-4"></i>
+                  </div>
+                  <div>
+                    <span className="font-bold text-charcoal block">Corporate &amp; GST Inquiries</span>
+                    <span className="text-slateMuted">concierge@aurummobiles.in</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Physical Addresses */}
+              <div className="bg-ivory p-6 rounded-2xl border border-gold-200 space-y-4 text-xs">
+                <h4 className="font-serif font-bold text-sm text-charcoal">Flagship Lounges</h4>
+                <div>
+                  <span className="font-bold text-charcoal">Mumbai Lounge:</span>
+                  <p className="text-slateMuted mt-0.5">Waterfield Road, Bandra West, Mumbai 400050</p>
+                </div>
+                <div>
+                  <span className="font-bold text-charcoal">Bengaluru Lounge:</span>
+                  <p className="text-slateMuted mt-0.5">12th Main Road, HAL 2nd Stage, Indiranagar, Bengaluru 560038</p>
+                </div>
+              </div>
+            </div>
+
+            {/* In-Store VIP Reservation Form */}
+            <div className="lg:col-span-7 bg-white p-8 rounded-3xl border border-gold-300 shadow-sm">
+              <h3 className="font-serif font-bold text-xl text-charcoal mb-2">Book a Private Showroom Slot</h3>
+              <p className="text-xs text-slateMuted mb-6">
+                Reserve an uninterrupted 30-minute demonstration with our senior device specialists.
+              </p>
+
+              {submitted ? (
+                <div className="p-6 bg-emerald-50 rounded-2xl border border-emerald-300 text-center space-y-2">
+                  <i data-lucide="check-circle" className="w-8 h-8 text-emerald-600 mx-auto"></i>
+                  <h4 className="font-serif font-bold text-emerald-900">Appointment Reserved</h4>
+                  <p className="text-xs text-emerald-700">
+                    Our atelier team has sent an SMS confirmation and Google Calendar pass to your phone.
+                  </p>
+                  <button 
+                    onClick={() => setSubmitted(false)}
+                    className="mt-4 text-xs font-bold text-emerald-900 underline"
+                  >
+                    Submit another inquiry
+                  </button>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-4 text-xs">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="font-bold text-slateMuted block mb-1">Your Full Name *</label>
+                      <input 
+                        type="text" 
+                        required 
+                        placeholder="e.g. Vikramaditya Verma" 
+                        className="w-full px-3.5 py-2.5 rounded-xl border border-gold-200 outline-none bg-ivory focus:bg-white"
+                      />
+                    </div>
+                    <div>
+                      <label className="font-bold text-slateMuted block mb-1">Mobile (WhatsApp) *</label>
+                      <input 
+                        type="tel" 
+                        required 
+                        placeholder="+91 98..." 
+                        className="w-full px-3.5 py-2.5 rounded-xl border border-gold-200 outline-none bg-ivory focus:bg-white"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="font-bold text-slateMuted block mb-1">Preferred Boutique *</label>
+                      <select className="w-full px-3.5 py-2.5 rounded-xl border border-gold-200 outline-none bg-ivory">
+                        <option>Bandra West, Mumbai</option>
+                        <option>Indiranagar, Bengaluru</option>
+                        <option>Virtual Video Demonstration</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label className="font-bold text-slateMuted block mb-1">Handset of Interest</label>
+                      <select className="w-full px-3.5 py-2.5 rounded-xl border border-gold-200 outline-none bg-ivory">
+                        <option>iPhone 16 Pro Max</option>
+                        <option>Galaxy S24 Ultra</option>
+                        <option>Galaxy Z Fold6</option>
+                        <option>OnePlus 12</option>
+                        <option>vivo X100 Pro</option>
+                        <option>General Comparison</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="font-bold text-slateMuted block mb-1">Special Notes / Existing Phone for Exchange</label>
+                    <textarea 
+                      rows="3" 
+                      placeholder="e.g. Looking to exchange iPhone 13 Pro 128GB and require company GST bill..."
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-gold-200 outline-none bg-ivory focus:bg-white"
+                    ></textarea>
+                  </div>
+
+                  <button 
+                    type="submit"
+                    className="w-full py-3.5 rounded-xl gold-metallic-bg text-charcoal font-bold text-xs uppercase tracking-wider shadow-gold-glow hover:opacity-95"
+                  >
+                    Confirm VIP Booking
+                  </button>
+                </form>
+              )}
+            </div>
+
+          </div>
+        </div>
+      );
+    }
+
+    // ==========================================
+    // --- REUSABLE COMPONENT: PRODUCT CARD ---
+    // ==========================================
+    function ProductCard({ product, onSelect, onAddToCart, isWishlisted, onToggleWishlist, isCompared, onToggleCompare }) {
+      return (
+        <div className="group bg-white rounded-3xl border border-gold-200/90 p-4 flex flex-col justify-between hover:border-gold-500 hover:shadow-gold-soft transition transform duration-300">
+          
+          {/* Top Info & Image Area */}
+          <div>
+            {/* Badges & Actions */}
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-[10px] font-extrabold uppercase tracking-widest px-2.5 py-0.5 rounded-full bg-gold-100 text-gold-900 border border-gold-200">
+                {product.brand}
+              </span>
+              
+              <div className="flex items-center gap-1">
+                <button 
+                  onClick={onToggleCompare}
+                  className={`p-1.5 rounded-full hover:bg-gold-100 text-xs transition ${isCompared ? 'text-gold-700 bg-gold-50' : 'text-slateMuted'}`}
+                  title="Compare"
+                >
+                  <i data-lucide="columns" className="w-4 h-4"></i>
+                </button>
+                <button 
+                  onClick={onToggleWishlist}
+                  className="p-1.5 rounded-full hover:bg-gold-100 text-xs transition"
+                  title="Wishlist"
+                >
+                  <i data-lucide="heart" className={`w-4 h-4 ${isWishlisted ? 'fill-gold-500 text-gold-500' : 'text-slateMuted'}`}></i>
+                </button>
+              </div>
+            </div>
+
+            {/* Product Image */}
+            <div 
+              onClick={onSelect}
+              className="relative aspect-square rounded-2xl bg-ivory overflow-hidden cursor-pointer p-4 flex items-center justify-center mb-3"
+            >
+              <img 
+                src={product.images[0]} 
+                alt={product.model} 
+                className="max-h-full max-w-full object-contain transform group-hover:scale-105 transition duration-500" 
+              />
+              {product.badge && (
+                <span className="absolute bottom-2 left-2 bg-charcoal/85 text-gold-300 text-[9px] font-bold tracking-wider uppercase px-2 py-0.5 rounded">
+                  {product.badge}
+                </span>
+              )}
+            </div>
+
+            {/* Model & Specs */}
+            <h3 
+              onClick={onSelect}
+              className="font-serif font-bold text-base text-charcoal group-hover:text-gold-800 transition cursor-pointer line-clamp-1"
+            >
+              {product.model}
+            </h3>
+
+            <div className="text-[11px] text-slateMuted mt-1 line-clamp-1">
+              {product.processor} • {product.storageOptions[0]}
+            </div>
+
+            {/* Rating */}
+            <div className="flex items-center gap-1 text-[11px] font-semibold text-charcoal mt-1.5">
+              <span className="text-gold-500">★</span>
+              <span>{product.rating}</span>
+              <span className="text-slateMuted">({product.reviewsCount})</span>
+            </div>
+          </div>
+
+          {/* Pricing & CTA Bottom */}
+          <div className="pt-4 border-t border-gold-100 mt-3 space-y-3">
+            <div>
+              <div className="flex items-baseline gap-2">
+                <span className="font-serif font-bold text-lg text-charcoal">{formatINR(product.price)}</span>
+                <span className="text-xs text-slateMuted line-through">{formatINR(product.mrp)}</span>
+              </div>
+              <div className="text-[10px] text-emerald-700 font-semibold">
+                No Cost EMI from {product.emiText.split('at ')[1] || '₹3,499/mo'}
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-2">
+              <button 
+                onClick={onSelect}
+                className="py-2 rounded-xl border border-gold-300 text-charcoal text-xs font-semibold hover:bg-gold-50 transition"
+              >
+                Inspect
+              </button>
+              <button 
+                onClick={() => onAddToCart(product)}
+                className="py-2 rounded-xl gold-metallic-bg text-charcoal text-xs font-bold uppercase tracking-wider shadow-sm hover:opacity-90 transition flex items-center justify-center gap-1"
+              >
+                <i data-lucide="shopping-bag" className="w-3.5 h-3.5"></i>
+                Add
+              </button>
+            </div>
+          </div>
+
+        </div>
+      );
+    }
+
+    // ==========================================
+    // --- COMPONENT: DEMO CHECKOUT MODAL ---
+    // ==========================================
+    function CheckoutModal({ cartCalculations, onClose, onSuccess }) {
+      const [name, setName] = useState("Rajeshwari Nair");
+      const [mobile, setMobile] = useState("9820012345");
+      const [email, setEmail] = useState("rajeshwari.nair@enterprise.in");
+      const [house, setHouse] = useState("Flat 1402, Signature Towers");
+      const [area, setArea] = useState("Waterfield Enclave, Hill Road");
+      const [landmark, setLandmark] = useState("Opposite Taj Lands End");
+      const [city, setCity] = useState("Mumbai");
+      const [state, setState] = useState("Maharashtra");
+      const [pincode, setPincode] = useState("400050");
+      const [gstin, setGstin] = useState("");
+      const [paymentMethod, setPaymentMethod] = useState("upi"); // 'upi' | 'card' | 'cod' | 'emi'
+      const [isSubmitting, setIsSubmitting] = useState(false);
+
+      const handleSubmit = (e) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+        setTimeout(() => {
+          setIsSubmitting(false);
+          onClose();
+          onSuccess({
+            orderId: `AUR-${Math.floor(100000 + Math.random() * 900000)}`,
+            amount: cartCalculations.finalAmount,
+            name,
+            mobile,
+            city,
+            pincode,
+            gstin: gstin || "Consumer Individual (No ITC Claimed)"
+          });
+        }, 1200);
+      };
+
+      return (
+        <div className="fixed inset-0 z-50 overflow-y-auto bg-black/60 backdrop-blur-md flex items-center justify-center p-4">
+          <div className="bg-white rounded-3xl max-w-2xl w-full border border-gold-300 shadow-2xl overflow-hidden my-8">
+            <div className="p-6 bg-ivory border-b border-gold-200 flex items-center justify-between">
+              <div>
+                <span className="text-[10px] font-bold uppercase tracking-widest text-gold-700">Static Simulation Demo</span>
+                <h3 className="font-serif font-bold text-xl text-charcoal">Secure Indian Atelier Checkout</h3>
+              </div>
+              <button onClick={onClose} className="p-1 rounded-full text-slateMuted hover:text-charcoal">
+                <i data-lucide="x" className="w-5 h-5"></i>
+              </button>
+            </div>
+
+            <form onSubmit={handleSubmit} className="p-6 space-y-6 text-xs max-h-[75vh] overflow-y-auto">
+              {/* Contact Information */}
+              <div>
+                <h4 className="font-serif font-bold text-sm text-charcoal mb-3 flex items-center gap-1.5">
+                  <i data-lucide="user" className="w-4 h-4 text-gold-700"></i> Contact &amp; Invoice Recipient
+                </h4>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div>
+                    <label className="text-slateMuted block font-medium mb-1">Full Legal Name *</label>
+                    <input 
+                      type="text" 
+                      required 
+                      value={name} 
+                      onChange={e => setName(e.target.value)}
+                      className="w-full px-3 py-2 rounded-xl border border-gold-200 bg-ivory focus:bg-white outline-none" 
+                    />
+                  </div>
+                  <div>
+                    <label className="text-slateMuted block font-medium mb-1">10-Digit Mobile (For Delivery OTP) *</label>
+                    <input 
+                      type="tel" 
+                      required 
+                      value={mobile} 
+                      onChange={e => setMobile(e.target.value)}
+                      className="w-full px-3 py-2 rounded-xl border border-gold-200 bg-ivory focus:bg-white outline-none" 
+                    />
+                  </div>
+                  <div className="sm:col-span-2">
+                    <label className="text-slateMuted block font-medium mb-1">Email (For GST Tax Invoice PDF) *</label>
+                    <input 
+                      type="email" 
+                      required 
+                      value={email} 
+                      onChange={e => setEmail(e.target.value)}
+                      className="w-full px-3 py-2 rounded-xl border border-gold-200 bg-ivory focus:bg-white outline-none" 
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Shipping Address */}
+              <div className="pt-4 border-t border-gold-100">
+                <h4 className="font-serif font-bold text-sm text-charcoal mb-3 flex items-center gap-1.5">
+                  <i data-lucide="map-pin" className="w-4 h-4 text-gold-700"></i> Delivery Address in India
+                </h4>
+                <div className="space-y-3">
+                  <div>
+                    <label className="text-slateMuted block font-medium mb-1">Flat / House No. / Building *</label>
+                    <input 
+                      type="text" 
+                      required 
+                      value={house} 
+                      onChange={e => setHouse(e.target.value)}
+                      className="w-full px-3 py-2 rounded-xl border border-gold-200 bg-ivory focus:bg-white outline-none" 
+                    />
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                      <label className="text-slateMuted block font-medium mb-1">Street / Colony / Area *</label>
+                      <input 
+                        type="text" 
+                        required 
+                        value={area} 
+                        onChange={e => setArea(e.target.value)}
+                        className="w-full px-3 py-2 rounded-xl border border-gold-200 bg-ivory focus:bg-white outline-none" 
+                      />
+                    </div>
+                    <div>
+                      <label className="text-slateMuted block font-medium mb-1">Nearby Landmark (Optional)</label>
+                      <input 
+                        type="text" 
+                        value={landmark} 
+                        onChange={e => setLandmark(e.target.value)}
+                        className="w-full px-3 py-2 rounded-xl border border-gold-200 bg-ivory focus:bg-white outline-none" 
+                      />
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-3 gap-3">
+                    <div>
+                      <label className="text-slateMuted block font-medium mb-1">City *</label>
+                      <input 
+                        type="text" 
+                        required 
+                        value={city} 
+                        onChange={e => setCity(e.target.value)}
+                        className="w-full px-3 py-2 rounded-xl border border-gold-200 bg-ivory focus:bg-white outline-none" 
+                      />
+                    </div>
+                    <div>
+                      <label className="text-slateMuted block font-medium mb-1">State *</label>
+                      <input 
+                        type="text" 
+                        required 
+                        value={state} 
+                        onChange={e => setState(e.target.value)}
+                        className="w-full px-3 py-2 rounded-xl border border-gold-200 bg-ivory focus:bg-white outline-none" 
+                      />
+                    </div>
+                    <div>
+                      <label className="text-slateMuted block font-medium mb-1">PIN Code *</label>
+                      <input 
+                        type="text" 
+                        maxLength="6"
+                        required 
+                        value={pincode} 
+                        onChange={e => setPincode(e.target.value)}
+                        className="w-full px-3 py-2 rounded-xl border border-gold-200 bg-ivory focus:bg-white outline-none" 
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* GST Optional Field */}
+              <div className="pt-4 border-t border-gold-100">
+                <label className="text-slateMuted block font-medium mb-1">
+                  Optional: Company GSTIN (For 18% Input Tax Credit claim)
+                </label>
+                <input 
+                  type="text" 
+                  placeholder="27ABCDE1234F1Z5"
+                  value={gstin}
+                  onChange={e => setGstin(e.target.value.toUpperCase())}
+                  className="w-full px-3 py-2 rounded-xl border border-gold-200 bg-ivory focus:bg-white uppercase font-mono outline-none" 
+                />
+              </div>
+
+              {/* Payment Method Cards */}
+              <div className="pt-4 border-t border-gold-100">
+                <h4 className="font-serif font-bold text-sm text-charcoal mb-3">Select Mode of Settlement</h4>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                  {[
+                    { id: "upi", label: "Instant UPI", sub: "GPay / PhonePe" },
+                    { id: "card", label: "Credit Card", sub: "Visa / Mastercard" },
+                    { id: "emi", label: "Bank 0% EMI", sub: "HDFC / ICICI" },
+                    { id: "cod", label: "Insured COD", sub: "Pay on Handover" }
+                  ].map(m => (
+                    <div 
+                      key={m.id}
+                      onClick={() => setPaymentMethod(m.id)}
+                      className={`p-3 rounded-xl border text-center cursor-pointer transition ${
+                        paymentMethod === m.id 
+                          ? 'gold-metallic-bg text-charcoal border-gold-500 font-bold shadow-sm' 
+                          : 'bg-ivory border-gold-200 text-slateMuted hover:border-gold-300'
+                      }`}
+                    >
+                      <div className="text-xs">{m.label}</div>
+                      <div className="text-[10px] opacity-80">{m.sub}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="p-4 bg-gold-50 rounded-2xl border border-gold-200 flex items-center justify-between text-sm">
+                <span className="font-medium text-charcoal">Net Payable at Delivery:</span>
+                <span className="font-serif font-bold text-lg text-gold-900">{formatINR(cartCalculations.finalAmount)}</span>
+              </div>
+
+              <button 
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full py-4 rounded-2xl gold-metallic-bg text-charcoal font-bold text-xs uppercase tracking-widest shadow-gold-glow hover:opacity-95 flex items-center justify-center gap-2"
+              >
+                {isSubmitting ? (
+                  <span>Generating Sealed Consignment Token...</span>
+                ) : (
+                  <>
+                    <i data-lucide="shield-check" className="w-4 h-4"></i>
+                    <span>Confirm Order (Demo Settlement)</span>
+                  </>
+                )}
+              </button>
+            </form>
+          </div>
+        </div>
+      );
+    }
+
+    // ==========================================
+    // --- COMPONENT: ORDER SUCCESS MODAL ---
+    // ==========================================
+    function OrderSuccessModal({ order, onClose }) {
+      return (
+        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-md flex items-center justify-center p-4">
+          <div className="bg-white rounded-3xl max-w-lg w-full border border-gold-400 p-8 text-center space-y-6 shadow-2xl">
+            <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center mx-auto">
+              <i data-lucide="check" className="w-8 h-8"></i>
+            </div>
+
+            <div>
+              <span className="text-xs font-bold text-gold-700 uppercase tracking-widest">Order Confirmed</span>
+              <h2 className="font-serif text-2xl sm:text-3xl font-normal text-charcoal mt-1">
+                Namaste, {order.name}
+              </h2>
+              <p className="text-xs text-slateMuted mt-1">
+                Your flagship reservation has been successfully allocated from our bonded inventory.
+              </p>
+            </div>
+
+            <div className="bg-ivory p-4 rounded-2xl border border-gold-200 text-left text-xs space-y-2">
+              <div className="flex justify-between border-b border-gold-100 pb-2">
+                <span className="text-slateMuted">Atelier Consignment ID</span>
+                <span className="font-mono font-bold text-charcoal">{order.orderId}</span>
+              </div>
+              <div className="flex justify-between border-b border-gold-100 pb-2">
+                <span className="text-slateMuted">Invoice Total</span>
+                <span className="font-bold text-gold-900">{formatINR(order.amount)}</span>
+              </div>
+              <div className="flex justify-between border-b border-gold-100 pb-2">
+                <span className="text-slateMuted">Destination PIN</span>
+                <span className="font-semibold text-charcoal">{order.city} ({order.pincode})</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-slateMuted">GST Status</span>
+                <span className="font-semibold text-emerald-800">{order.gstin}</span>
+              </div>
+            </div>
+
+            <p className="text-[11px] text-slateMuted italic">
+              *Demo Store Notice: This is a frontend architectural showcase. No actual bank charge or physical shipment has been initiated.
+            </p>
+
+            <button 
+              onClick={onClose}
+              className="w-full py-3.5 rounded-xl gold-metallic-bg text-charcoal font-bold text-xs uppercase tracking-wider shadow-gold-glow"
+            >
+              Return to Showroom
+            </button>
+          </div>
+        </div>
+      );
+    }
+
+    // ==========================================
+    // --- COMPONENT: GLOBAL FOOTER ---
+    // ==========================================
+    function Footer({ onNavigate }) {
+      return (
+        <footer className="bg-charcoal text-white pt-16 pb-12 border-t border-gold-900/60">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
+              
+              {/* Brand Manifesto */}
+              <div className="lg:col-span-2 space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-lg gold-metallic-bg flex items-center justify-center p-0.5">
+                    <div className="w-full h-full bg-charcoal rounded-[6px] flex items-center justify-center font-display font-bold text-gold-400">
+                      A
+                    </div>
+                  </div>
+                  <div>
+                    <span className="font-display text-xl tracking-[0.2em] font-bold text-white uppercase">AURUM</span>
+                    <p className="text-[9px] tracking-widest text-gold-300 uppercase -mt-0.5">The Smartphone Atelier India</p>
+                  </div>
+                </div>
+
+                <p className="text-xs text-gray-400 max-w-sm leading-relaxed">
+                  Curators of the finest handheld computing devices in the Republic of India. Authorized tier-1 distribution, genuine manufacturer warranties, and private boutique lounges in Mumbai and Bengaluru.
+                </p>
+
+                <div className="text-xs text-gold-300 font-serif">
+                  Bandra West • Indiranagar • Express Pan-India Bluedart Transit
+                </div>
+              </div>
+
+              {/* Quick Navigation */}
+              <div>
+                <h4 className="font-serif font-bold text-sm text-gold-200 mb-4 tracking-wider uppercase">Collection</h4>
+                <ul className="space-y-2 text-xs text-gray-400">
+                  <li><button onClick={() => onNavigate('shop')} className="hover:text-gold-300 transition">Flagship Royale</button></li>
+                  <li><button onClick={() => onNavigate('shop')} className="hover:text-gold-300 transition">Studio Camera Phones</button></li>
+                  <li><button onClick={() => onNavigate('shop')} className="hover:text-gold-300 transition">Next-Gen Foldables</button></li>
+                  <li><button onClick={() => onNavigate('compare')} className="hover:text-gold-300 transition">Compare Specs</button></li>
+                  <li><button onClick={() => onNavigate('offers')} className="hover:text-gold-300 transition">Bank 0% EMI Scheme</button></li>
+                </ul>
+              </div>
+
+              {/* Trust & Assurance */}
+              <div>
+                <h4 className="font-serif font-bold text-sm text-gold-200 mb-4 tracking-wider uppercase">Reassurance</h4>
+                <ul className="space-y-2 text-xs text-gray-400">
+                  <li><span className="hover:text-white transition">100% Brand Sealed Guarantee</span></li>
+                  <li><span className="hover:text-white transition">GST ITC Valid Tax Invoice</span></li>
+                  <li><span className="hover:text-white transition">7-Day Hardware Replacement</span></li>
+                  <li><span className="hover:text-white transition">Insured Air Express Courier</span></li>
+                  <li><button onClick={() => onNavigate('about')} className="hover:text-gold-300 transition">Our Heritage Principles</button></li>
+                </ul>
+              </div>
+
+              {/* Flagship Showrooms */}
+              <div>
+                <h4 className="font-serif font-bold text-sm text-gold-200 mb-4 tracking-wider uppercase">Salons</h4>
+                <div className="space-y-3 text-xs text-gray-400">
+                  <div>
+                    <strong className="text-white block font-medium">Bandra West Atelier</strong>
+                    <span>Waterfield Road, Mumbai 400050</span>
+                  </div>
+                  <div>
+                    <strong className="text-white block font-medium">Indiranagar Pavilion</strong>
+                    <span>12th Main Road, Bengaluru 560038</span>
+                  </div>
+                  <div className="pt-2">
+                    <button 
+                      onClick={() => onNavigate('contact')}
+                      className="text-xs text-gold-400 hover:underline font-semibold"
+                    >
+                      Book VIP Demo Slot →
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            {/* Bottom Copyright & Disclaimer */}
+            <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-4">
+              <p>© {new Date().getFullYear()} AURUM MOBILES INDIA PRIVATE LIMITED. All Rights Reserved.</p>
+              <p className="text-[11px] text-gray-400">
+                Static Design Archetype • Fictional brand demo built with luxury UI principles
+              </p>
+            </div>
+          </div>
+        </footer>
+      );
+    }
+
+    // Mount to DOM
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<AurumMobileApp />);
+  </script>
+</body>
+</html>
