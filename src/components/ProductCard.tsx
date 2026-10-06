@@ -74,8 +74,9 @@ export default function ProductCard({ product: p }: { product: Product }) {
             className="card-view"
             aria-label={`View ${p.model}`}
           >
-            View phone
-            <ArrowUpRight size={14} />
+            <span>View</span>
+            <span className="card-view-extra">&nbsp;phone</span>
+            <ArrowUpRight size={13} />
           </Link>
         </div>
       </div>

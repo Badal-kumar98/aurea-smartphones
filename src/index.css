@@ -122,7 +122,7 @@ a svg {
   padding-bottom: 73px;
 }
 .eyebrow {
-  font-size: 9px;
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: 2.05px;
   line-height: 1.5;
@@ -131,16 +131,16 @@ a svg {
 }
 .muted {
   color: var(--muted);
-  font-size: 14px;
+  font-size: 16.5px;
   line-height: 1.7;
 }
 .fine-print {
-  font-size: 11px;
+  font-size: 14.5px;
   color: var(--muted);
   line-height: 1.8;
 }
 .text-link {
-  font-size: 11px;
+  font-size: 15px;
   font-weight: 550;
   display: inline-flex;
   align-items: center;
@@ -155,7 +155,7 @@ a svg {
   transform: translate(2px, -2px);
 }
 .text-button {
-  font-size: 12px;
+  font-size: 15px;
   color: var(--gold-dark);
   text-decoration: underline;
   text-underline-offset: 4px;
@@ -164,12 +164,12 @@ a svg {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
-  padding: 16px 22px;
+  gap: 16px;
+  padding: 14px 22px;
   min-height: 49px;
   border: 1px solid transparent;
   border-radius: 5px;
-  font-size: 11px;
+  font-size: 15px;
   font-weight: 600;
   letter-spacing: 0.1px;
   position: relative;
@@ -225,8 +225,8 @@ a svg {
 }
 .button.small {
   min-height: 38px;
-  padding: 10px 16px;
-  font-size: 11px;
+  padding: 9px 16px;
+  font-size: 14.5px;
   gap: 11px;
 }
 .full-width {
@@ -265,14 +265,14 @@ a svg {
   color: #4d7156;
 }
 .announcement {
-  height: 30px;
+  height: 36px;
   padding: 0 39px;
   background: #f5f1e7;
   display: flex;
   align-items: center;
   justify-content: space-between;
   color: #80745c;
-  font-size: 8.5px;
+  font-size: 14.5px;
   letter-spacing: 0.15px;
   border-bottom: 1px solid #ece6d7;
 }
@@ -337,7 +337,7 @@ a svg {
 .logo small {
   font-family: "DM Sans", sans-serif;
   display: block;
-  font-size: 6px;
+  font-size: 13px;
   letter-spacing: 1.8px;
   font-weight: 500;
   margin-top: 7px;
@@ -352,7 +352,7 @@ a svg {
 }
 .desktop-nav > a,
 .brands-dropdown > button {
-  font-size: 11px;
+  font-size: 16.5px;
   font-weight: 500;
   position: relative;
   height: 100%;
@@ -405,28 +405,28 @@ a svg {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 11px;
+  font-size: 15px;
 }
 .cart-link > b {
-  width: 19px;
-  height: 19px;
+  width: 20px;
+  height: 20px;
   background: #f1eadb;
   color: #8b6b31;
   border-radius: 50%;
   display: grid;
   place-items: center;
-  font-size: 9px;
+  font-size: 14px;
   font-weight: 500;
 }
 .count-badge {
   position: absolute;
   right: 0;
   top: 0;
-  width: 15px;
-  height: 15px;
+  width: 16px;
+  height: 16px;
   background: #b49351;
   color: #fff;
-  font-size: 8px;
+  font-size: 13.5px;
   display: grid;
   place-items: center;
   border-radius: 50%;
@@ -447,7 +447,7 @@ a svg {
   box-shadow: 0 15px 40px #2221;
 }
 .brand-menu > .eyebrow {
-  font-size: 8px;
+  font-size: 14px;
   margin-bottom: 14px;
 }
 .brand-menu > a {
@@ -455,7 +455,7 @@ a svg {
   justify-content: space-between;
   align-items: center;
   padding: 11px 0;
-  font-size: 12px;
+  font-size: 16.5px;
   border-bottom: 1px solid #f4f1ea;
 }
 .brand-menu > a:hover {
@@ -509,7 +509,7 @@ a svg {
   z-index: 2;
 }
 .hero-eyebrow {
-  font-size: 9px;
+  font-size: 14.5px;
   font-weight: 500;
   letter-spacing: 1.9px;
   display: flex;
@@ -542,9 +542,9 @@ a svg {
   padding-right: 7px;
 }
 .hero-copy > p {
-  font-size: 12.5px;
+  font-size: 16.5px;
   color: #77776f;
-  line-height: 1.9;
+  line-height: 1.8;
   margin-top: 24px;
 }
 .hero-buttons {
@@ -577,7 +577,7 @@ a svg {
   display: grid;
   place-items: center;
   font-family: var(--serif);
-  font-size: 9px;
+  font-size: 14px;
   color: #645b4a;
 }
 .avatar-stack > span:first-child {
@@ -593,24 +593,24 @@ a svg {
 .avatar-stack > span:last-child {
   background: #e8decb;
   color: #8e754a;
-  font-size: 16px;
+  font-size: 18.5px;
 }
 .hero-stars {
   color: #b08a46;
-  font-size: 9px;
+  font-size: 14.5px;
   letter-spacing: 1px;
   display: flex;
   align-items: center;
   gap: 7px;
 }
 .hero-stars strong {
-  font-size: 8px;
+  font-size: 14.5px;
   color: #66665e;
   font-weight: 500;
   letter-spacing: 0;
 }
 .hero-reassurance p {
-  font-size: 8px;
+  font-size: 14.5px;
   color: #969389;
   margin-top: 4px;
 }
@@ -641,14 +641,14 @@ a svg {
   border-radius: 50%;
 }
 .spec-top span {
-  font-size: 6px;
+  font-size: 13.5px;
   letter-spacing: 1.1px;
   display: block;
   color: #928877;
   margin-bottom: 5px;
 }
 .floating-spec strong {
-  font-size: 9px;
+  font-size: 15px;
   font-weight: 550;
   display: block;
 }
@@ -663,7 +663,7 @@ a svg {
   stroke-width: 1.3;
 }
 .spec-bottom span:not(.verified-dot) {
-  font-size: 7px;
+  font-size: 14px;
   color: #8c8a80;
   display: block;
   margin-top: 5px;
@@ -690,7 +690,7 @@ a svg {
   gap: 17px;
 }
 .hero-bottom-line > span:first-child {
-  font-size: 7px;
+  font-size: 14px;
   letter-spacing: 1.5px;
   color: #97804f;
 }
@@ -700,12 +700,12 @@ a svg {
   background: #bcab86;
 }
 .hero-bottom-line > p {
-  font-size: 9px;
+  font-size: 14.5px;
   color: #868174;
 }
 .hero-slide {
   margin-left: auto;
-  font-size: 7px;
+  font-size: 14px;
   color: #777366;
   letter-spacing: 1.3px;
   display: flex;
@@ -743,12 +743,12 @@ a svg {
   flex-shrink: 0;
 }
 .trust-item strong {
-  font-size: 10px;
+  font-size: 16.5px;
   font-weight: 550;
   display: block;
 }
 .trust-item span {
-  font-size: 8px;
+  font-size: 14.5px;
   color: #8b8a82;
   display: block;
   margin-top: 5px;
@@ -768,7 +768,7 @@ a svg {
   letter-spacing: -0.8px;
 }
 .section-heading p {
-  font-size: 12px;
+  font-size: 16.5px;
   line-height: 1.8;
   margin-top: 11px;
   color: var(--muted);
@@ -791,10 +791,10 @@ a svg {
   border: 1px solid #ece7db;
   background: #faf8f3;
   border-radius: 8px;
-  padding: 17px 20px 21px;
+  padding: 18px 18px 22px;
   position: relative;
   overflow: hidden;
-  min-height: 174px;
+  min-height: 195px;
 }
 .need-card:after {
   content: "";
@@ -830,7 +830,7 @@ a svg {
   color: var(--gold-dark);
 }
 .need-number {
-  font-size: 8px;
+  font-size: 14px;
   color: #c1b49b;
   font-family: var(--serif);
 }
@@ -855,13 +855,13 @@ a svg {
   filter: drop-shadow(0 3px 5px #9f85451a);
 }
 .need-card h3 {
-  font-size: 11px;
+  font-size: 16.5px;
   font-weight: 550;
   text-align: center;
   margin-top: 4px;
 }
 .need-card p {
-  font-size: 8px;
+  font-size: 14.5px;
   color: #979080;
   text-align: center;
   margin-top: 6px;
@@ -905,7 +905,7 @@ a svg {
 }
 .featured-tabs button {
   padding: 0 0 12px;
-  font-size: 10px;
+  font-size: 15px;
   color: #969086;
   position: relative;
 }
@@ -973,7 +973,7 @@ a svg {
   background: #ede7d9;
   border: 1px solid #e1d7c1;
   color: #8e7545;
-  font-size: 7px;
+  font-size: 14px;
   font-weight: 500;
   padding: 4px 7px;
   border-radius: 3px;
@@ -1059,7 +1059,7 @@ a svg {
   margin-bottom: 9px;
 }
 .product-brand-row > span:first-child {
-  font-size: 7px;
+  font-size: 14px;
   letter-spacing: 1.2px;
   text-transform: uppercase;
   color: #8a8579;
@@ -1067,22 +1067,22 @@ a svg {
 .rating {
   display: flex;
   align-items: center;
-  gap: 3px;
-  font-size: 8px;
+  gap: 4px;
+  font-size: 14.5px;
   color: #544e41;
 }
 .rating > svg {
   color: #b29658;
-  width: 9px;
-  height: 9px;
+  width: 12px;
+  height: 12px;
 }
 .rating > span {
-  font-size: 7px;
+  font-size: 14px;
   color: #aaa49a;
   margin-left: 1px;
 }
 .product-content h3 {
-  font-size: 14px;
+  font-size: 18.5px;
   letter-spacing: -0.3px;
   font-weight: 550;
 }
@@ -1090,7 +1090,7 @@ a svg {
   color: var(--gold-dark);
 }
 .product-spec {
-  font-size: 8px;
+  font-size: 14.5px;
   color: #969287;
   margin-top: 6px;
   white-space: nowrap;
@@ -1107,17 +1107,17 @@ a svg {
   margin-top: 17px;
 }
 .price-row > strong {
-  font-size: 17px;
+  font-size: 20px;
   font-weight: 600;
   letter-spacing: -0.6px;
 }
 .price-row del {
-  font-size: 9px;
+  font-size: 15px;
   color: #aaa499;
 }
 .emi {
   color: #8e887b;
-  font-size: 7px;
+  font-size: 14.5px;
   margin-top: 6px;
 }
 .card-bottom {
@@ -1129,7 +1129,7 @@ a svg {
   padding: 12px 0;
 }
 .compare-button {
-  font-size: 8px;
+  font-size: 14.5px;
   color: #8e897d;
   display: flex;
   align-items: center;
@@ -1152,12 +1152,12 @@ a svg {
 .card-view {
   display: flex;
   align-items: center;
-  font-size: 8px;
+  font-size: 14.5px;
   gap: 5px;
   color: #9c7b3b;
 }
 .collection-note {
-  font-size: 8px;
+  font-size: 14.5px;
   color: #938c7e;
   display: flex;
   justify-content: center;
@@ -1179,11 +1179,11 @@ a svg {
   justify-content: space-between;
 }
 .brand-section-top .eyebrow {
-  font-size: 8px;
+  font-size: 14px;
   letter-spacing: 1.65px;
 }
 .brand-section-top > span:last-child {
-  font-size: 9px;
+  font-size: 14.5px;
   color: #918b80;
 }
 .brand-grid {
@@ -1232,17 +1232,17 @@ a svg {
   font-size: 21px;
 }
 .brand-samsung {
-  font-size: 16px;
+  font-size: 18.5px;
   font-weight: 700;
   letter-spacing: -0.8px;
 }
 .brand-oneplus {
-  font-size: 17px;
+  font-size: 18.5px;
   font-weight: 600;
   letter-spacing: -0.7px;
 }
 .oneplus-icon {
-  font-size: 19px;
+  font-size: 20px;
   line-height: 20px;
   width: 21px;
   height: 22px;
@@ -1259,7 +1259,7 @@ a svg {
 }
 .brand-nothing {
   font-family: monospace;
-  font-size: 15px;
+  font-size: 16.5px;
   letter-spacing: 1.1px;
 }
 .brand-vivo {
@@ -1282,10 +1282,10 @@ a svg {
   margin-top: 15px;
 }
 .smart-intro > p {
-  font-size: 11px;
-  line-height: 1.9;
+  font-size: 16.5px;
+  line-height: 1.8;
   color: #8e897e;
-  max-width: 260px;
+  max-width: 320px;
   margin: 15px 0 14px;
 }
 .smart-cards {
@@ -1299,7 +1299,7 @@ a svg {
   padding: 25px 22px 22px;
   position: relative;
   background: #fdfcf9;
-  min-height: 211px;
+  min-height: 230px;
 }
 .smart-card:hover {
   border-color: #c4ab73;
@@ -1319,17 +1319,17 @@ a svg {
   font-weight: 400;
 }
 .smart-card h3 {
-  font-size: 12px;
+  font-size: 16.5px;
   margin-bottom: 10px;
 }
 .smart-card p {
-  font-size: 9px;
+  font-size: 15px;
   color: #91897b;
-  line-height: 1.9;
-  max-width: 180px;
+  line-height: 1.8;
+  max-width: 220px;
 }
 .smart-card > span:last-child {
-  font-size: 8px;
+  font-size: 14.5px;
   color: #a38344;
   display: flex;
   justify-content: space-between;
@@ -1357,7 +1357,7 @@ a svg {
   z-index: 1;
 }
 .offer-copy .eyebrow {
-  font-size: 8px;
+  font-size: 14px;
   color: #8b713f;
 }
 .offer-copy h2 {
@@ -1369,12 +1369,12 @@ a svg {
   color: #987335;
 }
 .offer-copy > p {
-  font-size: 10px;
+  font-size: 16.5px;
   color: #8a7753;
   margin: 18px 0 22px;
 }
 .offer-copy > .button {
-  font-size: 10px;
+  font-size: 15px;
   min-height: 44px;
   padding: 12px 19px;
 }
@@ -1394,18 +1394,18 @@ a svg {
   flex-shrink: 0;
 }
 .offer-perks strong {
-  font-size: 11px;
+  font-size: 16.5px;
   font-weight: 500;
   display: block;
 }
 .offer-perks small {
-  font-size: 8px;
+  font-size: 14.5px;
   color: #907c57;
   display: block;
   margin-top: 6px;
 }
 .offer-perks > p {
-  font-size: 7px;
+  font-size: 14.5px;
   color: #9b865e;
   margin-left: 42px;
   margin-top: 8px;
@@ -1476,9 +1476,9 @@ a svg {
   background: #ffffffed;
   backdrop-filter: blur(12px);
   border: 1px solid #fff8;
-  padding: 15px 18px;
+  padding: 14px 18px;
   border-radius: 4px;
-  font-size: 7px;
+  font-size: 14px;
   letter-spacing: 1.3px;
 }
 .showroom-caption > svg {
@@ -1493,14 +1493,14 @@ a svg {
   box-shadow: 0 0 0 3px #7c947115;
 }
 .local-copy > .eyebrow {
-  font-size: 8px;
+  font-size: 14px;
 }
 .local-copy h2 {
   font-size: 45px;
   margin-top: 14px;
 }
 .local-copy > p {
-  font-size: 11px;
+  font-size: 16.5px;
   color: #898579;
   line-height: 1.9;
   max-width: 345px;
@@ -1517,26 +1517,26 @@ a svg {
   margin-top: 1px;
 }
 .address-block strong {
-  font-size: 10px;
+  font-size: 16.5px;
   font-weight: 550;
 }
 .address-block span {
-  font-size: 9px;
+  font-size: 15px;
   line-height: 1.8;
   display: block;
   color: #969083;
   margin-top: 5px;
 }
 .address-block small {
-  font-size: 8px;
+  font-size: 14.5px;
   color: #a28a5e;
   display: block;
   margin-top: 7px;
 }
 .local-copy > .button {
-  min-height: 43px;
+  min-height: 45px;
   padding: 12px 20px;
-  font-size: 10px;
+  font-size: 15px;
 }
 .testimonials-section {
   background: #faf9f5;
@@ -1566,7 +1566,7 @@ a svg {
 .review-stars {
   color: #b49a62;
   letter-spacing: 2px;
-  font-size: 10px;
+  font-size: 14.5px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1579,7 +1579,7 @@ a svg {
   transform: translateY(8px);
 }
 .testimonial blockquote {
-  font-size: 11px;
+  font-size: 16.5px;
   line-height: 1.9;
   color: #727266;
   margin: 18px 0 22px;
@@ -1596,7 +1596,7 @@ a svg {
   background: #ece6da;
   color: #9b8353;
   font-family: var(--serif);
-  font-size: 12px;
+  font-size: 14.5px;
   display: grid;
   place-items: center;
 }
@@ -1609,7 +1609,7 @@ a svg {
   color: #a78a7b;
 }
 .reviewer strong {
-  font-size: 9px;
+  font-size: 15px;
   font-weight: 550;
   display: flex;
   align-items: center;
@@ -1617,17 +1617,17 @@ a svg {
 }
 .reviewer strong > svg {
   color: #819174;
-  width: 11px;
+  width: 13px;
 }
 .reviewer small {
-  font-size: 7px;
+  font-size: 14.5px;
   color: #a29a8c;
   display: block;
   margin-top: 5px;
 }
 .testimonial-note {
   text-align: center;
-  font-size: 7px;
+  font-size: 14.5px;
   color: #aaa293;
   margin-top: 18px;
 }
@@ -1641,10 +1641,10 @@ a svg {
   margin: 13px 0 23px;
 }
 .final-cta .button {
-  font-size: 10px;
+  font-size: 15px;
 }
 .final-cta > p {
-  font-size: 8px;
+  font-size: 14.5px;
   color: #9c9586;
   margin-top: 17px;
   letter-spacing: 0.4px;
@@ -1668,16 +1668,16 @@ a svg {
   height: 34px;
 }
 .footer .logo small {
-  font-size: 5px;
+  font-size: 13px;
 }
 .footer-top > div:first-child > p {
-  font-size: 11px;
+  font-size: 16.5px;
   color: #8b877b;
   line-height: 1.85;
   margin-top: 17px;
 }
 .footer-india {
-  font-size: 8px;
+  font-size: 14.5px;
   color: #9e9686;
   display: block;
   margin-top: 19px;
@@ -1687,7 +1687,7 @@ a svg {
   padding-left: 6px;
 }
 .footer h4 {
-  font-size: 10px;
+  font-size: 15px;
   font-weight: 550;
   color: #595a50;
   margin-bottom: 17px;
@@ -1703,7 +1703,7 @@ a svg {
   margin-bottom: 4px;
 }
 .footer-links a {
-  font-size: 9px;
+  font-size: 15px;
   color: #958e80;
 }
 .footer-links a:hover {
@@ -1714,7 +1714,7 @@ a svg {
   padding-top: 6px;
 }
 .footer-newsletter > p {
-  font-size: 9px;
+  font-size: 15px;
   line-height: 1.85;
   color: #948c7d;
   max-width: 235px;
@@ -1727,7 +1727,7 @@ a svg {
   margin-top: 4px;
 }
 .footer-newsletter input {
-  font-size: 9px;
+  font-size: 15px;
   flex: 1;
   border: 0;
   outline: none;
@@ -1738,13 +1738,13 @@ a svg {
   color: #9f814a;
 }
 .footer-newsletter > small {
-  font-size: 7px;
+  font-size: 14px;
   color: #a99f8d;
   display: block;
   margin-top: 9px;
 }
 .newsletter-success {
-  font-size: 10px;
+  font-size: 15px;
   color: #779064;
   display: flex;
   gap: 8px;
@@ -1757,7 +1757,7 @@ a svg {
   justify-content: space-between;
   gap: 20px;
   padding: 21px 0;
-  font-size: 8px;
+  font-size: 14.5px;
   color: #a09684;
 }
 .footer-bottom > div {
@@ -1766,18 +1766,18 @@ a svg {
   align-items: center;
 }
 .footer-bottom > div > span {
-  font-size: 11px;
+  font-size: 15px;
   font-weight: 650;
   font-style: italic;
   color: #8c887d;
 }
 .footer-bottom .payment-note {
-  font-size: 6px;
+  font-size: 14px;
   font-weight: 400;
   font-style: normal;
 }
 .demo-disclaimer {
-  font-size: 7px;
+  font-size: 14px;
   line-height: 1.7;
   color: #aba395;
   padding: 0 0 17px;
@@ -1797,7 +1797,7 @@ a svg {
   align-items: center;
   gap: 12px;
   padding: 14px 22px;
-  font-size: 11px;
+  font-size: 15px;
   max-width: calc(100% - 32px);
   width: max-content;
 }
@@ -1830,17 +1830,17 @@ a svg {
   color: var(--gold);
 }
 .compare-tray strong {
-  font-size: 10px;
+  font-size: 15px;
   font-weight: 550;
   display: block;
 }
 .compare-tray strong > span {
   color: #a98d52;
   margin-left: 9px;
-  font-size: 9px;
+  font-size: 14.5px;
 }
 .compare-tray small {
-  font-size: 8px;
+  font-size: 14px;
   color: #9b9383;
   display: block;
   margin-top: 4px;
@@ -1850,7 +1850,7 @@ a svg {
   height: 25px;
 }
 .compare-tray .button {
-  font-size: 9px;
+  font-size: 14.5px;
 }
 .modal-backdrop {
   position: fixed;
@@ -1910,7 +1910,7 @@ a svg {
   border: 0;
   outline: none;
   flex: 1;
-  font-size: 11px;
+  font-size: 16.5px;
   height: 100%;
   width: 100%;
 }
@@ -1922,13 +1922,13 @@ a svg {
   height: 52px;
 }
 .search-input.large input {
-  font-size: 12px;
+  font-size: 16.5px;
 }
 .search-suggestions {
   margin: 27px 0 18px;
 }
 .search-suggestions > .eyebrow {
-  font-size: 8px;
+  font-size: 14px;
   margin-bottom: 12px;
 }
 .search-suggestions > a {
@@ -1954,15 +1954,15 @@ a svg {
   gap: 5px;
 }
 .search-suggestions small {
-  font-size: 8px;
+  font-size: 14px;
   color: #978b74;
 }
 .search-suggestions strong {
-  font-size: 12px;
+  font-size: 16.5px;
   font-weight: 500;
 }
 .search-suggestions b {
-  font-size: 11px;
+  font-size: 15px;
   font-weight: 500;
 }
 .search-suggestions > a > svg {
@@ -1970,7 +1970,7 @@ a svg {
   margin-left: 15px;
 }
 .search-suggestions > p {
-  font-size: 12px;
+  font-size: 16.5px;
   color: #8b8578;
   margin: 20px 0;
 }
@@ -1979,7 +1979,7 @@ a svg {
   padding-bottom: 37px;
 }
 .page-heading .eyebrow {
-  font-size: 9px;
+  font-size: 14px;
   margin-bottom: 14px;
 }
 .page-heading h1 {
@@ -1988,7 +1988,7 @@ a svg {
   letter-spacing: -1.4px;
 }
 .page-heading > p {
-  font-size: 12px;
+  font-size: 16.5px;
   line-height: 1.85;
   color: #938b7d;
   margin-top: 15px;
@@ -2020,14 +2020,14 @@ a svg {
   font-size: 36px;
 }
 .empty-state > p {
-  font-size: 12px;
+  font-size: 16.5px;
   color: #948d7f;
   line-height: 1.9;
   max-width: 410px;
   margin: 15px auto 24px;
 }
 .empty-state .button {
-  font-size: 11px;
+  font-size: 15px;
 }
 .shop-container {
   padding-bottom: 35px;
@@ -2052,7 +2052,7 @@ a svg {
   gap: 9px;
   position: relative;
   white-space: nowrap;
-  font-size: 10px;
+  font-size: 15px;
 }
 .sort-select > span {
   color: #9c9484;
@@ -2107,17 +2107,17 @@ a svg {
   mix-blend-mode: multiply;
 }
 .autocomplete span {
-  font-size: 11px;
+  font-size: 16.5px;
   flex: 1;
 }
 .autocomplete small {
   display: block;
   margin-top: 4px;
-  font-size: 8px;
+  font-size: 14px;
   color: #9d9179;
 }
 .autocomplete b {
-  font-size: 10px;
+  font-size: 15px;
   font-weight: 500;
 }
 .shop-layout {
@@ -2136,11 +2136,11 @@ a svg {
   margin-bottom: 26px;
 }
 .filter-heading h3 {
-  font-size: 12px;
+  font-size: 16.5px;
   font-weight: 550;
 }
 .filter-heading > button {
-  font-size: 9px;
+  font-size: 14.5px;
   color: #a2874d;
   text-decoration: underline;
   text-underline-offset: 3px;
@@ -2152,7 +2152,7 @@ a svg {
   padding: 0 0 23px;
 }
 .filter-panel legend {
-  font-size: 10px;
+  font-size: 15px;
   font-weight: 550;
   margin-bottom: 16px;
 }
@@ -2160,7 +2160,7 @@ a svg {
   display: flex;
   align-items: center;
   gap: 9px;
-  font-size: 11px;
+  font-size: 15px;
   cursor: pointer;
   color: #817b6e;
   line-height: 1.6;
@@ -2175,18 +2175,18 @@ a svg {
 }
 .filter-panel .check-label {
   margin: 10px 0;
-  font-size: 10px;
+  font-size: 15px;
 }
 .check-label > small {
   margin-left: auto;
-  font-size: 9px;
+  font-size: 14px;
   color: #aca394;
 }
 .range-values {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 9px;
+  font-size: 14.5px;
   color: #a49780;
   margin-bottom: 15px;
 }
@@ -2203,7 +2203,7 @@ a svg {
 .budget-chip {
   border: 1px solid #e9e2d4;
   border-radius: 4px;
-  font-size: 8px;
+  font-size: 14.5px;
   padding: 7px 9px;
   display: flex;
   align-items: center;
@@ -2222,7 +2222,7 @@ a svg {
   opacity: 1;
 }
 .clear-need {
-  font-size: 8px;
+  font-size: 14.5px;
   color: #a0874f;
   text-decoration: underline;
   text-underline-offset: 3px;
@@ -2237,7 +2237,7 @@ a svg {
   border: 1px solid #e5ddcd;
   border-radius: 3px;
   padding: 7px 11px;
-  font-size: 9px;
+  font-size: 14.5px;
   color: #948b79;
 }
 .storage-filter > button.active {
@@ -2252,11 +2252,11 @@ a svg {
   border-radius: 5px;
 }
 .filter-help > span {
-  font-size: 10px;
+  font-size: 15px;
   font-weight: 500;
 }
 .filter-help > p {
-  font-size: 9px;
+  font-size: 14.5px;
   color: #9c8c6f;
   line-height: 1.8;
   margin: 8px 0 12px;
@@ -2265,7 +2265,7 @@ a svg {
   display: flex;
   align-items: center;
   gap: 12px;
-  font-size: 9px;
+  font-size: 14.5px;
   color: #9c7d3e;
 }
 .mobile-apply {
@@ -2280,7 +2280,7 @@ a svg {
   gap: 15px;
   align-items: center;
   margin-bottom: 24px;
-  font-size: 10px;
+  font-size: 15px;
   color: #9a8f7c;
 }
 .results-header strong {
@@ -2288,7 +2288,7 @@ a svg {
   color: #5f5d51;
 }
 .results-header > span {
-  font-size: 9px;
+  font-size: 14.5px;
   color: #aba291;
 }
 .shop-grid {
@@ -2305,7 +2305,7 @@ a svg {
   margin: -3px 0 22px;
 }
 .active-filters button {
-  font-size: 8px;
+  font-size: 14.5px;
   padding: 6px 9px;
   border: 1px solid #dfcfac;
   background: #f8f1e3;
@@ -2325,10 +2325,10 @@ a svg {
 }
 .shop-end-note > span {
   color: #b3975c;
-  font-size: 19px;
+  font-size: 20px;
 }
 .shop-end-note > p {
-  font-size: 9px;
+  font-size: 15px;
   color: #a49a86;
   line-height: 1.9;
 }
@@ -2340,7 +2340,7 @@ a svg {
   display: flex;
   align-items: center;
   gap: 11px;
-  font-size: 9px;
+  font-size: 15px;
   color: #9b907b;
   padding: 29px 0;
 }
@@ -2376,7 +2376,7 @@ a svg {
 .main-product-image > .product-badge {
   left: 22px;
   top: 22px;
-  font-size: 8px;
+  font-size: 14.5px;
   padding: 6px 10px;
 }
 .main-product-image > img {
@@ -2407,7 +2407,7 @@ a svg {
   position: absolute;
   bottom: 24px;
   left: 24px;
-  font-size: 8px;
+  font-size: 14.5px;
   letter-spacing: 0.6px;
   color: #a69a81;
 }
@@ -2439,13 +2439,13 @@ a svg {
   max-height: 45px;
 }
 .gallery-thumbs span {
-  font-size: 9px;
+  font-size: 14.5px;
   position: relative;
   color: #928164;
   background: #faf9f580;
 }
 .image-note {
-  font-size: 8px;
+  font-size: 14.5px;
   color: #a59a85;
   line-height: 1.8;
   margin: 13px 0 0;
@@ -2465,7 +2465,7 @@ a svg {
   display: flex;
   gap: 7px;
   align-items: center;
-  font-size: 9px;
+  font-size: 15px;
   color: #998e79;
 }
 .detail-rating > svg {
@@ -2484,10 +2484,10 @@ a svg {
 }
 .in-stock {
   color: #7d8d69;
-  font-size: 8px;
+  font-size: 14.5px;
 }
 .detail-description {
-  font-size: 12px;
+  font-size: 16.5px;
   color: #8d8475;
   line-height: 1.9;
   margin: 22px 0;
@@ -2500,16 +2500,16 @@ a svg {
   flex-wrap: wrap;
 }
 .detail-price > strong {
-  font-size: 29px;
+  font-size: 32px;
   letter-spacing: -1px;
   font-weight: 550;
 }
 .detail-price > del {
-  font-size: 13px;
+  font-size: 16.5px;
   color: #b2a48c;
 }
 .detail-price > span {
-  font-size: 8px;
+  font-size: 14.5px;
   background: #edf1e5;
   color: #7b8a61;
   border: 1px solid #e1e7d4;
@@ -2517,7 +2517,7 @@ a svg {
   padding: 5px 7px;
 }
 .tax-note {
-  font-size: 8px;
+  font-size: 14.5px;
   line-height: 1.8;
   color: #a2947b;
   margin-top: 4px;
@@ -2527,7 +2527,7 @@ a svg {
   align-items: center;
   gap: 7px;
   color: #a08348;
-  font-size: 10px;
+  font-size: 15px;
   margin-top: 11px;
 }
 .emi-link:hover {
@@ -2538,14 +2538,14 @@ a svg {
   margin-top: 25px;
 }
 .variant-section > p {
-  font-size: 10px;
+  font-size: 15px;
   font-weight: 550;
   display: flex;
   align-items: center;
   gap: 16px;
 }
 .variant-section strong {
-  font-size: 9px;
+  font-size: 14.5px;
   color: #a09177;
   font-weight: 400;
 }
@@ -2581,7 +2581,7 @@ a svg {
   min-width: 81px;
   border: 1px solid #e1d8c4;
   border-radius: 4px;
-  font-size: 10px;
+  font-size: 15px;
   color: #948264;
 }
 .storage-options > button.active {
@@ -2596,7 +2596,7 @@ a svg {
 }
 .product-buy-buttons > .button {
   flex: 1;
-  font-size: 10px;
+  font-size: 15px;
   padding: 14px 15px;
   gap: 11px;
 }
@@ -2605,7 +2605,7 @@ a svg {
   align-items: center;
   justify-content: center;
   width: 100%;
-  font-size: 9px;
+  font-size: 15px;
   color: #9f8960;
   padding: 13px 0;
   gap: 6px;
@@ -2627,7 +2627,7 @@ a svg {
   width: 18px;
 }
 .delivery-check strong {
-  font-size: 9px;
+  font-size: 15px;
   font-weight: 500;
 }
 .delivery-check form {
@@ -2639,19 +2639,19 @@ a svg {
 }
 .delivery-check input {
   background: none;
-  font-size: 10px;
+  font-size: 15px;
   border: 0;
   flex: 1;
   outline: none;
   padding: 7px 0;
 }
 .delivery-check form > button {
-  font-size: 9px;
+  font-size: 14.5px;
   color: #aa8844;
   font-weight: 500;
 }
 .delivery-check > p {
-  font-size: 9px;
+  font-size: 14.5px;
   line-height: 1.8;
   color: #8b815f;
   margin-top: 9px;
@@ -2666,7 +2666,7 @@ a svg {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 8px;
+  font-size: 14.5px;
   color: #a19275;
 }
 .detail-trust svg {
@@ -2682,7 +2682,7 @@ a svg {
   border-bottom: 1px solid #e5ddcb;
 }
 .info-tabs > button {
-  font-size: 11px;
+  font-size: 16.5px;
   color: #a19277;
   padding: 15px 0;
   position: relative;
@@ -2718,20 +2718,20 @@ a svg {
   margin-bottom: 20px;
 }
 .spec-grid > div > span {
-  font-size: 8px;
+  font-size: 14px;
   color: #a09276;
   letter-spacing: 1px;
   text-transform: uppercase;
   margin-bottom: 9px;
 }
 .spec-grid > div > strong {
-  font-size: 11px;
+  font-size: 16.5px;
   line-height: 1.7;
   font-weight: 500;
 }
 .spec-disclaimer {
   grid-column: 1/-1;
-  font-size: 9px;
+  font-size: 14.5px;
   color: #a3967d;
   line-height: 1.8;
 }
@@ -2746,7 +2746,7 @@ a svg {
   margin-bottom: 14px;
 }
 .info-prose p {
-  font-size: 12px;
+  font-size: 16.5px;
   line-height: 1.95;
   color: #978a74;
   margin-bottom: 10px;
@@ -2778,7 +2778,7 @@ a svg {
 }
 .emi-total > small {
   display: block;
-  font-size: 10px;
+  font-size: 15px;
   color: #9e8c6b;
   letter-spacing: 0;
   margin-top: 6px;
@@ -2787,7 +2787,7 @@ a svg {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  font-size: 10px;
+  font-size: 15px;
   color: #746b59;
   font-weight: 500;
 }
@@ -2798,7 +2798,7 @@ a svg {
   border: 1px solid #e2d9c5;
   border-radius: 4px;
   padding: 12px 13px;
-  font-size: 11px;
+  font-size: 15px;
   font-weight: 400;
   outline: none;
   width: 100%;
@@ -2825,7 +2825,7 @@ a svg {
   margin: 23px 0;
 }
 .emi-result > span {
-  font-size: 10px;
+  font-size: 15px;
   color: #9d875d;
   display: block;
   margin-bottom: 11px;
@@ -2836,7 +2836,7 @@ a svg {
   color: #947138;
 }
 .emi-result small {
-  font-size: 11px;
+  font-size: 15px;
   font-weight: 400;
   color: #a08d6b;
 }
@@ -2861,7 +2861,7 @@ a svg {
   display: flex;
   align-items: center;
   gap: 7px;
-  font-size: 9px;
+  font-size: 14.5px;
   color: #a18a5c;
 }
 .wishlist-card-actions > button:hover {
@@ -2884,7 +2884,7 @@ a svg {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 11px;
+  font-size: 15px;
   color: #9a8865;
 }
 .compare-toolbar > div {
@@ -2893,17 +2893,17 @@ a svg {
   gap: 24px;
 }
 .compare-toolbar .check-label {
-  font-size: 10px;
+  font-size: 15px;
 }
 .compare-toolbar .text-button {
-  font-size: 10px;
+  font-size: 15px;
 }
 .info-notice {
   padding: 14px 19px;
   background: #f8f2e4;
   border: 1px solid #e7d9b9;
   border-radius: 5px;
-  font-size: 10px;
+  font-size: 15px;
   color: #958052;
   display: flex;
   gap: 10px;
@@ -2911,7 +2911,7 @@ a svg {
   margin-bottom: 24px;
 }
 .info-notice > span {
-  font-size: 16px;
+  font-size: 18.5px;
 }
 .compare-scroll {
   overflow-x: auto;
@@ -2930,7 +2930,7 @@ a svg {
   border-right: 1px solid #e9e0cd;
 }
 .compare-intro .eyebrow {
-  font-size: 7px;
+  font-size: 14px;
   letter-spacing: 1.5px;
 }
 .compare-intro h3 {
@@ -2945,7 +2945,7 @@ a svg {
   font-weight: 400;
 }
 .compare-intro p {
-  font-size: 9px;
+  font-size: 15px;
   color: #a18e6c;
   line-height: 1.8;
 }
@@ -2979,22 +2979,22 @@ a svg {
   mix-blend-mode: multiply;
 }
 .compare-product > a > span {
-  font-size: 8px;
+  font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 1.2px;
   color: #ac9974;
 }
 .compare-product h3 {
-  font-size: 13px;
+  font-size: 16.5px;
   margin: 8px 0 12px;
 }
 .compare-product > strong {
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 550;
   margin-bottom: 17px;
 }
 .compare-product > .button {
-  font-size: 9px;
+  font-size: 14.5px;
   padding: 9px 14px;
   min-height: 35px;
 }
@@ -3025,12 +3025,12 @@ a svg {
   margin-bottom: 18px;
 }
 .compare-add > strong {
-  font-size: 12px;
+  font-size: 16.5px;
   font-weight: 500;
   color: #9a7e45;
 }
 .compare-add > small {
-  font-size: 8px;
+  font-size: 14.5px;
   color: #b2a07d;
   margin-top: 9px;
 }
@@ -3044,7 +3044,7 @@ a svg {
   padding: 21px 18px;
   border-top: 1px solid #eae2d1;
   border-right: 1px solid #eae2d1;
-  font-size: 10px;
+  font-size: 15px;
   line-height: 1.8;
   text-align: center;
   color: #8b7b5f;
@@ -3055,14 +3055,14 @@ a svg {
 .compare-row > .compare-row-label {
   background: #f9f6ed;
   color: #85704b;
-  font-size: 10px;
+  font-size: 15px;
   font-weight: 500;
   text-align: left;
   padding-left: 21px;
 }
 .comparison-note {
   margin: 21px 0 10px;
-  font-size: 8px;
+  font-size: 14.5px;
 }
 .compare-picker {
   display: grid;
@@ -3097,15 +3097,15 @@ a svg {
   flex: 1;
 }
 .compare-picker small {
-  font-size: 7px;
+  font-size: 14px;
   color: #a38c61;
 }
 .compare-picker strong {
-  font-size: 10px;
+  font-size: 16.5px;
   font-weight: 550;
 }
 .compare-picker b {
-  font-size: 9px;
+  font-size: 15px;
   font-weight: 500;
   color: #8b7448;
 }
@@ -3130,15 +3130,15 @@ a svg {
   padding-bottom: 20px;
 }
 .bag-heading h3 {
-  font-size: 13px;
+  font-size: 18.5px;
 }
 .bag-heading h3 > span {
-  font-size: 10px;
+  font-size: 15px;
   color: #b69c69;
   padding-left: 4px;
 }
 .bag-heading > span {
-  font-size: 8px;
+  font-size: 14.5px;
   color: #9c8b6b;
   display: flex;
   align-items: center;
@@ -3175,17 +3175,17 @@ a svg {
   padding-top: 4px;
 }
 .cart-item-info .eyebrow {
-  font-size: 7px;
+  font-size: 14px;
   letter-spacing: 1.2px;
   margin-bottom: 8px;
 }
 .cart-item-info h3 {
-  font-size: 15px;
+  font-size: 18.5px;
   font-weight: 500;
   letter-spacing: -0.2px;
 }
 .cart-item-info p {
-  font-size: 9px;
+  font-size: 15px;
   color: #a99572;
   margin-top: 7px;
   line-height: 1.8;
@@ -3212,7 +3212,7 @@ a svg {
   background: #f5ebd6;
 }
 .quantity-control > span {
-  font-size: 10px;
+  font-size: 15px;
   padding: 0 10px;
   color: #796749;
 }
@@ -3225,7 +3225,7 @@ a svg {
   padding-bottom: 5px;
 }
 .cart-item-end > strong {
-  font-size: 16px;
+  font-size: 20px;
   letter-spacing: -0.5px;
   font-weight: 550;
 }
@@ -3233,7 +3233,7 @@ a svg {
   display: flex;
   align-items: center;
   gap: 5px;
-  font-size: 8px;
+  font-size: 14.5px;
   color: #ab9c7f;
 }
 .cart-item-end > button:hover {
@@ -3243,7 +3243,7 @@ a svg {
   width: 12px;
 }
 .continue-link {
-  font-size: 10px;
+  font-size: 15px;
   margin-top: 21px;
   color: #9b824f;
 }
@@ -3261,11 +3261,11 @@ a svg {
   flex-shrink: 0;
 }
 .cart-promise strong {
-  font-size: 10px;
+  font-size: 16.5px;
   font-weight: 500;
 }
 .cart-promise p {
-  font-size: 9px;
+  font-size: 14.5px;
   line-height: 1.8;
   color: #a1906e;
   margin-top: 7px;
@@ -3278,7 +3278,7 @@ a svg {
   height: fit-content;
 }
 .order-summary .eyebrow {
-  font-size: 8px;
+  font-size: 14px;
 }
 .order-summary > h2 {
   font-size: 33px;
@@ -3289,12 +3289,12 @@ a svg {
   display: flex;
   justify-content: space-between;
   gap: 15px;
-  font-size: 10px;
+  font-size: 15px;
   margin-bottom: 18px;
   color: #9b8966;
 }
 .summary-line > strong {
-  font-size: 11px;
+  font-size: 16.5px;
   font-weight: 500;
   color: #706044;
 }
@@ -3320,22 +3320,22 @@ a svg {
   border: 0;
   background: none;
   outline: none;
-  font-size: 9px;
+  font-size: 15px;
   flex: 1;
   width: 100%;
 }
 .coupon-form > button {
-  font-size: 9px;
+  font-size: 14.5px;
   font-weight: 500;
   color: #a98b48;
 }
 .coupon-hint {
-  font-size: 8px;
+  font-size: 14px;
   color: #b19a6c;
   margin-top: 9px;
 }
 .remove-coupon {
-  font-size: 8px;
+  font-size: 14px;
   color: #a08243;
   text-decoration: underline;
   margin-top: 9px;
@@ -3350,16 +3350,16 @@ a svg {
   margin-top: 23px;
 }
 .summary-total > span {
-  font-size: 12px;
+  font-size: 16.5px;
   font-weight: 500;
 }
 .summary-total > strong {
-  font-size: 25px;
+  font-size: 26px;
   letter-spacing: -1px;
   font-weight: 550;
 }
 .summary-total > span > small {
-  font-size: 9px;
+  font-size: 14.5px;
   color: #b09b73;
   font-weight: 400;
   display: block;
@@ -3367,17 +3367,17 @@ a svg {
 }
 .order-summary > .tax-note {
   text-align: right;
-  font-size: 8px;
+  font-size: 14.5px;
   margin-top: 5px;
 }
 .order-summary > .button {
   margin-top: 23px;
-  font-size: 10px;
+  font-size: 15px;
   gap: 10px;
   padding: 15px;
 }
 .secure-note {
-  font-size: 8px;
+  font-size: 14.5px;
   color: #a9936c;
   display: flex;
   align-items: center;
@@ -3388,7 +3388,7 @@ a svg {
   text-align: center;
 }
 .checkout-demo-note {
-  font-size: 8px;
+  font-size: 14.5px;
   color: #b1a17f;
   line-height: 1.9;
   border-top: 1px solid #e4d8be;
@@ -3407,15 +3407,15 @@ a svg {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 10px;
+  font-size: 15px;
   color: #b1a17f;
 }
 .checkout-steps b {
-  height: 21px;
-  width: 21px;
+  height: 24px;
+  width: 24px;
   border: 1px solid #e0d3b7;
   border-radius: 50%;
-  font-size: 9px;
+  font-size: 14px;
   font-weight: 500;
   display: grid;
   place-items: center;
@@ -3438,7 +3438,7 @@ a svg {
   display: flex;
   align-items: center;
   gap: 9px;
-  font-size: 10px;
+  font-size: 15px;
   background: #f5efdf;
   border: 1px solid #e3d6b9;
   border-radius: 4px;
@@ -3466,14 +3466,14 @@ a svg {
   border-radius: 4px;
 }
 .phone-field > span {
-  font-size: 10px;
+  font-size: 15px;
   color: #a69067;
   padding: 0 10px;
   border-right: 1px solid #ede3cd;
 }
 .phone-field > input {
   width: 100%;
-  font-size: 11px;
+  font-size: 15px;
   outline: none;
   border: 0;
   background: none;
@@ -3485,14 +3485,14 @@ a svg {
 .optional {
   display: contents;
   color: #b4a588;
-  font-size: 9px;
+  font-size: 14.5px;
 }
 .checkout-form > .fine-print {
   margin: 17px 0;
-  font-size: 9px;
+  font-size: 14.5px;
 }
 .checkout-form > .button {
-  font-size: 11px;
+  font-size: 15px;
 }
 .review-delivery {
   padding: 17px 20px;
@@ -3507,18 +3507,18 @@ a svg {
   margin-bottom: 15px;
 }
 .review-delivery h3 {
-  font-size: 12px;
+  font-size: 16.5px;
   font-weight: 500;
 }
 .review-delivery .text-button {
-  font-size: 9px;
+  font-size: 14.5px;
 }
 .review-delivery > strong {
-  font-size: 11px;
+  font-size: 15px;
   font-weight: 500;
 }
 .review-delivery > p {
-  font-size: 10px;
+  font-size: 15px;
   line-height: 1.9;
   color: #a08c68;
   margin-top: 7px;
@@ -3544,26 +3544,26 @@ a svg {
   flex: 1;
 }
 .review-products strong {
-  font-size: 11px;
+  font-size: 16.5px;
   font-weight: 500;
 }
 .review-products small {
   display: block;
-  font-size: 8px;
+  font-size: 14.5px;
   color: #b09a70;
   margin-top: 6px;
 }
 .review-products b {
-  font-size: 11px;
+  font-size: 15px;
   font-weight: 550;
 }
 .checkout-review > h3 {
-  font-size: 12px;
+  font-size: 16.5px;
   font-weight: 500;
   margin-bottom: 6px;
 }
 .checkout-review > .fine-print {
-  font-size: 9px;
+  font-size: 14.5px;
 }
 .demo-payments {
   display: grid;
@@ -3578,7 +3578,7 @@ a svg {
   border: 1px solid #e2d4b5;
   border-radius: 4px;
   padding: 13px 12px;
-  font-size: 10px;
+  font-size: 14.5px;
   color: #a18a5c;
 }
 .demo-payments > button.active {
@@ -3611,14 +3611,14 @@ a svg {
   margin-bottom: 24px;
 }
 .checkout-success > .eyebrow {
-  font-size: 8px;
+  font-size: 14px;
 }
 .checkout-success > h2 {
   font-size: 43px;
   margin: 15px 0 19px;
 }
 .checkout-success > p {
-  font-size: 12px;
+  font-size: 16.5px;
   line-height: 1.9;
   color: #9c8966;
   max-width: 420px;
@@ -3632,7 +3632,7 @@ a svg {
 }
 .checkout-success > div > span {
   display: block;
-  font-size: 8px;
+  font-size: 14px;
   letter-spacing: 1px;
   text-transform: uppercase;
   color: #af9a6f;
@@ -3640,13 +3640,13 @@ a svg {
 }
 .checkout-success > div > strong {
   font-family: monospace;
-  font-size: 17px;
+  font-size: 18.5px;
   font-weight: 500;
   letter-spacing: 1px;
   color: #9d7c3e;
 }
 .checkout-success > p.fine-print {
-  font-size: 10px;
+  font-size: 14.5px;
   max-width: 420px;
   margin-bottom: 25px;
 }
@@ -3695,7 +3695,7 @@ a svg {
   flex: 1;
 }
 .welcome-offer .eyebrow {
-  font-size: 8px;
+  font-size: 14px;
 }
 .welcome-offer h2 {
   font-size: 49px;
@@ -3703,7 +3703,7 @@ a svg {
   margin-top: 14px;
 }
 .welcome-offer p {
-  font-size: 10px;
+  font-size: 16.5px;
   color: #9b8252;
   line-height: 1.9;
   margin: 18px 0;
@@ -3719,12 +3719,12 @@ a svg {
   color: #9c7837;
 }
 .offer-code > span {
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 600;
   letter-spacing: 2px;
 }
 .offer-code small {
-  font-size: 9px;
+  font-size: 14.5px;
 }
 .offer-code:hover {
   background: #fffaf0;
@@ -3732,7 +3732,7 @@ a svg {
 .welcome-offer > .button {
   align-self: flex-end;
   margin-bottom: 10px;
-  font-size: 10px;
+  font-size: 15px;
 }
 .offer-detail-grid {
   display: grid;
@@ -3751,7 +3751,7 @@ a svg {
   margin-bottom: 24px;
 }
 .offer-detail-grid .eyebrow {
-  font-size: 7px;
+  font-size: 14px;
   letter-spacing: 1.6px;
 }
 .offer-detail-grid h3 {
@@ -3762,13 +3762,13 @@ a svg {
   margin-top: 14px;
 }
 .offer-detail-grid p {
-  font-size: 11px;
+  font-size: 16.5px;
   line-height: 1.95;
   color: #a08d69;
   margin: 17px 0;
 }
 .offer-detail-grid .text-link {
-  font-size: 9px;
+  font-size: 15px;
   color: #9d7a39;
 }
 .faq-section {
@@ -3782,7 +3782,7 @@ a svg {
   font-size: 37px;
 }
 .faq-section > div > p {
-  font-size: 11px;
+  font-size: 16.5px;
   color: #a18d68;
   line-height: 1.8;
   margin-top: 15px;
@@ -3798,7 +3798,7 @@ a svg {
   align-items: center;
   gap: 20px;
   padding: 21px 0;
-  font-size: 12px;
+  font-size: 16.5px;
   color: #82704e;
 }
 .faq-item > button > svg {
@@ -3810,7 +3810,7 @@ a svg {
   transform: rotate(180deg);
 }
 .faq-item > p {
-  font-size: 11px;
+  font-size: 16.5px;
   color: #a08d69;
   line-height: 1.95;
   padding: 0 20px 22px 0;
@@ -3833,7 +3833,7 @@ a svg {
   margin: 18px 0 24px;
 }
 .about-hero p {
-  font-size: 12px;
+  font-size: 16.5px;
   color: #97866a;
   line-height: 1.95;
   margin-bottom: 14px;
@@ -3875,7 +3875,7 @@ a svg {
   margin-bottom: 14px;
 }
 .values-grid p {
-  font-size: 11px;
+  font-size: 16.5px;
   line-height: 1.95;
   color: #a18d67;
 }
@@ -3893,7 +3893,7 @@ a svg {
   color: #b89b61;
 }
 .about-note > p {
-  font-size: 11px;
+  font-size: 16.5px;
   line-height: 1.9;
   color: #a18d66;
 }
@@ -3926,7 +3926,7 @@ a svg {
   background: #fffdf6df;
   padding: 12px 17px;
   backdrop-filter: blur(7px);
-  font-size: 7px;
+  font-size: 14px;
   letter-spacing: 1.8px;
   color: #9d8048;
   border-radius: 3px;
@@ -3947,23 +3947,23 @@ a svg {
   margin-top: 3px;
 }
 .contact-detail strong {
-  font-size: 11px;
+  font-size: 16.5px;
   font-weight: 500;
 }
 .contact-detail p {
-  font-size: 11px;
+  font-size: 16.5px;
   color: #9d8964;
-  line-height: 1.9;
+  line-height: 1.8;
   margin-top: 7px;
 }
 .contact-detail .fine-print {
-  font-size: 8px;
+  font-size: 14.5px;
   color: #b0a080;
   display: block;
   margin-top: 6px;
 }
 .contact-info > .button {
-  font-size: 10px;
+  font-size: 15px;
 }
 .visit-details {
   background: #f9f3e5;
@@ -3973,18 +3973,18 @@ a svg {
   margin-top: 20px;
 }
 .visit-details > strong {
-  font-size: 11px;
+  font-size: 16.5px;
   font-weight: 500;
   color: #95743b;
 }
 .visit-details > p {
-  font-size: 10px;
-  line-height: 1.9;
+  font-size: 15px;
+  line-height: 1.8;
   color: #a08b64;
   margin-top: 10px;
 }
 .visit-details > .text-link {
-  font-size: 9px;
+  font-size: 14.5px;
   margin-top: 5px;
 }
 .contact-form-card {
@@ -3996,14 +3996,14 @@ a svg {
   height: fit-content;
 }
 .contact-form-card > .eyebrow {
-  font-size: 8px;
+  font-size: 14px;
 }
 .contact-form-card > h2 {
   font-size: 39px;
   margin-top: 14px;
 }
 .contact-form-card > p {
-  font-size: 11px;
+  font-size: 16.5px;
   line-height: 1.9;
   color: #a18b63;
   margin: 17px 0 25px;
@@ -4014,7 +4014,7 @@ a svg {
   gap: 18px;
 }
 .contact-consent {
-  font-size: 9px;
+  font-size: 14.5px;
   align-items: flex-start;
   color: #a18e6c;
 }
@@ -4022,12 +4022,12 @@ a svg {
   margin-top: 1px;
 }
 .contact-form-card .fine-print {
-  font-size: 8px;
+  font-size: 14.5px;
   text-align: center;
   margin-top: -5px;
 }
 .contact-form-card .button {
-  font-size: 11px;
+  font-size: 15px;
 }
 .contact-success {
   text-align: center;
@@ -4052,7 +4052,7 @@ a svg {
   font-weight: 500;
 }
 .contact-success p {
-  font-size: 11px;
+  font-size: 16.5px;
   color: #a38c63;
   line-height: 1.95;
   margin: 16px 0 23px;
@@ -4072,20 +4072,20 @@ a svg {
   flex-shrink: 0;
 }
 .contact-bottom h3 {
-  font-size: 13px;
+  font-size: 16.5px;
   font-weight: 500;
 }
 .contact-bottom p {
-  font-size: 10px;
+  font-size: 15px;
   color: #a48e67;
-  line-height: 1.9;
+  line-height: 1.8;
   margin-top: 9px;
   max-width: 700px;
 }
 .contact-bottom > .text-link {
   margin-left: auto;
   color: #a4813e;
-  font-size: 10px;
+  font-size: 15px;
 }
 @keyframes gentle-float {
   0%,
@@ -4107,7 +4107,7 @@ a svg {
     font-size: 99px;
   }
   .hero-copy > p {
-    font-size: 14px;
+    font-size: 16.5px;
   }
   .hero-buttons {
     margin-top: 33px;
@@ -4167,10 +4167,10 @@ a svg {
     top: 75px;
   }
   .hero-copy > p {
-    font-size: 12px;
+    font-size: 14.5px;
   }
   .hero-eyebrow {
-    font-size: 8px;
+    font-size: 12.5px;
     letter-spacing: 1.6px;
   }
   .hero-art {
@@ -4186,7 +4186,7 @@ a svg {
     );
   }
   .hero-buttons .button {
-    font-size: 10px;
+    font-size: 13.5px;
     padding: 14px 17px;
     gap: 13px;
   }
@@ -4206,10 +4206,10 @@ a svg {
     padding: 0 18px;
   }
   .trust-item strong {
-    font-size: 9px;
+    font-size: 13px;
   }
   .trust-item span {
-    font-size: 7px;
+    font-size: 12px;
   }
   .trust-item > svg {
     width: 22px;
@@ -4218,16 +4218,16 @@ a svg {
     font-size: 34px;
   }
   .section-heading .text-link {
-    font-size: 10px;
+    font-size: 13.5px;
   }
   .need-card {
     padding: 14px 12px 19px;
   }
   .need-card h3 {
-    font-size: 10px;
+    font-size: 13.5px;
   }
   .need-card p {
-    font-size: 7px;
+    font-size: 12px;
   }
   .product-grid {
     gap: 15px;
@@ -4243,19 +4243,19 @@ a svg {
     padding-right: 13px;
   }
   .product-content h3 {
-    font-size: 13px;
+    font-size: 15px;
   }
   .product-spec {
-    font-size: 7px;
+    font-size: 12px;
   }
   .price-row > strong {
-    font-size: 16px;
+    font-size: 18.5px;
   }
   .price-row del {
-    font-size: 8px;
+    font-size: 12.5px;
   }
   .emi {
-    font-size: 6.5px;
+    font-size: 11.5px;
   }
   .smart-layout {
     gap: 28px;
@@ -4271,13 +4271,13 @@ a svg {
     gap: 12px;
   }
   .smart-card h3 {
-    font-size: 11px;
+    font-size: 14px;
   }
   .smart-card p {
-    font-size: 8px;
+    font-size: 12.5px;
   }
   .smart-card > span:last-child {
-    font-size: 7px;
+    font-size: 12px;
   }
   .offer-banner {
     padding: 37px;
@@ -4321,18 +4321,18 @@ a svg {
     font-size: 26px;
   }
   .detail-price > del {
-    font-size: 11px;
+    font-size: 14px;
   }
   .product-buy-buttons {
     gap: 8px;
   }
   .product-buy-buttons > .button {
-    font-size: 9px;
+    font-size: 13px;
     padding: 13px 10px;
     gap: 8px;
   }
   .detail-trust > span {
-    font-size: 7px;
+    font-size: 12px;
   }
   .cart-layout {
     gap: 30px;
@@ -4345,10 +4345,10 @@ a svg {
     gap: 15px;
   }
   .cart-item-end > strong {
-    font-size: 14px;
+    font-size: 16.5px;
   }
   .cart-item-info h3 {
-    font-size: 13px;
+    font-size: 15px;
   }
   .welcome-offer {
     gap: 40px;
@@ -4362,7 +4362,7 @@ a svg {
     font-size: 43px;
   }
   .welcome-offer > .button {
-    font-size: 9px;
+    font-size: 13px;
     padding: 13px 16px;
   }
   .contact-layout {
@@ -4402,7 +4402,7 @@ a svg {
     height: 34px;
   }
   .logo small {
-    font-size: 5px;
+    font-size: 10.5px;
     letter-spacing: 1.4px;
   }
   .desktop-nav {
@@ -4411,7 +4411,7 @@ a svg {
   }
   .desktop-nav > a,
   .brands-dropdown > button {
-    font-size: 10px;
+    font-size: 13.5px;
   }
   .nav-actions {
     gap: 5px;
@@ -4441,12 +4441,12 @@ a svg {
     font-size: 66px;
   }
   .hero-eyebrow {
-    font-size: 7px;
+    font-size: 12px;
     letter-spacing: 1.25px;
     margin-bottom: 22px;
   }
   .hero-copy > p {
-    font-size: 11px;
+    font-size: 14px;
     margin-top: 20px;
   }
   .hero-buttons {
@@ -4454,7 +4454,7 @@ a svg {
     margin-top: 24px;
   }
   .hero-buttons .button {
-    font-size: 9px;
+    font-size: 13px;
     padding: 13px 14px;
     min-height: 43px;
     gap: 11px;
@@ -4463,19 +4463,19 @@ a svg {
     width: 14px;
   }
   .hero-stars strong {
-    font-size: 7px;
+    font-size: 12px;
   }
   .hero-stars {
-    font-size: 8px;
+    font-size: 12.5px;
     gap: 5px;
   }
   .hero-reassurance p {
-    font-size: 7px;
+    font-size: 12px;
   }
   .avatar-stack > span {
     width: 24px;
     height: 24px;
-    font-size: 8px;
+    font-size: 12.5px;
   }
   .hero-art {
     width: 73%;
@@ -4500,10 +4500,10 @@ a svg {
     top: 61px;
   }
   .spec-top span {
-    font-size: 5px;
+    font-size: 10.5px;
   }
   .floating-spec strong {
-    font-size: 8px;
+    font-size: 12.5px;
   }
   .spec-top .spec-icon {
     width: 27px;
@@ -4517,7 +4517,7 @@ a svg {
     right: 0;
   }
   .spec-bottom span:not(.verified-dot) {
-    font-size: 6px;
+    font-size: 11.5px;
   }
   .spec-bottom > svg {
     width: 21px;
@@ -4526,16 +4526,16 @@ a svg {
     margin-left: 2px;
   }
   .hero-bottom-line > p {
-    font-size: 8px;
+    font-size: 12.5px;
   }
   .hero-bottom-line {
     gap: 11px;
   }
   .hero-bottom-line > span:first-child {
-    font-size: 6px;
+    font-size: 11.5px;
   }
   .hero-slide {
-    font-size: 6px;
+    font-size: 11.5px;
     gap: 9px;
   }
   .trust-rail > .container {
@@ -4552,10 +4552,10 @@ a svg {
     width: 20px;
   }
   .trust-item strong {
-    font-size: 8px;
+    font-size: 12.5px;
   }
   .trust-item span {
-    font-size: 6px;
+    font-size: 11.5px;
   }
   .section {
     padding-top: 52px;
@@ -4565,15 +4565,15 @@ a svg {
     font-size: 32px;
   }
   .section-heading .eyebrow {
-    font-size: 8px;
+    font-size: 12.5px;
     letter-spacing: 1.6px;
   }
   .section-heading > .text-link {
-    font-size: 9px;
+    font-size: 13px;
     gap: 10px;
   }
   .section-heading p {
-    font-size: 11px;
+    font-size: 14px;
   }
   .needs-grid {
     gap: 10px;
@@ -4589,32 +4589,33 @@ a svg {
     width: 33px;
   }
   .need-card h3 {
-    font-size: 9px;
+    font-size: 13px;
   }
   .need-card p {
-    font-size: 6.5px;
+    font-size: 11.5px;
   }
   .need-number {
-    font-size: 7px;
+    font-size: 12px;
   }
   .featured-section {
     padding-bottom: 25px;
   }
   .product-grid {
-    gap: 13px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
   }
   .product-image-wrap {
-    height: 170px;
-    margin: 5px;
+    height: 220px;
+    margin: 6px;
   }
   .product-image-link {
     padding: 34px 23px 25px;
   }
   .product-image-link > img {
-    max-height: 118px;
+    max-height: 165px;
   }
   .product-badge {
-    font-size: 6px;
+    font-size: 11.5px;
     padding: 3px 5px;
     left: 7px;
     top: 9px;
@@ -4635,34 +4636,34 @@ a svg {
     margin-bottom: 8px;
   }
   .product-brand-row > span:first-child {
-    font-size: 6px;
+    font-size: 11.5px;
     letter-spacing: 0.7px;
   }
   .rating {
-    font-size: 7px;
+    font-size: 12px;
     gap: 2px;
   }
   .rating > span {
-    font-size: 6px;
+    font-size: 11.5px;
   }
   .product-content h3 {
-    font-size: 11px;
+    font-size: 14px;
   }
   .product-spec {
-    font-size: 6px;
+    font-size: 11.5px;
   }
   .price-row {
     gap: 6px;
     margin-top: 14px;
   }
   .price-row > strong {
-    font-size: 14px;
+    font-size: 16.5px;
   }
   .price-row > del {
-    font-size: 7px;
+    font-size: 12px;
   }
   .emi {
-    font-size: 5.5px;
+    font-size: 10.5px;
   }
   .card-bottom {
     margin-top: 14px;
@@ -4670,7 +4671,7 @@ a svg {
   }
   .compare-button,
   .card-view {
-    font-size: 7px;
+    font-size: 12px;
   }
   .card-view > svg {
     width: 11px;
@@ -4683,49 +4684,49 @@ a svg {
     height: 10px;
   }
   .collection-note {
-    font-size: 7px;
+    font-size: 12px;
   }
   .brand-section {
     padding-top: 30px;
     padding-bottom: 31px;
   }
   .brand-section-top .eyebrow {
-    font-size: 6px;
+    font-size: 11.5px;
     letter-spacing: 1.2px;
   }
   .brand-section-top > span:last-child {
-    font-size: 8px;
+    font-size: 12.5px;
   }
   .brand-wordmark {
-    font-size: 18px;
+    font-size: 20px;
     gap: 5px;
   }
   .brand-wordmark.brand-samsung {
-    font-size: 13px;
+    font-size: 15px;
   }
   .brand-wordmark.brand-oneplus {
-    font-size: 13px;
+    font-size: 15px;
   }
   .oneplus-icon {
-    font-size: 14px;
+    font-size: 16.5px;
     height: 17px;
     width: 17px;
     line-height: 15px;
   }
   .brand-google {
-    font-size: 18px;
+    font-size: 20px;
   }
   .google-icon {
     font-size: 22px;
   }
   .brand-nothing {
-    font-size: 12px;
+    font-size: 14.5px;
   }
   .brand-vivo {
     font-size: 26px;
   }
   .brand-apple > span {
-    font-size: 18px;
+    font-size: 20px;
   }
   .brand-apple > svg:first-child {
     width: 21px;
@@ -4746,28 +4747,28 @@ a svg {
   }
   .smart-intro > p {
     max-width: 460px;
-    font-size: 11px;
+    font-size: 14px;
     margin-bottom: 0;
   }
   .smart-intro > .text-link {
     position: absolute;
     right: 0;
     bottom: 1px;
-    font-size: 9px;
+    font-size: 13px;
   }
   .smart-card {
     padding: 23px 24px;
     min-height: 203px;
   }
   .smart-card h3 {
-    font-size: 13px;
+    font-size: 15px;
   }
   .smart-card p {
-    font-size: 10px;
+    font-size: 13.5px;
     max-width: 210px;
   }
   .smart-card > span:last-child {
-    font-size: 9px;
+    font-size: 13px;
   }
   .smart-cards {
     gap: 16px;
@@ -4781,14 +4782,14 @@ a svg {
     font-size: 39px;
   }
   .offer-copy .eyebrow {
-    font-size: 6px;
+    font-size: 11.5px;
     letter-spacing: 1.4px;
   }
   .offer-copy > p {
-    font-size: 8px;
+    font-size: 12.5px;
   }
   .offer-copy > .button {
-    font-size: 9px;
+    font-size: 13px;
     gap: 12px;
   }
   .offer-perks {
@@ -4799,16 +4800,16 @@ a svg {
     margin-bottom: 23px;
   }
   .offer-perks strong {
-    font-size: 9px;
+    font-size: 13px;
   }
   .offer-perks small {
-    font-size: 7px;
+    font-size: 12px;
   }
   .offer-perks > div > svg {
     width: 21px;
   }
   .offer-perks > p {
-    font-size: 6px;
+    font-size: 11.5px;
     line-height: 1.8;
     margin-left: 34px;
   }
@@ -4823,7 +4824,7 @@ a svg {
     left: 12px;
     right: 12px;
     padding: 12px 11px;
-    font-size: 5.5px;
+    font-size: 10.5px;
     letter-spacing: 0.8px;
   }
   .showroom-caption > svg {
@@ -4833,27 +4834,27 @@ a svg {
     font-size: 40px;
   }
   .local-copy > .eyebrow {
-    font-size: 6px;
+    font-size: 11.5px;
     letter-spacing: 1.4px;
   }
   .local-copy > p {
-    font-size: 10px;
+    font-size: 13.5px;
   }
   .address-block {
     margin: 19px 0;
     gap: 9px;
   }
   .address-block strong {
-    font-size: 9px;
+    font-size: 13px;
   }
   .address-block span {
-    font-size: 8px;
+    font-size: 12.5px;
   }
   .address-block small {
-    font-size: 7px;
+    font-size: 12px;
   }
   .local-copy > .button {
-    font-size: 9px;
+    font-size: 13px;
     min-height: 39px;
     padding: 10px 16px;
   }
@@ -4864,21 +4865,21 @@ a svg {
     padding: 20px;
   }
   .testimonial blockquote {
-    font-size: 10px;
+    font-size: 13.5px;
   }
   .testimonials-section .section-heading h2 {
     font-size: 32px;
   }
   .reviewer small {
-    font-size: 6px;
+    font-size: 11.5px;
   }
   .reviewer strong {
-    font-size: 8px;
+    font-size: 12.5px;
   }
   .reviewer > span {
     width: 28px;
     height: 28px;
-    font-size: 10px;
+    font-size: 13.5px;
   }
   .reviewer {
     gap: 7px;
@@ -4904,7 +4905,7 @@ a svg {
   .footer-newsletter > p {
     grid-column: 1;
     grid-row: 2;
-    font-size: 8px;
+    font-size: 12.5px;
   }
   .footer-newsletter > form,
   .newsletter-success {
@@ -4915,10 +4916,10 @@ a svg {
   .footer-newsletter > small {
     grid-column: 2/-1;
     grid-row: 3;
-    font-size: 7px;
+    font-size: 12px;
   }
   .footer-bottom {
-    font-size: 7px;
+    font-size: 12px;
   }
   .footer-bottom > div {
     gap: 10px;
@@ -4927,7 +4928,7 @@ a svg {
     display: none;
   }
   .demo-disclaimer {
-    font-size: 6px;
+    font-size: 11.5px;
   }
   .page-heading h1 {
     font-size: 49px;
@@ -4944,36 +4945,36 @@ a svg {
     padding-right: 16px;
   }
   .filter-heading h3 {
-    font-size: 11px;
+    font-size: 14px;
   }
   .filter-heading > button {
-    font-size: 8px;
+    font-size: 12.5px;
   }
   .filter-panel .check-label {
-    font-size: 9px;
+    font-size: 13px;
     gap: 7px;
   }
   .filter-panel legend {
-    font-size: 9px;
+    font-size: 13px;
   }
   .filter-help {
     padding: 13px;
   }
   .filter-help > span {
-    font-size: 9px;
+    font-size: 13px;
   }
   .filter-help > p {
-    font-size: 8px;
+    font-size: 12.5px;
   }
   .filter-help > a {
-    font-size: 8px;
+    font-size: 12.5px;
     gap: 7px;
   }
   .storage-filter {
     gap: 6px;
   }
   .storage-filter > button {
-    font-size: 8px;
+    font-size: 12.5px;
     padding: 6px 10px;
   }
   .shop-grid {
@@ -4990,38 +4991,38 @@ a svg {
     padding: 13px 14px 0;
   }
   .shop-grid .product-content h3 {
-    font-size: 13px;
+    font-size: 15px;
   }
   .shop-grid .product-spec {
-    font-size: 8px;
+    font-size: 12.5px;
   }
   .shop-grid .product-brand-row > span:first-child {
-    font-size: 7px;
+    font-size: 12px;
   }
   .shop-grid .rating {
-    font-size: 8px;
+    font-size: 12.5px;
   }
   .shop-grid .rating > span {
-    font-size: 7px;
+    font-size: 12px;
   }
   .shop-grid .price-row > strong {
-    font-size: 17px;
+    font-size: 18.5px;
   }
   .shop-grid .price-row > del {
-    font-size: 8px;
+    font-size: 12.5px;
   }
   .shop-grid .emi {
-    font-size: 7px;
+    font-size: 12px;
   }
   .shop-grid .card-bottom {
     padding: 12px 0;
   }
   .shop-grid .compare-button,
   .shop-grid .card-view {
-    font-size: 8px;
+    font-size: 12.5px;
   }
   .shop-grid .product-badge {
-    font-size: 7px;
+    font-size: 12px;
     left: 10px;
     top: 11px;
   }
@@ -5030,7 +5031,7 @@ a svg {
     right: 8px;
   }
   .sort-select {
-    font-size: 9px;
+    font-size: 13px;
     gap: 6px;
   }
   .shop-search {
@@ -5038,13 +5039,13 @@ a svg {
     width: 340px;
   }
   .search-input > input {
-    font-size: 10px;
+    font-size: 13.5px;
   }
   .results-header {
-    font-size: 9px;
+    font-size: 13px;
   }
   .results-header > span {
-    font-size: 8px;
+    font-size: 12.5px;
   }
   .product-detail-layout {
     gap: 29px;
@@ -5060,21 +5061,21 @@ a svg {
     font-size: 37px;
   }
   .product-eyebrow-row > .eyebrow {
-    font-size: 8px;
+    font-size: 12.5px;
   }
   .detail-rating {
-    font-size: 8px;
+    font-size: 12.5px;
     gap: 5px;
     flex-wrap: wrap;
   }
   .detail-rating > .in-stock {
-    font-size: 7px;
+    font-size: 12px;
   }
   .detail-rating > i {
     margin: 0 3px;
   }
   .detail-description {
-    font-size: 10px;
+    font-size: 13.5px;
     margin: 17px 0;
   }
   .detail-price {
@@ -5084,31 +5085,31 @@ a svg {
     font-size: 25px;
   }
   .detail-price > del {
-    font-size: 10px;
+    font-size: 13.5px;
   }
   .detail-price > span {
-    font-size: 7px;
+    font-size: 12px;
   }
   .tax-note {
-    font-size: 7px;
+    font-size: 12px;
   }
   .emi-link {
-    font-size: 8px;
+    font-size: 12.5px;
   }
   .variant-section {
     margin-top: 21px;
   }
   .variant-section > p {
-    font-size: 9px;
+    font-size: 13px;
     gap: 11px;
   }
   .variant-section strong {
-    font-size: 8px;
+    font-size: 12.5px;
   }
   .storage-options > button {
     padding: 9px 16px;
     min-width: 70px;
-    font-size: 9px;
+    font-size: 13px;
   }
   .product-buy-buttons {
     flex-direction: column;
@@ -5118,17 +5119,17 @@ a svg {
   .product-buy-buttons > .button {
     flex: auto;
     min-height: 41px;
-    font-size: 10px;
+    font-size: 13.5px;
     padding: 12px;
   }
   .delivery-check {
     padding: 15px;
   }
   .delivery-check strong {
-    font-size: 8px;
+    font-size: 12.5px;
   }
   .delivery-check input {
-    font-size: 9px;
+    font-size: 13px;
   }
   .detail-trust {
     gap: 6px;
@@ -5136,7 +5137,7 @@ a svg {
     justify-content: flex-start;
   }
   .detail-trust > span {
-    font-size: 7px;
+    font-size: 12px;
     gap: 4px;
     margin-right: 4px;
   }
@@ -5145,15 +5146,15 @@ a svg {
     gap: 9px;
   }
   .gallery-thumbs span {
-    font-size: 8px;
+    font-size: 12.5px;
   }
   .gallery-caption {
     left: 17px;
-    font-size: 7px;
+    font-size: 12px;
     bottom: 25px;
   }
   .image-note {
-    font-size: 7px;
+    font-size: 12px;
   }
   .spec-grid {
     gap: 15px;
@@ -5162,20 +5163,20 @@ a svg {
     padding: 19px;
   }
   .spec-grid > div > strong {
-    font-size: 10px;
+    font-size: 13.5px;
   }
   .info-tabs > button {
-    font-size: 10px;
+    font-size: 13.5px;
   }
   .spec-disclaimer {
-    font-size: 8px;
+    font-size: 12.5px;
   }
   .cart-layout {
     grid-template-columns: minmax(0, 1.3fr) minmax(250px, 1fr);
     gap: 24px;
   }
   .bag-heading > span {
-    font-size: 6px;
+    font-size: 11.5px;
     gap: 4px;
   }
   .cart-product-image {
@@ -5191,23 +5192,23 @@ a svg {
     gap: 13px;
   }
   .cart-item-info h3 {
-    font-size: 12px;
+    font-size: 14.5px;
   }
   .cart-item-info p {
-    font-size: 7px;
+    font-size: 12px;
     max-width: 135px;
   }
   .cart-item-info .eyebrow {
-    font-size: 6px;
+    font-size: 11.5px;
   }
   .cart-item-info .in-stock {
-    font-size: 6px;
+    font-size: 11.5px;
   }
   .cart-item-end {
     padding-top: 19px;
   }
   .cart-item-end > strong {
-    font-size: 12px;
+    font-size: 14.5px;
     white-space: nowrap;
   }
   .cart-item-end > button > span {
@@ -5221,7 +5222,7 @@ a svg {
     height: 22px;
   }
   .quantity-control > span {
-    font-size: 8px;
+    font-size: 12.5px;
     padding: 0 7px;
   }
   .cart-promise {
@@ -5229,10 +5230,10 @@ a svg {
     gap: 12px;
   }
   .cart-promise strong {
-    font-size: 9px;
+    font-size: 13px;
   }
   .cart-promise p {
-    font-size: 8px;
+    font-size: 12.5px;
   }
   .cart-promise > svg {
     width: 24px;
@@ -5244,26 +5245,26 @@ a svg {
     font-size: 29px;
   }
   .summary-line {
-    font-size: 9px;
+    font-size: 13px;
   }
   .summary-line > strong {
-    font-size: 10px;
+    font-size: 13.5px;
   }
   .coupon-form {
     padding: 10px 8px;
     gap: 6px;
   }
   .coupon-form > input {
-    font-size: 8px;
+    font-size: 12.5px;
   }
   .coupon-form > button {
-    font-size: 8px;
+    font-size: 12.5px;
   }
   .coupon-hint {
-    font-size: 7px;
+    font-size: 12px;
   }
   .order-summary > .button {
-    font-size: 8px;
+    font-size: 12.5px;
     gap: 7px;
     padding: 13px 8px;
     min-height: 43px;
@@ -5275,10 +5276,10 @@ a svg {
     font-size: 22px;
   }
   .order-summary .secure-note {
-    font-size: 7px;
+    font-size: 12px;
   }
   .checkout-demo-note {
-    font-size: 7px;
+    font-size: 12px;
   }
   .welcome-offer {
     gap: 28px;
@@ -5300,7 +5301,7 @@ a svg {
   }
   .welcome-offer > .button {
     align-self: center;
-    font-size: 9px;
+    font-size: 13px;
   }
   .offer-detail-grid {
     gap: 17px;
@@ -5312,14 +5313,14 @@ a svg {
     font-size: 26px;
   }
   .offer-detail-grid .eyebrow {
-    font-size: 6px;
+    font-size: 11.5px;
     letter-spacing: 1.2px;
   }
   .offer-detail-grid p {
-    font-size: 10px;
+    font-size: 13.5px;
   }
   .offer-detail-grid .text-link {
-    font-size: 8px;
+    font-size: 12.5px;
     gap: 9px;
   }
   .faq-section {
@@ -5329,10 +5330,10 @@ a svg {
     font-size: 34px;
   }
   .faq-section .eyebrow {
-    font-size: 7px;
+    font-size: 12px;
   }
   .faq-item > button {
-    font-size: 11px;
+    font-size: 14px;
   }
   .about-hero {
     gap: 34px;
@@ -5345,13 +5346,13 @@ a svg {
     margin: 15px 0 19px;
   }
   .about-hero p {
-    font-size: 11px;
+    font-size: 14px;
   }
   .about-hero .eyebrow {
-    font-size: 8px;
+    font-size: 12.5px;
   }
   .signature {
-    font-size: 19px;
+    font-size: 20px;
   }
   .values-grid {
     gap: 19px;
@@ -5363,7 +5364,7 @@ a svg {
     font-size: 25px;
   }
   .values-grid p {
-    font-size: 10px;
+    font-size: 13.5px;
   }
   .contact-layout {
     gap: 30px;
@@ -5375,22 +5376,22 @@ a svg {
     font-size: 36px;
   }
   .contact-form-card > p {
-    font-size: 10px;
+    font-size: 13.5px;
   }
   .contact-info > h2 {
     font-size: 36px;
   }
   .contact-detail p {
-    font-size: 10px;
+    font-size: 13.5px;
   }
   .contact-detail strong {
-    font-size: 10px;
+    font-size: 13.5px;
   }
   .contact-detail .fine-print {
-    font-size: 7px;
+    font-size: 12px;
   }
   .contact-info > .button {
-    font-size: 9px;
+    font-size: 13px;
     padding: 14px 17px;
   }
   .contact-bottom {
@@ -5398,19 +5399,19 @@ a svg {
     gap: 19px;
   }
   .contact-bottom h3 {
-    font-size: 12px;
+    font-size: 14.5px;
   }
   .contact-bottom p {
-    font-size: 9px;
+    font-size: 13px;
   }
   .contact-bottom > .text-link {
-    font-size: 9px;
+    font-size: 13px;
   }
   .contact-form-card form {
     gap: 16px;
   }
   .contact-consent {
-    font-size: 8px;
+    font-size: 12.5px;
   }
 }
 @media (max-width: 767px) {
@@ -5418,13 +5419,18 @@ a svg {
     width: calc(100% - 36px);
   }
   .announcement {
-    height: 27px;
-    padding: 0 10px;
-    font-size: 7px;
+    height: auto;
+    min-height: 32px;
+    padding: 6px 14px;
+    font-size: 11.5px;
     letter-spacing: 0;
+    line-height: 1.4;
+    text-align: center;
   }
   .announcement > div {
-    gap: 12px;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
   }
   .announcement i {
     height: 7px;
@@ -5459,7 +5465,7 @@ a svg {
     width: 25px;
   }
   .logo small {
-    font-size: 4.5px;
+    font-size: 10.5px;
     letter-spacing: 1.3px;
     margin-top: 5px;
   }
@@ -5490,7 +5496,7 @@ a svg {
     top: -5px;
     width: 13px;
     height: 13px;
-    font-size: 7px;
+    font-size: 12px;
     background: #eae0c9;
     border: 1px solid #fff;
   }
@@ -5509,7 +5515,7 @@ a svg {
     align-items: center;
     padding: 15px 0;
     border-bottom: 1px solid #eee6d5;
-    font-size: 12px;
+    font-size: 14.5px;
     color: #746449;
   }
   .mobile-nav > a:first-child {
@@ -5527,7 +5533,7 @@ a svg {
   .mobile-brands > a {
     border: 1px solid #e7dabe;
     padding: 8px 12px;
-    font-size: 9px;
+    font-size: 13px;
     color: #a78a52;
     border-radius: 4px;
   }
@@ -5545,7 +5551,7 @@ a svg {
     left: 0;
   }
   .hero-eyebrow {
-    font-size: 7px;
+    font-size: 12px;
     letter-spacing: 1.35px;
     justify-content: center;
     margin-bottom: 17px;
@@ -5556,7 +5562,7 @@ a svg {
     letter-spacing: -2.3px;
   }
   .hero-copy > p {
-    font-size: 11px;
+    font-size: 14px;
     line-height: 1.85;
     margin-top: 17px;
   }
@@ -5574,7 +5580,7 @@ a svg {
     gap: 9px;
   }
   .hero-buttons .button {
-    font-size: 9px;
+    font-size: 13px;
     min-height: 42px;
     padding: 12px 15px;
     gap: 12px;
@@ -5587,17 +5593,17 @@ a svg {
   .avatar-stack > span {
     width: 22px;
     height: 22px;
-    font-size: 7px;
+    font-size: 12px;
     border-width: 1.5px;
   }
   .hero-stars {
-    font-size: 7px;
+    font-size: 12px;
   }
   .hero-stars strong {
-    font-size: 6.5px;
+    font-size: 11.5px;
   }
   .hero-reassurance p {
-    font-size: 6px;
+    font-size: 11.5px;
     text-align: left;
     margin-top: 3px;
   }
@@ -5640,12 +5646,12 @@ a svg {
     width: 13px;
   }
   .spec-top span {
-    font-size: 4.5px;
+    font-size: 10.5px;
     letter-spacing: 0.7px;
     margin-bottom: 4px;
   }
   .floating-spec strong {
-    font-size: 6.5px;
+    font-size: 11.5px;
   }
   .spec-bottom {
     bottom: 78px;
@@ -5658,7 +5664,7 @@ a svg {
     width: 19px;
   }
   .spec-bottom span:not(.verified-dot) {
-    font-size: 5.5px;
+    font-size: 10.5px;
     margin-top: 4px;
   }
   .verified-dot {
@@ -5673,14 +5679,14 @@ a svg {
     border-top-color: #c9bb9e70;
   }
   .hero-bottom-line > span:first-child {
-    font-size: 5px;
+    font-size: 10.5px;
     letter-spacing: 1px;
   }
   .hero-bottom-line > i {
     width: 13px;
   }
   .hero-bottom-line > p {
-    font-size: 6px;
+    font-size: 11.5px;
   }
   .hero-slide {
     display: none !important;
@@ -5710,10 +5716,10 @@ a svg {
     height: 22px;
   }
   .trust-item strong {
-    font-size: 8px;
+    font-size: 12.5px;
   }
   .trust-item span {
-    font-size: 6.5px;
+    font-size: 11.5px;
     margin-top: 4px;
   }
   .section {
@@ -5727,7 +5733,7 @@ a svg {
     flex-wrap: wrap;
   }
   .section-heading .eyebrow {
-    font-size: 7px;
+    font-size: 12px;
     letter-spacing: 1.45px;
     margin-bottom: 10px;
   }
@@ -5737,7 +5743,7 @@ a svg {
     letter-spacing: -0.7px;
   }
   .section-heading > .text-link {
-    font-size: 8px;
+    font-size: 12.5px;
     padding-top: 0;
     gap: 9px;
     padding-bottom: 6px;
@@ -5747,7 +5753,7 @@ a svg {
     width: 13px;
   }
   .section-heading p {
-    font-size: 10px;
+    font-size: 13.5px;
     margin-top: 10px;
   }
   .need-section {
@@ -5767,11 +5773,11 @@ a svg {
     padding: 11px 14px 18px;
   }
   .need-card h3 {
-    font-size: 10px;
+    font-size: 13.5px;
     margin-top: 1px;
   }
   .need-card p {
-    font-size: 7px;
+    font-size: 12px;
     margin-top: 6px;
   }
   .need-card-top > svg {
@@ -5779,7 +5785,7 @@ a svg {
     height: 13px;
   }
   .need-number {
-    font-size: 8px;
+    font-size: 12.5px;
   }
   .need-icon {
     height: 61px;
@@ -5824,14 +5830,14 @@ a svg {
     align-self: end;
     margin: 0;
     padding-right: 10px;
-    font-size: 11px;
+    font-size: 14px;
   }
   .need-card:last-child p {
     grid-column: 2;
     grid-row: 2;
     text-align: left;
     align-self: start;
-    font-size: 8px;
+    font-size: 12.5px;
     margin-top: 6px;
   }
   .featured-section {
@@ -5846,7 +5852,7 @@ a svg {
     gap: 24px;
   }
   .featured-tabs button {
-    font-size: 9px;
+    font-size: 13px;
     padding-bottom: 11px;
   }
   .product-grid {
@@ -5864,7 +5870,7 @@ a svg {
     max-height: 127px;
   }
   .product-badge {
-    font-size: 5.5px;
+    font-size: 10.5px;
     padding: 3px 5px;
     top: 10px;
     left: 8px;
@@ -5893,18 +5899,18 @@ a svg {
     padding: 11px 11px 0;
   }
   .product-content h3 {
-    font-size: 11px;
+    font-size: 14px;
     letter-spacing: -0.2px;
   }
   .product-brand-row {
     margin-bottom: 8px;
   }
   .product-brand-row > span:first-child {
-    font-size: 6px;
+    font-size: 11.5px;
     letter-spacing: 0.7px;
   }
   .rating {
-    font-size: 6px;
+    font-size: 11.5px;
     gap: 2px;
   }
   .rating > svg {
@@ -5912,10 +5918,10 @@ a svg {
     height: 7px;
   }
   .rating > span {
-    font-size: 5.5px;
+    font-size: 10.5px;
   }
   .product-spec {
-    font-size: 6px;
+    font-size: 11.5px;
     margin-top: 6px;
   }
   .price-row {
@@ -5925,14 +5931,14 @@ a svg {
     row-gap: 3px;
   }
   .price-row > strong {
-    font-size: 14px;
+    font-size: 16.5px;
     letter-spacing: -0.5px;
   }
   .price-row > del {
-    font-size: 6.5px;
+    font-size: 11.5px;
   }
   .emi {
-    font-size: 5.6px;
+    font-size: 11.5px;
     letter-spacing: -0.05px;
     line-height: 1.5;
     margin-top: 5px;
@@ -5940,23 +5946,30 @@ a svg {
   .card-bottom {
     margin-top: 13px;
     padding: 10px 0;
-    gap: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4px;
   }
   .compare-button,
   .card-view {
-    font-size: 6.5px;
+    font-size: 11px;
     gap: 3px;
+    white-space: nowrap;
   }
   .compare-button > svg {
-    width: 10px;
-    height: 10px;
+    width: 11px;
+    height: 11px;
   }
   .card-view > svg {
-    width: 10px;
-    height: 10px;
+    width: 11px;
+    height: 11px;
+  }
+  .card-view-extra {
+    display: none;
   }
   .collection-note {
-    font-size: 6px;
+    font-size: 11.5px;
     line-height: 1.8;
     margin-top: 20px;
     text-align: center;
@@ -5976,11 +5989,11 @@ a svg {
     gap: 8px;
   }
   .brand-section-top .eyebrow {
-    font-size: 6px;
+    font-size: 11.5px;
     letter-spacing: 1.35px;
   }
   .brand-section-top > span:last-child {
-    font-size: 8px;
+    font-size: 12.5px;
   }
   .brand-grid {
     grid-template-columns: repeat(3, 1fr);
@@ -5994,35 +6007,35 @@ a svg {
     border-right: 0;
   }
   .brand-wordmark.brand-apple {
-    font-size: 16px;
+    font-size: 18.5px;
   }
   .brand-apple > span {
-    font-size: 17px;
+    font-size: 18.5px;
   }
   .brand-apple > svg:first-child {
     height: 22px;
     width: 20px;
   }
   .brand-samsung {
-    font-size: 12px !important;
+    font-size: 14.5px !important;
   }
   .brand-oneplus {
-    font-size: 12px !important;
+    font-size: 14.5px !important;
   }
   .oneplus-icon {
-    font-size: 13px;
+    font-size: 15px;
     width: 15px;
     height: 16px;
     line-height: 13px;
   }
   .brand-google {
-    font-size: 17px;
+    font-size: 18.5px;
   }
   .google-icon {
     font-size: 21px;
   }
   .brand-nothing {
-    font-size: 12px;
+    font-size: 14.5px;
   }
   .brand-vivo {
     font-size: 26px;
@@ -6035,7 +6048,7 @@ a svg {
     gap: 23px;
   }
   .smart-intro .eyebrow {
-    font-size: 7px;
+    font-size: 12px;
     letter-spacing: 1.6px;
   }
   .smart-intro h2 {
@@ -6047,14 +6060,14 @@ a svg {
     display: block;
   }
   .smart-intro > p {
-    font-size: 10px;
+    font-size: 13.5px;
     max-width: 290px;
     line-height: 1.9;
     margin-top: 13px;
   }
   .smart-intro > .text-link {
     position: static;
-    font-size: 9px;
+    font-size: 13px;
     margin-top: 12px;
   }
   .smart-cards {
@@ -6079,17 +6092,17 @@ a svg {
     font-size: 24px;
   }
   .smart-card h3 {
-    font-size: 12px;
+    font-size: 14.5px;
     padding-right: 28px;
   }
   .smart-card p {
-    font-size: 9px;
+    font-size: 13px;
     line-height: 1.85;
     max-width: 235px;
     padding-right: 8px;
   }
   .smart-card > span:last-child {
-    font-size: 8px;
+    font-size: 12.5px;
     margin-top: 14px;
     justify-content: flex-start;
     gap: 11px;
@@ -6100,20 +6113,20 @@ a svg {
     gap: 33px;
   }
   .offer-copy .eyebrow {
-    font-size: 6.5px;
+    font-size: 11.5px;
   }
   .offer-copy h2 {
     font-size: 42px;
     margin-top: 13px;
   }
   .offer-copy > p {
-    font-size: 9px;
+    font-size: 13px;
     line-height: 1.8;
     max-width: 240px;
     margin: 15px 0 20px;
   }
   .offer-copy > .button {
-    font-size: 9px;
+    font-size: 13px;
     min-height: 42px;
     padding: 12px 16px;
   }
@@ -6126,16 +6139,16 @@ a svg {
     gap: 14px;
   }
   .offer-perks strong {
-    font-size: 10px;
+    font-size: 13.5px;
   }
   .offer-perks small {
-    font-size: 8px;
+    font-size: 12.5px;
   }
   .offer-perks > div > svg {
     width: 23px;
   }
   .offer-perks > p {
-    font-size: 6px;
+    font-size: 11.5px;
     margin-left: 37px;
   }
   .offer-pattern > div {
@@ -6173,7 +6186,7 @@ a svg {
   }
   .showroom-caption {
     padding: 14px 14px;
-    font-size: 6.5px;
+    font-size: 11.5px;
     left: 16px;
     right: 16px;
     bottom: 16px;
@@ -6186,7 +6199,7 @@ a svg {
     padding: 0 5px;
   }
   .local-copy > .eyebrow {
-    font-size: 7px;
+    font-size: 12px;
     letter-spacing: 1.6px;
   }
   .local-copy h2 {
@@ -6194,7 +6207,7 @@ a svg {
     margin-top: 14px;
   }
   .local-copy > p {
-    font-size: 11px;
+    font-size: 14px;
     line-height: 1.9;
     max-width: 100%;
     margin-top: 16px;
@@ -6204,16 +6217,16 @@ a svg {
     gap: 12px;
   }
   .address-block strong {
-    font-size: 10px;
+    font-size: 13.5px;
   }
   .address-block span {
-    font-size: 9px;
+    font-size: 13px;
   }
   .address-block small {
-    font-size: 8px;
+    font-size: 12.5px;
   }
   .local-copy > .button {
-    font-size: 10px;
+    font-size: 13.5px;
     padding: 12px 19px;
     min-height: 44px;
   }
@@ -6226,7 +6239,7 @@ a svg {
     margin: auto;
   }
   .testimonials-section .section-heading .eyebrow {
-    font-size: 6.5px;
+    font-size: 11.5px;
   }
   .testimonial-grid {
     grid-template-columns: 1fr;
@@ -6236,29 +6249,29 @@ a svg {
     padding: 23px 24px;
   }
   .testimonial blockquote {
-    font-size: 11px;
+    font-size: 14px;
     line-height: 1.85;
     margin: 18px 0 20px;
   }
   .review-stars {
-    font-size: 10px;
+    font-size: 13.5px;
   }
   .reviewer > span {
     width: 31px;
     height: 31px;
-    font-size: 12px;
+    font-size: 14.5px;
   }
   .reviewer {
     gap: 10px;
   }
   .reviewer strong {
-    font-size: 9px;
+    font-size: 13px;
   }
   .reviewer small {
-    font-size: 7px;
+    font-size: 12px;
   }
   .testimonial-note {
-    font-size: 6px;
+    font-size: 11.5px;
     line-height: 1.8;
     max-width: 250px;
     margin: 18px auto 0;
@@ -6268,7 +6281,7 @@ a svg {
     padding-bottom: 44px;
   }
   .final-cta .eyebrow {
-    font-size: 6.5px;
+    font-size: 11.5px;
     letter-spacing: 1.5px;
   }
   .final-cta h2 {
@@ -6278,12 +6291,12 @@ a svg {
     max-width: 310px;
   }
   .final-cta .button {
-    font-size: 10px;
+    font-size: 13.5px;
     min-height: 44px;
     padding: 12px 19px;
   }
   .final-cta > p {
-    font-size: 7px;
+    font-size: 12px;
     margin-top: 15px;
   }
   .footer {
@@ -6313,28 +6326,28 @@ a svg {
     width: 25px;
   }
   .footer .logo small {
-    font-size: 4px;
+    font-size: 10.5px;
     letter-spacing: 1.5px;
   }
   .footer-top > div:first-child > p {
-    font-size: 9px;
+    font-size: 13px;
     line-height: 1.8;
     margin: 0;
   }
   .footer-india {
-    font-size: 6px;
+    font-size: 11.5px;
     margin-top: 7px;
     grid-column: 2;
   }
   .footer h4 {
-    font-size: 10px;
+    font-size: 13.5px;
   }
   .footer-links {
     gap: 12px;
     padding-top: 0;
   }
   .footer-links a {
-    font-size: 9px;
+    font-size: 13px;
   }
   .footer-newsletter {
     display: block;
@@ -6343,11 +6356,11 @@ a svg {
     padding-top: 25px;
   }
   .footer-newsletter > h4 {
-    font-size: 11px;
+    font-size: 14px;
     margin-bottom: 10px;
   }
   .footer-newsletter > p {
-    font-size: 9px;
+    font-size: 13px;
     max-width: 275px;
   }
   .footer-newsletter > form {
@@ -6355,17 +6368,17 @@ a svg {
     padding: 11px 0;
   }
   .footer-newsletter input {
-    font-size: 10px;
+    font-size: 13.5px;
   }
   .footer-newsletter > small {
-    font-size: 7px;
+    font-size: 12px;
     margin-top: 9px;
   }
   .footer-bottom {
     flex-wrap: wrap;
     gap: 15px 8px;
     padding: 19px 0;
-    font-size: 6.5px;
+    font-size: 11.5px;
   }
   .footer-bottom > div {
     width: 100%;
@@ -6373,17 +6386,17 @@ a svg {
     gap: 20px;
   }
   .footer-bottom > div > span {
-    font-size: 12px;
+    font-size: 14.5px;
   }
   .demo-disclaimer {
-    font-size: 6px;
+    font-size: 11.5px;
     line-height: 1.85;
     text-align: center;
     padding-bottom: 21px;
   }
   .toast {
     bottom: 17px;
-    font-size: 10px;
+    font-size: 13.5px;
     padding: 12px 15px;
     gap: 10px;
     max-width: calc(100% - 24px);
@@ -6404,13 +6417,13 @@ a svg {
     width: 17px;
   }
   .compare-tray strong {
-    font-size: 9px;
+    font-size: 13px;
   }
   .compare-tray small {
-    font-size: 7px;
+    font-size: 12px;
   }
   .compare-tray > .button {
-    font-size: 8px;
+    font-size: 12.5px;
     padding: 9px 12px;
     min-height: 33px;
   }
@@ -6448,7 +6461,7 @@ a svg {
     gap: 8px;
   }
   .search-input.large input {
-    font-size: 10px;
+    font-size: 13.5px;
   }
   .search-input.large > svg {
     width: 17px;
@@ -6458,31 +6471,31 @@ a svg {
     gap: 12px;
   }
   .search-suggestions strong {
-    font-size: 10px;
+    font-size: 13.5px;
   }
   .search-suggestions b {
-    font-size: 9px;
+    font-size: 13px;
   }
   .search-suggestions > a > svg {
     width: 13px;
     margin-left: 0;
   }
   .search-suggestions small {
-    font-size: 7px;
+    font-size: 12px;
   }
   .search-suggestions img {
     width: 29px;
     height: 42px;
   }
   .modal > .text-link {
-    font-size: 10px;
+    font-size: 13.5px;
   }
   .page-heading {
     padding-top: 34px;
     padding-bottom: 28px;
   }
   .page-heading .eyebrow {
-    font-size: 7px;
+    font-size: 12px;
     letter-spacing: 1.6px;
     margin-bottom: 12px;
   }
@@ -6492,7 +6505,7 @@ a svg {
     letter-spacing: -1px;
   }
   .page-heading > p {
-    font-size: 11px;
+    font-size: 14px;
     line-height: 1.85;
     max-width: 360px;
     margin-top: 14px;
@@ -6505,11 +6518,11 @@ a svg {
     font-size: 32px;
   }
   .empty-state > p {
-    font-size: 11px;
+    font-size: 14px;
     max-width: 280px;
   }
   .empty-state .button {
-    font-size: 10px;
+    font-size: 13.5px;
   }
   .shop-toolbar {
     flex-wrap: wrap;
@@ -6525,19 +6538,19 @@ a svg {
     height: 43px;
   }
   .shop-toolbar .search-input > input {
-    font-size: 10px;
+    font-size: 13.5px;
   }
   .filter-toggle {
     display: flex;
     order: 1;
     padding: 9px 14px;
     min-height: 35px;
-    font-size: 9px;
+    font-size: 13px;
     gap: 8px;
   }
   .sort-select {
     order: 2;
-    font-size: 8px;
+    font-size: 12.5px;
     gap: 5px;
   }
   .sort-select > select {
@@ -6547,7 +6560,7 @@ a svg {
     width: 11px;
   }
   .sort-select > span {
-    font-size: 8px;
+    font-size: 12.5px;
   }
   .shop-layout {
     grid-template-columns: minmax(0, 1fr);
@@ -6566,43 +6579,43 @@ a svg {
     display: block;
   }
   .filter-heading h3 {
-    font-size: 13px;
+    font-size: 15px;
   }
   .filter-heading > button {
-    font-size: 10px;
+    font-size: 13.5px;
   }
   .filter-panel .check-label {
-    font-size: 11px;
+    font-size: 14px;
     margin: 11px 0;
     gap: 10px;
   }
   .filter-panel legend {
-    font-size: 11px;
+    font-size: 14px;
   }
   .filter-panel fieldset {
     padding-bottom: 20px;
     margin-bottom: 20px;
   }
   .filter-panel .check-label > small {
-    font-size: 10px;
+    font-size: 13.5px;
   }
   .filter-help {
     display: none;
   }
   .filter-panel .range-values {
-    font-size: 10px;
+    font-size: 13.5px;
   }
   .filter-panel .budget-chip {
-    font-size: 9px;
+    font-size: 13px;
   }
   .storage-filter > button {
-    font-size: 10px;
+    font-size: 13.5px;
     padding: 8px 14px;
   }
   .mobile-apply {
     display: flex;
     width: 100%;
-    font-size: 10px;
+    font-size: 13.5px;
     min-height: 43px;
     padding: 12px;
   }
@@ -6622,38 +6635,38 @@ a svg {
     padding: 11px 11px 0;
   }
   .shop-grid .product-content h3 {
-    font-size: 11px;
-  }
-  .shop-grid .product-spec {
-    font-size: 6.5px;
-  }
-  .shop-grid .product-brand-row > span:first-child {
-    font-size: 6px;
-  }
-  .shop-grid .rating {
-    font-size: 6.5px;
-  }
-  .shop-grid .rating > span {
-    font-size: 6px;
-  }
-  .shop-grid .price-row > strong {
     font-size: 14px;
   }
+  .shop-grid .product-spec {
+    font-size: 11.5px;
+  }
+  .shop-grid .product-brand-row > span:first-child {
+    font-size: 11.5px;
+  }
+  .shop-grid .rating {
+    font-size: 11.5px;
+  }
+  .shop-grid .rating > span {
+    font-size: 11.5px;
+  }
+  .shop-grid .price-row > strong {
+    font-size: 16.5px;
+  }
   .shop-grid .price-row > del {
-    font-size: 7px;
+    font-size: 12px;
   }
   .shop-grid .emi {
-    font-size: 5.7px;
+    font-size: 11.5px;
   }
   .shop-grid .card-bottom {
     padding: 10px 0;
   }
   .shop-grid .compare-button,
   .shop-grid .card-view {
-    font-size: 7px;
+    font-size: 12px;
   }
   .shop-grid .product-badge {
-    font-size: 6px;
+    font-size: 11.5px;
     left: 8px;
     top: 10px;
   }
@@ -6662,26 +6675,26 @@ a svg {
     right: 6px;
   }
   .results-header {
-    font-size: 9px;
+    font-size: 13px;
     margin-bottom: 19px;
     gap: 8px;
   }
   .results-header > span {
-    font-size: 7px;
+    font-size: 12px;
   }
   .active-filters {
     gap: 6px;
     margin-bottom: 18px;
   }
   .active-filters button {
-    font-size: 7px;
+    font-size: 12px;
     padding: 5px 8px;
   }
   .shop-end-note {
     padding-top: 35px;
   }
   .shop-end-note > p {
-    font-size: 8px;
+    font-size: 12.5px;
   }
   .shop-container {
     padding-bottom: 19px;
@@ -6690,14 +6703,14 @@ a svg {
     top: 47px;
   }
   .autocomplete span {
-    font-size: 10px;
+    font-size: 13.5px;
   }
   .autocomplete b {
-    font-size: 9px;
+    font-size: 13px;
   }
   .breadcrumbs {
     padding: 22px 0;
-    font-size: 8px;
+    font-size: 12.5px;
     gap: 8px;
     flex-wrap: wrap;
   }
@@ -6719,11 +6732,11 @@ a svg {
   .main-product-image > .product-badge {
     left: 17px;
     top: 17px;
-    font-size: 7px;
+    font-size: 12px;
     padding: 5px 9px;
   }
   .gallery-caption {
-    font-size: 7px;
+    font-size: 12px;
     left: 19px;
     bottom: 24px;
   }
@@ -6741,10 +6754,10 @@ a svg {
     width: 23px;
   }
   .gallery-thumbs span {
-    font-size: 8px;
+    font-size: 12.5px;
   }
   .image-note {
-    font-size: 6.5px;
+    font-size: 11.5px;
     margin-top: 10px;
   }
   .product-details h1 {
@@ -6752,20 +6765,20 @@ a svg {
     margin: 7px 0 15px;
   }
   .product-eyebrow-row > .eyebrow {
-    font-size: 8px;
+    font-size: 12.5px;
   }
   .detail-rating {
-    font-size: 8px;
+    font-size: 12.5px;
     gap: 6px;
   }
   .detail-rating > .in-stock {
-    font-size: 8px;
+    font-size: 12.5px;
   }
   .detail-rating > i {
     margin: 0 6px;
   }
   .detail-description {
-    font-size: 11px;
+    font-size: 14px;
     line-height: 1.9;
     margin: 19px 0;
   }
@@ -6773,30 +6786,30 @@ a svg {
     font-size: 28px;
   }
   .detail-price > del {
-    font-size: 11px;
+    font-size: 14px;
   }
   .detail-price > span {
-    font-size: 8px;
+    font-size: 12.5px;
   }
   .detail-price {
     gap: 13px;
   }
   .tax-note {
-    font-size: 8px;
+    font-size: 12.5px;
   }
   .emi-link {
-    font-size: 9px;
+    font-size: 13px;
     margin-top: 11px;
   }
   .variant-section {
     margin-top: 24px;
   }
   .variant-section > p {
-    font-size: 10px;
+    font-size: 13.5px;
     gap: 15px;
   }
   .variant-section strong {
-    font-size: 9px;
+    font-size: 13px;
   }
   .detail-swatches {
     margin-top: 14px;
@@ -6809,7 +6822,7 @@ a svg {
   .storage-options > button {
     min-width: 83px;
     padding: 10px 20px;
-    font-size: 10px;
+    font-size: 13.5px;
   }
   .product-buy-buttons {
     flex-direction: row;
@@ -6817,7 +6830,7 @@ a svg {
     gap: 10px;
   }
   .product-buy-buttons > .button {
-    font-size: 9px;
+    font-size: 13px;
     gap: 8px;
     min-height: 45px;
     padding: 13px 11px;
@@ -6827,28 +6840,28 @@ a svg {
     width: 15px;
   }
   .compare-detail {
-    font-size: 9px;
+    font-size: 13px;
     padding: 15px 0;
   }
   .delivery-check {
     padding: 18px;
   }
   .delivery-check strong {
-    font-size: 9px;
+    font-size: 13px;
   }
   .delivery-check form {
     max-width: 100%;
     margin-top: 13px;
   }
   .delivery-check input {
-    font-size: 10px;
+    font-size: 13.5px;
     padding: 8px 0;
   }
   .delivery-check form > button {
-    font-size: 10px;
+    font-size: 13.5px;
   }
   .delivery-check > p {
-    font-size: 9px;
+    font-size: 13px;
   }
   .detail-trust {
     justify-content: space-between;
@@ -6856,7 +6869,7 @@ a svg {
     margin-top: 17px;
   }
   .detail-trust > span {
-    font-size: 7px;
+    font-size: 12px;
     margin: 0;
     gap: 4px;
   }
@@ -6867,7 +6880,7 @@ a svg {
     gap: 22px;
   }
   .info-tabs > button {
-    font-size: 8px;
+    font-size: 12.5px;
     padding: 15px 0;
   }
   .spec-grid {
@@ -6879,17 +6892,17 @@ a svg {
     padding: 20px 17px;
   }
   .spec-grid > div > strong {
-    font-size: 10px;
+    font-size: 13.5px;
   }
   .spec-grid > div > span {
-    font-size: 7px;
+    font-size: 12px;
   }
   .spec-grid > div > svg {
     margin-bottom: 15px;
     width: 22px;
   }
   .spec-disclaimer {
-    font-size: 7px;
+    font-size: 12px;
     line-height: 1.9;
     margin-top: 5px;
   }
@@ -6901,7 +6914,7 @@ a svg {
     font-size: 25px;
   }
   .info-prose p {
-    font-size: 11px;
+    font-size: 14px;
   }
   .zoom-image {
     height: 390px;
@@ -6911,35 +6924,35 @@ a svg {
     font-size: 31px;
   }
   .emi-total > small {
-    font-size: 9px;
+    font-size: 13px;
   }
   .modal > .muted {
-    font-size: 12px;
+    font-size: 14.5px;
   }
   .emi-result > strong {
     font-size: 26px;
   }
   .emi-result > span {
-    font-size: 9px;
+    font-size: 13px;
   }
   .modal > .fine-print {
-    font-size: 9px;
+    font-size: 13px;
   }
   .wishlist-page {
     padding-bottom: 39px;
   }
   .wishlist-page > .results-header {
     padding-top: 17px;
-    font-size: 8px;
+    font-size: 12.5px;
   }
   .wishlist-page .results-header > .button {
-    font-size: 8px;
+    font-size: 12.5px;
     min-height: 32px;
     padding: 8px 10px;
     gap: 7px;
   }
   .wishlist-card-actions > button {
-    font-size: 8px;
+    font-size: 12.5px;
     gap: 5px;
   }
   .wishlist-card-actions > button > svg {
@@ -6954,7 +6967,7 @@ a svg {
     padding: 18px 0;
   }
   .compare-toolbar > span {
-    font-size: 10px;
+    font-size: 13.5px;
     gap: 8px;
   }
   .compare-toolbar > span > svg {
@@ -6964,14 +6977,14 @@ a svg {
     gap: 20px;
   }
   .compare-toolbar .check-label {
-    font-size: 9px;
+    font-size: 13px;
     gap: 7px;
   }
   .compare-toolbar .text-button {
-    font-size: 9px;
+    font-size: 13px;
   }
   .info-notice {
-    font-size: 9px;
+    font-size: 13px;
     line-height: 1.8;
     padding: 12px 14px;
     margin-bottom: 19px;
@@ -6997,28 +7010,28 @@ a svg {
     margin-bottom: 15px;
   }
   .compare-product h3 {
-    font-size: 12px;
+    font-size: 14.5px;
   }
   .compare-product > strong {
-    font-size: 14px;
+    font-size: 16.5px;
   }
   .compare-product .button {
-    font-size: 8px;
+    font-size: 12.5px;
   }
   .compare-row > div {
-    font-size: 9px;
+    font-size: 13px;
     padding: 17px 15px;
   }
   .compare-row > .compare-row-label {
-    font-size: 9px;
+    font-size: 13px;
     padding-left: 18px;
   }
   .comparison-note {
-    font-size: 7px;
+    font-size: 12px;
     line-height: 1.9;
   }
   .compare-page > .text-link {
-    font-size: 10px;
+    font-size: 13.5px;
   }
   .compare-picker {
     grid-template-columns: 1fr;
@@ -7029,13 +7042,13 @@ a svg {
     padding: 12px 15px;
   }
   .compare-picker strong {
-    font-size: 11px;
+    font-size: 14px;
   }
   .compare-picker small {
-    font-size: 8px;
+    font-size: 12.5px;
   }
   .compare-picker b {
-    font-size: 10px;
+    font-size: 13.5px;
   }
   .compare-picker img {
     width: 32px;
@@ -7056,10 +7069,10 @@ a svg {
     padding-bottom: 18px;
   }
   .bag-heading h3 {
-    font-size: 13px;
+    font-size: 15px;
   }
   .bag-heading > span {
-    font-size: 7px;
+    font-size: 12px;
     gap: 5px;
   }
   .cart-item {
@@ -7076,21 +7089,21 @@ a svg {
     height: 91px;
   }
   .cart-item-info h3 {
-    font-size: 13px;
+    font-size: 15px;
     line-height: 1.4;
   }
   .cart-item-info .eyebrow {
-    font-size: 7px;
+    font-size: 12px;
     margin-bottom: 7px;
   }
   .cart-item-info p {
-    font-size: 8px;
+    font-size: 12.5px;
     max-width: 160px;
     margin-top: 5px;
     line-height: 1.7;
   }
   .cart-item-info .in-stock {
-    font-size: 7px;
+    font-size: 12px;
     margin-top: 7px;
   }
   .cart-item-end {
@@ -7098,7 +7111,7 @@ a svg {
     padding-bottom: 4px;
   }
   .cart-item-end > strong {
-    font-size: 13px;
+    font-size: 15px;
   }
   .cart-item-end > button > svg {
     width: 14px;
@@ -7111,11 +7124,11 @@ a svg {
     height: 23px;
   }
   .quantity-control > span {
-    font-size: 9px;
+    font-size: 13px;
     padding: 0 7px;
   }
   .continue-link {
-    font-size: 9px;
+    font-size: 13px;
     margin-top: 17px;
   }
   .cart-promise {
@@ -7124,10 +7137,10 @@ a svg {
     gap: 13px;
   }
   .cart-promise strong {
-    font-size: 9px;
+    font-size: 13px;
   }
   .cart-promise p {
-    font-size: 8px;
+    font-size: 12.5px;
     line-height: 1.9;
   }
   .order-summary {
@@ -7138,26 +7151,26 @@ a svg {
     margin: 11px 0 25px;
   }
   .order-summary .eyebrow {
-    font-size: 7px;
+    font-size: 12px;
   }
   .summary-line {
-    font-size: 10px;
+    font-size: 13.5px;
   }
   .summary-line > strong {
-    font-size: 11px;
+    font-size: 14px;
   }
   .coupon-form {
     padding: 13px 12px;
     gap: 9px;
   }
   .coupon-form > input {
-    font-size: 10px;
+    font-size: 13.5px;
   }
   .coupon-form > button {
-    font-size: 9px;
+    font-size: 13px;
   }
   .coupon-hint {
-    font-size: 8px;
+    font-size: 12.5px;
     margin-top: 10px;
   }
   .summary-total {
@@ -7168,10 +7181,10 @@ a svg {
     font-size: 26px;
   }
   .order-summary > .tax-note {
-    font-size: 8px;
+    font-size: 12.5px;
   }
   .order-summary > .button {
-    font-size: 10px;
+    font-size: 13.5px;
     padding: 14px;
     min-height: 47px;
     gap: 15px;
@@ -7180,24 +7193,24 @@ a svg {
     width: 16px;
   }
   .order-summary .secure-note {
-    font-size: 8px;
+    font-size: 12.5px;
   }
   .checkout-demo-note {
-    font-size: 8px;
+    font-size: 12.5px;
   }
   .checkout-steps {
     gap: 11px;
     margin-bottom: 20px;
   }
   .checkout-steps > span {
-    font-size: 9px;
+    font-size: 13px;
     gap: 6px;
   }
   .checkout-steps > i {
     width: 24px;
   }
   .demo-banner {
-    font-size: 8px;
+    font-size: 12.5px;
     padding: 11px 12px;
     gap: 8px;
     line-height: 1.7;
@@ -7210,29 +7223,29 @@ a svg {
     gap: 15px 12px;
   }
   .form-label {
-    font-size: 9px;
+    font-size: 13px;
     gap: 7px;
   }
   .form-label > input,
   .form-label > select,
   .form-label > textarea {
-    font-size: 10px;
+    font-size: 13.5px;
     padding: 11px;
   }
   .phone-field > span {
-    font-size: 9px;
+    font-size: 13px;
     padding: 0 7px;
   }
   .phone-field > input {
-    font-size: 10px;
+    font-size: 13.5px;
     padding: 11px 8px;
   }
   .checkout-form > .fine-print {
-    font-size: 8px;
+    font-size: 12.5px;
     line-height: 1.8;
   }
   .checkout-form > .button {
-    font-size: 10px;
+    font-size: 13.5px;
     min-height: 44px;
     padding: 13px;
     gap: 10px;
@@ -7241,13 +7254,13 @@ a svg {
     padding: 16px;
   }
   .review-delivery h3 {
-    font-size: 11px;
+    font-size: 14px;
   }
   .review-delivery > strong {
-    font-size: 10px;
+    font-size: 13.5px;
   }
   .review-delivery > p {
-    font-size: 9px;
+    font-size: 13px;
   }
   .review-products > div {
     gap: 12px;
@@ -7257,26 +7270,26 @@ a svg {
     height: 42px;
   }
   .review-products strong {
-    font-size: 10px;
+    font-size: 13.5px;
   }
   .review-products small {
-    font-size: 7px;
+    font-size: 12px;
   }
   .review-products b {
-    font-size: 10px;
+    font-size: 13.5px;
     white-space: nowrap;
   }
   .checkout-review > h3 {
-    font-size: 11px;
+    font-size: 14px;
   }
   .checkout-review > .fine-print {
-    font-size: 8px;
+    font-size: 12.5px;
   }
   .demo-payments {
     gap: 8px;
   }
   .demo-payments > button {
-    font-size: 8px;
+    font-size: 12.5px;
     gap: 7px;
     padding: 12px 10px;
   }
@@ -7284,13 +7297,13 @@ a svg {
     width: 14px;
   }
   .checkout-review > .button {
-    font-size: 10px;
+    font-size: 13.5px;
     min-height: 45px;
     padding: 13px;
     gap: 10px;
   }
   .checkout-review > .secure-note {
-    font-size: 7px;
+    font-size: 12px;
   }
   .checkout-success {
     padding: 3px 0 13px;
@@ -7304,30 +7317,30 @@ a svg {
     width: 37px;
   }
   .checkout-success > .eyebrow {
-    font-size: 6px;
+    font-size: 11.5px;
   }
   .checkout-success > h2 {
     font-size: 37px;
     margin: 13px 0 17px;
   }
   .checkout-success > p {
-    font-size: 10px;
+    font-size: 13.5px;
   }
   .checkout-success > div {
     padding: 15px 25px;
     margin: 23px 0;
   }
   .checkout-success > div > strong {
-    font-size: 15px;
+    font-size: 16.5px;
   }
   .checkout-success > div > span {
-    font-size: 7px;
+    font-size: 12px;
   }
   .checkout-success > p.fine-print {
-    font-size: 9px;
+    font-size: 13px;
   }
   .checkout-success > .button {
-    font-size: 10px;
+    font-size: 13.5px;
     min-height: 43px;
     padding: 12px 16px;
   }
@@ -7355,14 +7368,14 @@ a svg {
     width: 36px;
   }
   .welcome-symbol > span {
-    font-size: 17px;
+    font-size: 18.5px;
   }
   .welcome-offer > div:nth-child(2) {
     padding-left: 0;
     position: relative;
   }
   .welcome-offer .eyebrow {
-    font-size: 7px;
+    font-size: 12px;
     letter-spacing: 1.4px;
     max-width: 180px;
   }
@@ -7372,7 +7385,7 @@ a svg {
     margin-top: 25px;
   }
   .welcome-offer p {
-    font-size: 10px;
+    font-size: 13.5px;
     margin: 18px 0;
   }
   .welcome-offer p > br {
@@ -7383,18 +7396,18 @@ a svg {
     gap: 13px;
   }
   .offer-code > span {
-    font-size: 12px;
+    font-size: 14.5px;
     letter-spacing: 1.6px;
   }
   .offer-code > svg {
     width: 15px;
   }
   .offer-code small {
-    font-size: 8px;
+    font-size: 12.5px;
   }
   .welcome-offer > .button {
     margin: 0 auto 0 0;
-    font-size: 9px;
+    font-size: 13px;
     padding: 12px 17px;
     min-height: 43px;
   }
@@ -7412,7 +7425,7 @@ a svg {
     margin: 0 0 0 15px;
   }
   .offer-detail-grid .eyebrow {
-    font-size: 7px;
+    font-size: 12px;
     letter-spacing: 1.4px;
     margin-top: 4px;
   }
@@ -7422,12 +7435,12 @@ a svg {
     margin-top: 16px;
   }
   .offer-detail-grid p {
-    font-size: 10px;
+    font-size: 13.5px;
     line-height: 1.95;
     margin: 16px 0 9px;
   }
   .offer-detail-grid .text-link {
-    font-size: 9px;
+    font-size: 13px;
     gap: 12px;
   }
   .faq-section {
@@ -7436,23 +7449,23 @@ a svg {
     padding-top: 0;
   }
   .faq-section .eyebrow {
-    font-size: 7px;
+    font-size: 12px;
   }
   .faq-section > div > h2 {
     font-size: 35px;
     margin-top: 13px;
   }
   .faq-section > div > p {
-    font-size: 10px;
+    font-size: 13.5px;
     margin-top: 12px;
   }
   .faq-item > button {
-    font-size: 11px;
+    font-size: 14px;
     line-height: 1.7;
     padding: 18px 0;
   }
   .faq-item > p {
-    font-size: 10px;
+    font-size: 13.5px;
     line-height: 1.95;
     padding: 0 10px 18px 0;
   }
@@ -7465,14 +7478,14 @@ a svg {
     height: 277px;
   }
   .about-hero > div > .eyebrow {
-    font-size: 7px;
+    font-size: 12px;
   }
   .about-hero > div > h2 {
     font-size: 41px;
     margin: 15px 0 21px;
   }
   .about-hero p {
-    font-size: 11px;
+    font-size: 14px;
     line-height: 2;
   }
   .signature {
@@ -7480,7 +7493,7 @@ a svg {
     margin-top: 19px;
   }
   .center-heading > .eyebrow {
-    font-size: 6.5px;
+    font-size: 11.5px;
     letter-spacing: 1.5px;
   }
   .center-heading > h2 {
@@ -7506,7 +7519,7 @@ a svg {
     margin-bottom: 13px;
   }
   .values-grid p {
-    font-size: 11px;
+    font-size: 14px;
     line-height: 1.9;
   }
   .about-note {
@@ -7518,7 +7531,7 @@ a svg {
     font-size: 22px;
   }
   .about-note > p {
-    font-size: 9px;
+    font-size: 13px;
     line-height: 1.95;
   }
   .contact-page {
@@ -7542,17 +7555,17 @@ a svg {
     margin-bottom: 23px;
   }
   .contact-detail strong {
-    font-size: 11px;
+    font-size: 14px;
   }
   .contact-detail p {
-    font-size: 11px;
+    font-size: 14px;
   }
   .contact-detail .fine-print {
-    font-size: 7px;
+    font-size: 12px;
     margin-top: 7px;
   }
   .contact-info > .button {
-    font-size: 9px;
+    font-size: 13px;
     min-height: 43px;
     padding: 12px 17px;
   }
@@ -7563,35 +7576,35 @@ a svg {
     font-size: 38px;
   }
   .contact-form-card > .eyebrow {
-    font-size: 7px;
+    font-size: 12px;
   }
   .contact-form-card > p {
-    font-size: 11px;
+    font-size: 14px;
     margin: 16px 0 24px;
   }
   .contact-form-card form {
     gap: 17px;
   }
   .contact-form-card .form-label {
-    font-size: 10px;
+    font-size: 13.5px;
     gap: 8px;
   }
   .contact-form-card .form-label > input,
   .contact-form-card .form-label > select,
   .contact-form-card .form-label > textarea {
-    font-size: 11px;
+    font-size: 14px;
     padding: 12px;
   }
   .contact-form-card .button {
-    font-size: 10px;
+    font-size: 13.5px;
     min-height: 44px;
     padding: 13px;
   }
   .contact-consent {
-    font-size: 8px;
+    font-size: 12.5px;
   }
   .contact-form-card .fine-print {
-    font-size: 7px;
+    font-size: 12px;
   }
   .contact-bottom {
     margin-top: 30px;
@@ -7606,15 +7619,15 @@ a svg {
     width: calc(100% - 43px);
   }
   .contact-bottom h3 {
-    font-size: 11px;
+    font-size: 14px;
     line-height: 1.65;
   }
   .contact-bottom p {
-    font-size: 9px;
+    font-size: 13px;
     line-height: 1.9;
   }
   .contact-bottom > .text-link {
-    font-size: 9px;
+    font-size: 13px;
     margin-left: 42px;
     padding-top: 0;
   }
@@ -7622,7 +7635,7 @@ a svg {
     font-size: 28px;
   }
   .contact-success p {
-    font-size: 10px;
+    font-size: 13.5px;
   }
 }
 @media (min-width: 500px) and (max-width: 767px) {
@@ -7637,7 +7650,7 @@ a svg {
   }
   .hero-copy > p {
     max-width: 370px;
-    font-size: 12px;
+    font-size: 14.5px;
   }
   .hero-copy > p > br {
     display: block;
@@ -7669,15 +7682,15 @@ a svg {
     margin-top: 23px;
   }
   .hero-buttons .button {
-    font-size: 10px;
+    font-size: 13.5px;
     min-height: 44px;
     padding: 13px 20px;
   }
   .hero-stars strong {
-    font-size: 8px;
+    font-size: 12.5px;
   }
   .hero-reassurance p {
-    font-size: 7px;
+    font-size: 12px;
   }
   .avatar-stack > span {
     width: 25px;
@@ -7697,35 +7710,35 @@ a svg {
   }
   .product-content h3,
   .shop-grid .product-content h3 {
-    font-size: 15px;
+    font-size: 16.5px;
   }
   .product-brand-row > span:first-child,
   .shop-grid .product-brand-row > span:first-child {
-    font-size: 7px;
+    font-size: 12px;
   }
   .rating,
   .shop-grid .rating {
-    font-size: 8px;
+    font-size: 12.5px;
   }
   .rating > span,
   .shop-grid .rating > span {
-    font-size: 7px;
+    font-size: 12px;
   }
   .product-spec,
   .shop-grid .product-spec {
-    font-size: 8px;
+    font-size: 12.5px;
   }
   .price-row > strong,
   .shop-grid .price-row > strong {
-    font-size: 18px;
+    font-size: 20px;
   }
   .price-row > del,
   .shop-grid .price-row > del {
-    font-size: 9px;
+    font-size: 13px;
   }
   .emi,
   .shop-grid .emi {
-    font-size: 7px;
+    font-size: 12px;
   }
   .card-bottom,
   .shop-grid .card-bottom {
@@ -7735,11 +7748,11 @@ a svg {
   .compare-button,
   .shop-grid .card-view,
   .shop-grid .compare-button {
-    font-size: 8px;
+    font-size: 12.5px;
   }
   .product-badge,
   .shop-grid .product-badge {
-    font-size: 7px;
+    font-size: 12px;
     padding: 5px 7px;
   }
   .product-grid {
@@ -7771,22 +7784,22 @@ a svg {
   .need-card:last-child h3 {
     text-align: center;
     margin-top: 1px;
-    font-size: 10px;
+    font-size: 13.5px;
     padding: 0;
   }
   .need-card:last-child p {
     text-align: center;
-    font-size: 7px;
+    font-size: 12px;
     margin-top: 6px;
   }
   .trust-item {
     padding-left: 25px !important;
   }
   .trust-item strong {
-    font-size: 9px;
+    font-size: 13px;
   }
   .trust-item span {
-    font-size: 8px;
+    font-size: 12.5px;
   }
   .main-product-image {
     height: 465px;
@@ -7806,7 +7819,7 @@ a svg {
     font-size: 35px;
   }
   .section-heading > .text-link {
-    font-size: 8px;
+    font-size: 12.5px;
     flex-shrink: 0;
   }
   .testimonial-grid {
@@ -7901,14 +7914,14 @@ input::placeholder, textarea::placeholder { color: #7a7468; }
 @media (max-width: 767px) {
   .hero-copy > p > br { display: block; }
   .hero-copy > p { max-width: 300px; }
-  .product-content h3, .shop-grid .product-content h3 { font-size: 12px; }
-  .product-spec, .shop-grid .product-spec { font-size: 8px; }
-  .emi, .shop-grid .emi { font-size: 7px; line-height: 1.65; }
-  .compare-button, .card-view, .shop-grid .compare-button, .shop-grid .card-view { font-size: 8px; }
-  .product-brand-row > span:first-child, .shop-grid .product-brand-row > span:first-child { font-size: 7px; }
-  .price-row > del, .shop-grid .price-row > del { font-size: 8px; }
-  .product-badge, .shop-grid .product-badge { font-size: 6.5px; max-width: calc(100% - 46px); }
-  .need-card p { font-size: 8px; }
+  .product-content h3, .shop-grid .product-content h3 { font-size: 14.5px; }
+  .product-spec, .shop-grid .product-spec { font-size: 12.5px; }
+  .emi, .shop-grid .emi { font-size: 12px; line-height: 1.65; }
+  .compare-button, .card-view, .shop-grid .compare-button, .shop-grid .card-view { font-size: 12.5px; }
+  .product-brand-row > span:first-child, .shop-grid .product-brand-row > span:first-child { font-size: 12px; }
+  .price-row > del, .shop-grid .price-row > del { font-size: 12.5px; }
+  .product-badge, .shop-grid .product-badge { font-size: 11.5px; max-width: calc(100% - 46px); }
+  .need-card p { font-size: 12.5px; }
   .check-label { min-height: 28px; }
   .mobile-nav { max-height: calc(100dvh - 67px); overflow-y: auto; }
   .toast { bottom: 82px; }
